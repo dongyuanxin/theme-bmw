@@ -8,7 +8,7 @@
     <nav class="site-navigation">
       <ul class="nav-menu">
       <% for(let link of theme.nav){ %>
-        <li class="nav-item">
+        <li class="nav-item" data-path="<%- link.path %>">
           <% if(!link.children) { %>
             <a href="<%- url_for(link.path) %>"><%- link.name %></a>
           <% } else { %>
@@ -43,11 +43,17 @@
       }
     })
     link.addEventListener('mouseleave', () => {
-      link.className = "nav-item";
       if(childrenLink) {
         childrenLink.className = "nav-menu--dropdown";
       }
     })
+  }
+  let rootRealPath = getRealPath(window.location.pathname, true);
+  for(let link of links) {
+    let linkPath = link.getAttribute("data-path");
+    if(linkPath && getRealPath(linkPath, true) === rootRealPath) {
+      link.className = "nav-item hover";
+    }
   }
 
   let iconMenu = document.querySelector("i.iconfont.icon-menu"),
