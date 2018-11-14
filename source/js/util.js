@@ -7,15 +7,24 @@ const Marked = window.marked;
 
 const mdToHTML = content => Marked(content)
 
-const getRealPath = pathname => {
+const getRealPath = (pathname, desc = false) => {
   if(!pathname) {
     pathname = window.location.pathname
   }
   let names = pathname.split("/")
-  for(let i = names.length - 1; i >= 0; --i) {
-    let name = names[i].trim()
-    if(name.length > 0 && name !== "/" && name !== "index.html") {
-      return name
+  if(desc === false) {
+    for(let i = names.length - 1; i >= 0; --i) {
+      let name = names[i].trim()
+      if(name.length > 0 && name !== "/" && name !== "index.html") {
+        return name
+      }
+    }
+  } else {
+    for(let i = 0 ; i < names.length; ++i) {
+      let name = names[i].trim()
+      if(name.length > 0 && name !== "/" && name !== "index.html") {
+        return name
+      }
     }
   }
   return "/"
