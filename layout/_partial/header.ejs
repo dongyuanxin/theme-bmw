@@ -1,0 +1,71 @@
+
+<head>
+  <meta charset="utf-8">
+  <meta name="author" content="董沅鑫, yuanxin.me@gmail.com" />
+  <% if(is_home() && page.current > 1){ %>
+    <meta name="robots" content="noindex" />
+  <% } %>
+  <%
+  var title = page.title;
+
+  if (is_archive()){
+    title = '归档';
+
+    if (is_month()){
+      title += ': ' + page.year + '/' + page.month;
+    } else if (is_year()){
+      title += ': ' + page.year;
+    }
+  } else if (is_category()){
+    title = '分类: ' + page.category;
+  } else if (is_tag()){
+    title = '标签: ' + page.tag;
+  } else if (title === "about") {
+    title = "关于"
+  } else if (title === "tags") {
+    title = "标签"
+  } else if (title === "categories") {
+    title = "分类"
+  } else if (title === "friends") {
+    title = "友链"
+  }
+  %>
+  
+  <title><% if (title){ %><%= title %> | <% } %><%= config.title %></title>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  <% if (page.tags && page.tags.length) { %>
+    <meta name="keywords" content="<% page.tags.forEach(function(tag) { %><%= tag.name %>,<% }); %>" />
+  <% } else { %>
+    <meta name="keywords" content="<%= theme.keywords %>" />
+  <% } %>
+
+  <% if(config.description){ %>
+    <meta name="description" content="<%= config.description %>">
+  <% } %>
+
+  <%- open_graph() %>
+
+  <% if (theme.rss){ %>
+    <link rel="alternate" href="<%- theme.rss %>" title="<%= config.title %>" type="application/atom+xml">
+  <% } %>
+
+  <% if (theme.favicon){ %>
+    <link rel="icon" href="<%- theme.favicon.icon %>">
+    <link rel="apple-touch-icon" href="<%- theme.favicon.touch_icon %>">
+  <% } %>
+
+  <% if (theme.personal_style){ %>
+    <%- css(theme.personal_style) %>
+  <% } %>
+
+  <%- css(['/css/base.css', '/icon/iconfont.css' ,'/css/github-markdown.css', '/css/highlight.css']) %>
+
+  <%- js(['/js/util.js', '/js/valine.min.js']) %>
+  
+  <script src="//cdn.bootcss.com/jquery/3.3.1/jquery.min.js" async></script>
+  <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML" async></script>
+  <script src="//cdn.jsdelivr.net/npm/leancloud-storage@3.11.0/dist/av-min.js"></script>
+
+</head>

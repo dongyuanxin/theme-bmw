@@ -1,0 +1,96 @@
+@import "partial/footer.scss";
+@import "partial/navigation.scss";
+@import "partial/timeline.scss";
+
+@import "layout/index.scss";
+@import "layout/home.scss";
+@import "layout/post.scss";
+@import "layout/tag.scss";
+@import "layout/category.scss";
+@import "layout/friend.scss";
+@import "layout/about.scss";
+
+
+@import "animation.scss";
+@import "mathjax.scss";
+@import "vcomments.scss";
+@import "article.scss"; 
+
+$body-bg-color: white;
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+html,
+body {
+  font-size: 10px;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: "Segoe UI", "Lucida Grande", Helvetica, "Microsoft YaHei",
+    FreeSans, Arimo, "Droid Sans", "wenquanyi micro hei", "Hiragino Sans GB",
+    "Hiragino Sans GB W3", Arial, sans-serif;
+  background-color: $body-bg-color;
+  overflow-x: hidden;
+}
+
+div {
+  box-sizing: border-box;
+}
+
+a {
+  text-decoration: none;
+  background-color: transparent;
+  color: black;
+}
+
+a:hover {
+  text-decoration: none;
+}
+
+.container {
+  max-width: 750px;
+  min-height: 80vh;
+  margin: 0 auto;
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+::-webkit-scrollbar-button {
+  width: 0;
+  height: 0;
+}
+
+::-webkit-scrollbar-corner {
+  display: block;
+}
+
+::-webkit-scrollbar-thumb,
+::-webkit-scrollbar-track {
+  border-right: 1px solid transparent;
+  border-left: 1px solid transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  border-radius: 8px;
+  background-color: rgba(0, 0, 0, 0.2);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  transition: all 0.15s;
+  background-color: rgba(0, 0, 0, 0.4);
+}
+
+.comment-anchor {
+  width: 0;
+  height: 0;
+  opacity: 0;
+  visibility: hidden;
+}

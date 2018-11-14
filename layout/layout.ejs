@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <%- partial('_partial/header') %>
+
+  <body>
+
+    <% if(theme.toolbox && theme.toolbox.isShow == true && page.base !== '') { %>
+      <span id="toolbox-mobile" class="toolbox-mobile"><%=  theme.toolbox.text %></span>
+    <% } %>
+
+    <div id="app">
+
+      <%- partial("_partial/navigation") %>
+
+      <%- body %>
+
+      <%- partial("_partial/footer") %>
+
+      <%- partial("component/back-to-up") %>
+
+      <aside id="sidebar">
+        <p id="sidebar-header"></p>
+        <ol id="sidebar-toc"></ol>
+      </aside>
+
+    </div>
+  </body>
+
+</html>

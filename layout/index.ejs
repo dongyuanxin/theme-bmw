@@ -1,0 +1,96 @@
+<%
+const getRealPath = pathname => {
+  if(!pathname) {
+    pathname = window.location.pathname
+  }
+  let names = pathname.split("/")
+  for(let i = names.length - 1; i >= 0; --i) {
+    let name = names[i].trim()
+    if(name.length > 0 && name !== "/" && name !== "index.html") {
+      return name
+    }
+  }
+  return "/"
+}
+%>
+<div class="container home-index">
+  <% for(let psg of page.posts.data){ %>
+  <div class="post">
+    <h1 class="article-title">
+      <a href="<%- url_for(psg.path) %>">
+        <span><%- psg.title %></span>
+      </a>
+    </h1>
+    <!-- PC端文章信息 -->
+    <div class="article-top-meta pc-view">
+      <span>
+        发布时间 : <%- psg.date.format("YYYY-MM-DD") %>
+      </span>
+    </div>
+    <!-- 移动端文章信息 -->
+    <div class="article-top-meta mobile-view">
+      <span>
+        发布 : <%- psg.date.format("YYYY-MM-DD") %>
+      </span>
+      <span>
+        分类 :
+        <% if(psg.categories && psg.categories.length > 0) { %>
+          <a href="<%= url_for(psg.categories.data[0].path)%>">
+            <%- psg.categories.data[0].name %>
+          </a>
+        <% } %>
+      </span>
+      <span>
+        浏览 : <span class="article-timer" data-identity="<%- getRealPath(psg.path) %>"></span>
+      </span>
+    </div>
+    <!-- 文章简介 -->
+    <div class="article-content">
+      <div class="markdown-body article-content--inner" v-html="mdToHtml(psg.summary)">
+        <%- psg.excerpt %>
+      </div>
+    </div>
+    <div class="article-footer">
+      <div class="article-meta pull-left">
+        <!-- 分类pc端可见 -->
+        <span class="pc-view">
+          <i class="iconfont icon-tag"></i>分类:
+          <% if(psg.categories && psg.categories.length > 0) { %>
+            <a href="<%= url_for(psg.categories.data[0].path)%>">
+              <%- psg.categories.data[0].name %>
+            </a>
+          <% } %>
+        </span>
+        <span>
+          <i class="iconfont icon-06tags"></i>标签:
+          <% if(psg.tags && psg.tags.length > 0){ %>
+            <% for(let item of psg.tags.data){ %>
+              <span class="span--tag">
+                <a href="<%= url_for(item.path)%>">
+                  #<%- item.name %>
+                </a>
+              </span>
+            <% } %>
+          <% } %>          
+        </span>
+      </div>
+      <div class="article-meta pull-right">
+        <span class="pc-view">
+          <i class="iconfont icon-view"></i>浏览: <span class="article-timer" data-identity="<%- getRealPath(psg.path) %>"></span>
+        </span>
+      </div>
+    </div>
+  </div>
+  <% } %>
+
+  <nav class="page-navigation">
+    <% if(page.prev !== 0){ %>
+      <a href="<%- url_for(page.prev_link)%>">上一页</a>
+    <% } %>
+    <% if(page.next !== 0){ %>
+      <a href="<%- url_for(page.next_link)%>">下一页</a>
+    <% } %>
+  </nav>
+
+  <%- partial("_partial/timer") %>
+</div>

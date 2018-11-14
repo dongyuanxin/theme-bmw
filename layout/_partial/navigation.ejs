@@ -1,0 +1,62 @@
+<div class="header-wrap">
+  <header>
+    <div class="site-brand">
+      <div class="site-title">
+        <a href="<%- url_for('/') %>"><%= theme.nav_name%></a>
+      </div>
+    </div>
+    <nav class="site-navigation">
+      <ul class="nav-menu">
+      <% for(let link of theme.nav){ %>
+        <li class="nav-item">
+          <% if(!link.children) { %>
+            <a href="<%- url_for(link.path) %>"><%- link.name %></a>
+          <% } else { %>
+            <a href="javascript:void(0);" v-else><%- link.name %></a>
+            <ul class="nav-menu--dropdown">
+              <% for(let childrenLink of link.children){ %>
+                <li>
+                  <a 
+                  href="<%- url_for(childrenLink.path)%>" 
+                  target="<%- childrenLink.blank === 1 ? '_blank' : '_self' %>">
+                    <%- childrenLink.name %>
+                  </a>
+                </li>
+              <% } %>
+            </ul>
+          <% } %>
+        </li>
+      <% } %>
+      </ul>
+    </nav>
+    <i class="iconfont icon-menu"></i>
+  </header>
+</div>
+
+<script>
+  let links = document.querySelectorAll('.nav-item');
+  for(let link of links){
+    let childrenLink = link.querySelector('ul');
+    link.addEventListener('mouseenter', () => {
+      if(childrenLink) {
+        childrenLink.className = "nav-menu--dropdown active";
+      }
+    })
+    link.addEventListener('mouseleave', () => {
+      link.className = "nav-item";
+      if(childrenLink) {
+        childrenLink.className = "nav-menu--dropdown";
+      }
+    })
+  }
+
+  let iconMenu = document.querySelector("i.iconfont.icon-menu"),
+    iconMenuClicked = false;
+  let navDOM = document.querySelector("nav.site-navigation");
+  iconMenu.addEventListener("click", () => {
+    iconMenuClicked 
+      ? navDOM.className = "site-navigation active"
+      : navDOM.className = "site-navigation";
+    iconMenuClicked = !iconMenuClicked;
+  })
+</script>

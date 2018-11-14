@@ -1,0 +1,56 @@
+<div class="timeline">
+  <span class="archive-move-on"></span>
+  <span class="archive-page-counter">
+    <% if(!is_archive()){ %>
+      <span>当前位于 <%- page.current%>/<%- page.total -%> 页</span>
+    <% }else{ %>
+      <span>Wow! 一共有 <%- site.posts.length %> 篇文章</span>
+    <% } %>
+  </span>
+  <% 
+    const getPostYear = psg => psg.date.year();
+    let prevYear = getPostYear(page.posts.data[0]), nowYear = null;
+  %>
+  <% if(!is_archive()){ %>
+    <div class="collection-title">
+      <h2>
+        <% if(is_category()) { %>
+          <span>分类 : <%- page.category %></span>
+        <% }else if(is_tag()){ %>
+          <span>标签 : <%- page.tag %></span>
+        <% } %>
+      </h2>
+    </div>
+  <% } else { %>
+    <div class="collection-title">
+      <h2>
+        <span><%- prevYear %></span>
+      </h2>
+    </div>
+  <% } %>
+  <% for(let psg of page.posts.data){ %>
+  <% 
+    nowYear = getPostYear(psg);
+    if(nowYear !== prevYear){ 
+      prevYear = nowYear; 
+  %>
+    <div class="collection-title">
+      <h2>
+        <span><%- nowYear %></span>
+      </h2>
+    </div>
+  <% } %>
+  <article class="posts-collapse">
+    <header>
+      <h2>
+        <a href="<%- url_for(psg.path) %>">
+          <span><%- psg.title %></span>
+        </a>
+      </h2>
+      <div class="post-meta">
+        <%- psg.date.format("MM-DD") %>
+      </div>
+    </header>
+  </article>
+  <% } %>
+</div>
