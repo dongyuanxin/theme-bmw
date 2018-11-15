@@ -23,19 +23,24 @@
 > 不会用PS，直接上的微信截图，请各位看官直接戳下一部分的在线演示进行查看。**相信，您看到的效果一定比我给的截图好！！！**
 
 *首页；*
-![首页](./docs/1.png)
+
+![首页](https://godbmw.com/images/开源项目/一款简约且实用的Hexo新主题：BMW//1.png)
 
 *移动端：*
-![移动端首页](./docs/2.png)
+
+![移动端首页](https://godbmw.com/images/开源项目/一款简约且实用的Hexo新主题：BMW//2.png)
 
 *归档界面：*
-![归档界面](./docs/5.png)
+
+![归档界面](https://godbmw.com/images/开源项目/一款简约且实用的Hexo新主题：BMW//5.png)
 
 *分类界面：*
-![分类界面](./docs/4.png)
+
+![分类界面](https://godbmw.com/images/开源项目/一款简约且实用的Hexo新主题：BMW//4.png)
 
 *友链界面：*
-![友链界面](./docs/3.png)
+
+![友链界面](https://godbmw.com/images/开源项目/一款简约且实用的Hexo新主题：BMW//3.png)
 
 
 ## 在线演示
