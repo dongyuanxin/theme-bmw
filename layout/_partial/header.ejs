@@ -35,8 +35,8 @@
 
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
-  <% if (page.tags && page.tags.length) { %>
-    <meta name="keywords" content="<% page.tags.forEach(function(tag) { %><%= tag.name %>,<% }); %>" />
+  <% if ((page.tags && page.tags.length) || (page.categories && page.categories.length)) { %>
+    <meta name="keywords" content="<% page.categories.forEach(function(category) { %><%= category.name %>,<% }); %><% page.tags.forEach(function(tag) { %><%= tag.name %>,<% }); %>" />
   <% } else { %>
     <meta name="keywords" content="<%= theme.keywords %>" />
   <% } %>
@@ -44,8 +44,6 @@
   <% if(config.description){ %>
     <meta name="description" content="<%= config.description %>">
   <% } %>
-
-  <%- open_graph() %>
 
   <% if (theme.rss){ %>
     <link rel="alternate" href="<%- theme.rss %>" title="<%= config.title %>" type="application/atom+xml">
