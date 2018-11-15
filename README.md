@@ -18,6 +18,15 @@
 - Github: [https://github.com/dongyuanxin/theme-bmw](https://github.com/dongyuanxin/theme-bmw)
 - Vuejs版本: https://github.com/dongyuanxin/vuejs-theme-bmw
 
+## 在线演示
+
+- 🏠 首页页面: [https://godbmw.com/](https://godbmw.com/)
+- 🗓️ 归档页面: [https://godbmw.com/archives/](https://godbmw.com/archives/)
+- 🔖 分类页面: [https://godbmw.com/categories/](https://godbmw.com/categories/)
+- 🏷️ 标签页面: [https://godbmw.com/tags/](https://godbmw.com/tags/)
+- 💏 友链页面: [https://godbmw.com/friends/](https://godbmw.com/friends/)
+- 👁️ 关于页面: [https://godbmw.com/about/](https://godbmw.com/about/)
+
 ## 截图展示
 
 > 不会用PS，直接上的微信截图，请各位看官直接戳下一部分的在线演示进行查看。**相信，您看到的效果一定比我给的截图好！！！**
@@ -41,13 +50,3 @@
 *友链界面：*
 
 ![友链界面](https://godbmw.com/images/开源项目/一款简约且实用的Hexo新主题：BMW//3.png)
-
-
-## 在线演示
-
-- 🏠 首页页面: [https://godbmw.com/](https://godbmw.com/)
-- 🗓️ 归档页面: [https://godbmw.com/archives/](https://godbmw.com/archives/)
-- 🔖 分类页面: [https://godbmw.com/categories/](https://godbmw.com/categories/)
-- 🏷️ 标签页面: [https://godbmw.com/tags/](https://godbmw.com/tags/)
-- 💏 友链页面: [https://godbmw.com/friends/](https://godbmw.com/friends/)
-- 👁️ 关于页面: [https://godbmw.com/about/](https://godbmw.com/about/)
