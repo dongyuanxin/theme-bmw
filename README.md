@@ -13,7 +13,7 @@
 
 ## 源码地址
 
-> **如果您看的顺眼，欢迎来第一个地址给个Star。**每个Star都会增加我维护此主题的热情！
+> **如果您看的顺眼，欢迎来第一个地址给个Star**。每个Star都会增加我维护此主题的热情！
 
 - Github: [https://github.com/dongyuanxin/theme-bmw](https://github.com/dongyuanxin/theme-bmw)
 - Vuejs版本: https://github.com/dongyuanxin/vuejs-theme-bmw
