@@ -17,7 +17,18 @@
 > **如果您看的顺眼，欢迎来第一个地址给个Star**。每个Star都会增加我维护此主题的热情！
 
 - Github: [https://github.com/dongyuanxin/theme-bmw](https://github.com/dongyuanxin/theme-bmw)
-- Vuejs版本: https://github.com/dongyuanxin/vuejs-theme-bmw
+- ~~Vuejs版本: https://github.com/dongyuanxin/vuejs-theme-bmw~~
+
+## 特性一览
+
+- 首页、归档、分类、标签等页面均支持**分页系统**
+- 支持**友链、关于、分类云、标签云**页面
+- 支持**自定义页面**
+- 支持**二级导航栏**
+- 提供**评论系统**和**文章统计插件**
+- 默认开启**SEO优化**
+- 更多特性还在加工赶制中...
+
 
 ## 在线演示
 
