@@ -42,6 +42,12 @@ leancloud:
   comment: false # 是否开启评论功能
   timer: false # 是否开启文章统计
 
+leancloud:
+  appid: kHD6VmRIlDXlb0WbexREohX9-gzGzoHsz # 填写您的appid
+  appkey: d5hka85EFAgaOXow6JTl1JU7 # 填写您的appkey
+  comment: true 
+  timer: true
+
 # 友链详细信息
 friends:
   -

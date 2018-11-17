@@ -4,8 +4,9 @@
 
 [![](https://img.shields.io/badge/made_with-love-orange.svg)](https://godbmw.com/)
 [![](https://img.shields.io/badge/build-passing-green.svg)](https://godbmw.com/)
-[![](https://img.shields.io/badge/release-v3.0.0-blue.svg)](https://godbmw.com/)
+[![](https://img.shields.io/badge/release-v3.1.0-blue.svg)](https://godbmw.com/)
 [![](https://img.shields.io/badge/hexo->=3.0-blue.svg)](https://godbmw.com/)
+[![](https://img.shields.io/badge/leancloud-=3.3.1-blue.svg)](https://godbmw.com/)
 [![](https://img.shields.io/badge/license-MIT-blue.svg)](https://godbmw.com/)
 
 
