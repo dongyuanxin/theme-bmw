@@ -36,17 +36,11 @@ nav:
     path: /about/
     blank: 0
 
-# 启动评论
-valine:
-  enable: false
+leancloud:
   appid: # 填写您的appid
   appkey: # 填写您的appkey
-
-# 启动文章阅读统计
-timer:
-  enable: false
-  appid: # 填写您的appid
-  appkey: # 填写您的appkey
+  comment: false # 是否开启评论功能
+  timer: false # 是否开启文章统计
 
 # 友链详细信息
 friends:
