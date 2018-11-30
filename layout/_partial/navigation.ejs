@@ -2,7 +2,7 @@
   <header>
     <div class="site-brand">
       <div class="site-title">
-        <a href="<%- url_for('/') %>"><%= theme.nav_name%></a>
+        <a href="<%- url_for('/') %>"><%= theme.nav_name || 'GODBMW.com'%></a>
       </div>
     </div>
     <nav class="site-navigation">
@@ -10,15 +10,21 @@
       <% for(let link of theme.nav){ %>
         <li class="nav-item" data-path="<%- link.path %>">
           <% if(!link.children) { %>
-            <a href="<%- url_for(link.path) %>"><%- link.name %></a>
+            <a 
+              href="<%- url_for(link.path) %>"
+              target="<%- link.blank ? '_blank' : '_self' %>"
+            >
+              <%- link.name %>
+            </a>
           <% } else { %>
             <a href="javascript:void(0);" v-else><%- link.name %></a>
             <ul class="nav-menu--dropdown">
               <% for(let childrenLink of link.children){ %>
                 <li>
                   <a 
-                  href="<%- url_for(childrenLink.path)%>" 
-                  target="<%- childrenLink.blank === 1 ? '_blank' : '_self' %>">
+                    href="<%- url_for(childrenLink.path)%>" 
+                    target="<%- childrenLink.blank ? '_blank' : '_self' %>"
+                  >
                     <%- childrenLink.name %>
                   </a>
                 </li>
