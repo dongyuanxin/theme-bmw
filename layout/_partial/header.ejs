@@ -62,6 +62,11 @@
   <% if (theme.custom_style){ %>
     <%- css(theme.custom_style) %>
   <% } %>
+
+  <% if(theme.player){ %>
+    <link href="https://cdn.bootcss.com/aplayer/1.10.1/APlayer.min.css" rel="stylesheet">
+    <script src="https://cdn.bootcss.com/aplayer/1.10.1/APlayer.min.js" async></script>
+  <% } %>
   
   <script src="//cdn.bootcss.com/jquery/3.3.1/jquery.min.js" async></script>
   <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML" async></script>

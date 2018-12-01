@@ -46,6 +46,9 @@ const getRealPath = pathname => {
         </span>
       <% } %>
     </div>
+    <% if(theme.player && psg.playlist){ %>
+      <%- partial("_partial/player", {playlist: psg.playlist, id: getRealPath(psg.path), listFolded: false, style: 'margin: 4rem 2px -1rem'}) %>
+    <% } %>
     <!-- 文章简介 -->
     <div class="article-content">
       <div class="markdown-body article-content--inner" v-html="mdToHtml(psg.summary)">

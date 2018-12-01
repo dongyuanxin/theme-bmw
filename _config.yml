@@ -22,6 +22,8 @@ custom_script:
 # 是否渲染文章目录
 toc: false
 
+# 是否开启音乐组件
+player: true
 
 copyright: 
   enable: true
