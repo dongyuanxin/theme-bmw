@@ -58,36 +58,6 @@ a:hover {
   margin: 0 auto;
 }
 
-::-webkit-scrollbar {
-  width: 10px;
-  height: 10px;
-}
-
-::-webkit-scrollbar-button {
-  width: 0;
-  height: 0;
-}
-
-::-webkit-scrollbar-corner {
-  display: block;
-}
-
-::-webkit-scrollbar-thumb,
-::-webkit-scrollbar-track {
-  border-right: 1px solid transparent;
-  border-left: 1px solid transparent;
-}
-
-::-webkit-scrollbar-thumb {
-  border-radius: 8px;
-  background-color: rgba(0, 0, 0, 0.2);
-}
-
-::-webkit-scrollbar-thumb:hover {
-  transition: all 0.15s;
-  background-color: rgba(0, 0, 0, 0.4);
-}
-
 .comment-anchor {
   width: 0;
   height: 0;
