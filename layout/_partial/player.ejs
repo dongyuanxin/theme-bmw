@@ -1,0 +1,19 @@
+<div id="<%- id %>" style="<%- style %>"></div>
+<script async>
+  (function(){
+    let playerTimer = setInterval(function(){
+      if(!window.APlayer){
+        return
+      }
+
+      new APlayer({
+        container: document.getElementById('<%- id %>'),
+        theme: '#e96900',
+        listFolded: <%- listFolded%>,
+        audio: <%- JSON.stringify(playlist) %>
+      });
+      
+      clearInterval(playerTimer)
+    }, 10);
+  })()
+</script>
