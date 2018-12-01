@@ -40,9 +40,11 @@ const getRealPath = pathname => {
           </a>
         <% } %>
       </span>
-      <span>
-        浏览 : <span class="article-timer" data-identity="<%- getRealPath(psg.path) %>"></span>
-      </span>
+      <% if(theme.leancloud.timer){ %>
+        <span>
+          浏览 : <span class="article-timer" data-identity="<%- getRealPath(psg.path) %>"></span>
+        </span>
+      <% } %>
     </div>
     <!-- 文章简介 -->
     <div class="article-content">
@@ -74,11 +76,13 @@ const getRealPath = pathname => {
           <% } %>          
         </span>
       </div>
-      <div class="article-meta pull-right">
-        <span class="pc-view">
-          <i class="iconfont icon-view"></i>浏览: <span class="article-timer" data-identity="<%- getRealPath(psg.path) %>"></span>
-        </span>
-      </div>
+      <% if(theme.leancloud.timer){ %>
+        <div class="article-meta pull-right">
+          <span class="pc-view">
+            <i class="iconfont icon-view"></i>浏览: <span class="article-timer" data-identity="<%- getRealPath(psg.path) %>"></span>
+          </span>
+        </div>
+      <% } %>
     </div>
   </div>
   <% } %>
@@ -92,5 +96,7 @@ const getRealPath = pathname => {
     <% } %>
   </nav>
 
-  <%- partial("_partial/timer") %>
+  <% if(theme.leancloud.timer){ %>
+    <%- partial("_partial/timer") %>
+  <% } %> 
 </div>

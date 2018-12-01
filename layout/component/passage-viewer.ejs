@@ -31,9 +31,11 @@ const getRealPath = pathname => {
             </a>
           <% } %>
       </span>
-      <span>
-        浏览 : <span class="article-timer" data-identity="<%- getRealPath(page.path) %>"></span>
-      </span>
+      <% if(theme.leancloud.timer){ %>
+        <span>
+          浏览 : <span class="article-timer" data-identity="<%- getRealPath(page.path) %>"></span>
+        </span>
+      <% } %>
     </div>
     <div class="article-content">
       <div class="markdown-body">

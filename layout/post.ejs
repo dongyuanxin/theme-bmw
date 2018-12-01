@@ -38,10 +38,9 @@
   <div class="markdown-body">
     <%- page.content %>
   </div>
-  <a href="#comment" class="comment-anchor"></a>
-  <div id="vcomments"></div>
-
-  <%- partial("_partial/comment") %>
+  <% if(theme.leancloud.comment){ %>
+    <%- partial("_partial/comment") %>
+  <% } %> 
 
 </div>
 <% } %>
@@ -52,10 +51,9 @@
       <%- page.content %>
     </div>
     
-    <a href="#comment" class="comment-anchor"></a>
-    <div id="vcomments"></div>
-
-    <%- partial("_partial/comment") %>
+    <% if(theme.leancloud.comment){ %>
+      <%- partial("_partial/comment") %>
+    <% } %> 
   </div>
 <% } %>
 
@@ -81,13 +79,13 @@
     <% } %>
   </nav>
 
-  <a href="#comment" class="comment-anchor"></a>
-  <div class="comment-title"><i class="iconfont icon-footprint"></i> 留下足迹 <i class="iconfont icon-footprint"></i></div>
-  <div id="vcomments"></div>
+  <% if(theme.leancloud.comment){ %>
+    <%- partial("_partial/comment") %>
+  <% } %> 
 
-  <%- partial("_partial/comment") %>
-
-  <%- partial("_partial/timer") %>
+  <% if(theme.leancloud.timer){ %>
+    <%- partial("_partial/timer") %>
+  <% } %> 
 
 </div>
 <% } %>
