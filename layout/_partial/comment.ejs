@@ -1,10 +1,14 @@
+<a href="#comment" class="comment-anchor"></a>
+<div class="comment-title"><i class="iconfont icon-footprint"></i> 留下足迹 <i class="iconfont icon-footprint"></i></div>
+<div id="vcomments"></div>
+
 <script defer>
-  if( <%- theme.valine.enable %> ) {
+  if( <%- theme.leancloud.comment %> ) {
     let path = getRealPath()
     new Valine({
       el: "#vcomments",
-      appId: "<%- theme.valine.appid %>",
-      appKey: "<%- theme.valine.appkey %>",
+      appId: "<%- theme.leancloud.appid %>",
+      appKey: "<%- theme.leancloud.appkey %>",
       notify: false,
       verify: false,
       avatar: "robohash",
