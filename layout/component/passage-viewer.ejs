@@ -72,6 +72,6 @@ const getRealPath = pathname => {
   </div>
 </div>
 
-<script>
-setTimeout(generateToc, 1000);
-</script>
+<% if(theme.toc){ %>
+  <script async> setTimeout(generateToc, 10);</script>
+<% } %>
