@@ -12,7 +12,13 @@ rss:
 custom_style: /custom/style.css
 
 # 自定义脚本文件
-custom_script: /custom/script.html
+# loc: 脚本文件位置
+# load: 加载方式
+custom_script: 
+  - 
+    src: /custom/script.js
+    load: defer # async / defer / ''
+    
 
 # 开启 评论 & 统计 插件：https://godbmw.com/passages/2018-11-15-theme-bmw-docs-zh/
 leancloud:

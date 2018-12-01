@@ -26,8 +26,10 @@
 
     </div>
 
-    <% if(theme.custom_script){ %>
-      <%- partial(theme.custom_script) %>
+    <% for(let script of theme.custom_script){ %>
+      <% if(script.src){ %> 
+        <script src="<%= script.src%>" <% if(script.load){ %> <%= script.load %> <% } %> ></script>
+      <% } %>
     <% } %>
   </body>
 
