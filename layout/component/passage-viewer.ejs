@@ -42,15 +42,20 @@ const getRealPath = pathname => {
       <%- page.more %>
     </div>
   </div>
-  <div class="copy-right">
-    <div class="markdown-body">
-      <blockquote>
-      <p>本文作者：董沅鑫<br>
-      本文链接： <a href="<% url_for(page.path)%>"><%- page.permalink %></a><br>
-      版权声明： 本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> 许可协议。转载请注明出处！</p>
-      </blockquote>
+  <% if(theme.copyright.enable){ %>
+    <div class="copy-right">
+      <div class="markdown-body">
+        <blockquote>
+        <% let psgAuthor = theme.copyright.author || config.author; %>
+        <% if(psgAuthor){ %>
+          本文作者 : <%= psgAuthor %> <br/>
+        <% } %>
+        原文链接 : <a href="<% url_for(page.path)%>"><%- page.permalink %></a><br>
+        版权声明 : <%- theme.copyright.license %>
+        </blockquote>
+      </div>
     </div>
-  </div>
+  <% } %>
   <div class="article-footer">
     <div class="article-meta pull-left">
       <span>

@@ -21,6 +21,12 @@ custom_script:
 
 # 是否渲染文章目录
 toc: false
+
+
+copyright: 
+  enable: true
+  author: 董沅鑫
+  license: '本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> 许可协议。转载请注明出处！'
     
 # 开启 评论 & 统计 插件：https://godbmw.com/passages/2018-11-15-theme-bmw-docs-zh/
 leancloud:
