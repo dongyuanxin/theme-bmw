@@ -5,8 +5,18 @@ favicon:
   icon: /images/favicon.ico
   touch_icon: /images/touch-icon.png
 
-# rss 配置
-rss: /atom.xml
+# RSS文件
+rss: 
+
+# 自定义样式文件
+custom_style: 
+
+# 开启 评论 & 统计 插件：https://godbmw.com/passages/2018-11-15-theme-bmw-docs-zh/
+leancloud:
+  appid: # 填写您的appid
+  appkey: # 填写您的appkey
+  comment: false # 是否开启评论系统
+  timer: false # 是否开启文章统计
 
 # 导航栏头部名称
 nav_name: GODBMW.com 
@@ -43,25 +53,6 @@ nav:
         name: "SegmentFault"
         path: "https://segmentfault.com/u/godbmw"
         blank: true
-
-# 如何开启评论/文章统计：https://godbmw.com/passages/2018-11-15-theme-bmw-docs-zh/
-leancloud:
-  appid: # 填写您的appid
-  appkey: # 填写您的appkey
-  comment: false # 是否开启评论系统
-  timer: false # 是否开启文章统计
-
-# 启动评论
-valine:
-  enable: false
-  appid: # 填写您的appid
-  appkey: # 填写您的appkey
-
-# 启动文章阅读统计
-timer:
-  enable: false
-  appid: # 填写您的appid
-  appkey: # 填写您的appkey
 
 # 友链详细信息
 friends:

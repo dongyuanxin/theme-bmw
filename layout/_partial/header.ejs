@@ -54,13 +54,13 @@
     <link rel="apple-touch-icon" href="<%- theme.favicon.touch_icon %>">
   <% } %>
 
-  <% if (theme.personal_style){ %>
-    <%- css(theme.personal_style) %>
-  <% } %>
-
   <%- css(['/css/base.css', '/icon/iconfont.css' ,'/css/github-markdown.css', '/css/highlight.css']) %>
 
   <%- js(['/js/util.js', '/js/valine.min.js']) %>
+
+  <% if (theme.custom_style){ %>
+    <%- css(theme.custom_style) %>
+  <% } %>
   
   <script src="//cdn.bootcss.com/jquery/3.3.1/jquery.min.js" async></script>
   <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML" async></script>
