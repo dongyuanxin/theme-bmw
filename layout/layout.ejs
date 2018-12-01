@@ -26,6 +26,8 @@
 
     </div>
 
+    <%- partial("_partial/fancybox") %>
+
     <% for(let script of theme.custom_script){ %>
       <% if(script.src){ %> 
         <script src="<%= script.src%>" <% if(script.load){ %> <%= script.load %> <% } %> ></script>
