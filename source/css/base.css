@@ -341,6 +341,9 @@ header {
     display: block !important;
     font-style: italic !important; } }
 
+.post-index .post {
+  padding-bottom: 0; }
+
 .post-navigation {
   clear: both;
   margin: 1.5rem 0;
