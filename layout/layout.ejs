@@ -25,6 +25,10 @@
       </aside>
 
     </div>
+
+    <% if(theme.custom_script){ %>
+      <%- partial(theme.custom_script) %>
+    <% } %>
   </body>
 
 </html>
