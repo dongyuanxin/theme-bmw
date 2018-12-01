@@ -4,7 +4,7 @@
   left: 0;
   top: 0;
   z-index: 900;
-  width: calc(100vw + 15px);
+  width: 100vw;
   box-shadow: 0 5px 4px -4px rgba(25, 25, 25, 0.1);
   color: #888;
   background: white;
@@ -72,6 +72,10 @@ header {
       display: inline-block;
       margin: 0 1.4rem;
       position: relative;
+
+      &:last-child {
+        margin-right: 0;
+      }
 
       a {
         display: block;
