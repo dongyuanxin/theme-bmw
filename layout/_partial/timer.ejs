@@ -1,7 +1,7 @@
 <script defer>
 const valineAPI = (() => {
   try {
-    AV.init("<%- theme.timer.appid %>", "<%- theme.timer.appkey %>");
+    AV.init("<%- theme.leancloud.appid %>", "<%- theme.leancloud.appkey %>");
   } catch(error) {}
   const isExist = (identity) => {
     identity = identity || getRealPath();
