@@ -1,3 +1,4 @@
+# 更多细节请参考 demo: https://github.com/dongyuanxin/theme-bmw/blob/master/demo._config.yml
 keywords: Hexo, theme-bmw
 
 # 站点图标和APP图标
@@ -5,19 +6,22 @@ favicon:
   icon: /images/favicon.ico
   touch_icon: /images/touch-icon.png
 
-# RSS文件
+# RSS文件位置
 rss: 
 
-# 自定义样式文件
-custom_style: /custom/style.css
+# 自定义样式文件位置
+custom_style: 
 
-# 自定义脚本文件
-# loc: 脚本文件位置
-# load: 加载方式
+# 自定义脚本：支持自定义多个脚本文件
+# src: 文件位置
+# load: <script>加载方式(async/defer/默认)
 custom_script: 
-  - 
-    src: /custom/script.js
-    load: defer # async / defer / ''
+  # - 
+  #   src: 
+  #   load: 
+  # - 
+  #   src: 
+  #   load:
 
 # 是否渲染 文章目录
 toc: true
@@ -37,28 +41,36 @@ social_share:
 # 是否开启 打赏功能
 reward: 
   enable: true
-  meta: 知识 & 情怀 | 二者兼得 
-  button_meta: 投食
-  qrcodes:
+  meta: 知识 & 情怀 | 二者兼得 # 提示文字
+  button_meta: 投食 # 按钮文字
+  qrcodes: 
+    # 支持多个支付方式
+    # src: 二维码位置
+    # meta: 二维码提示信息
     -
-      src: /images/wechat.png
+      src: /images/wechat.png 
       meta: "微信扫一扫, 向我投食"
     -
       src: /images/alipay.png
       meta: "支付宝扫一扫, 向我投食"
 
 # 是否开启版权声明
+# author: 您的名字
+# license: 声明信息(支持html)
 copyright: 
   enable: true
-  author: 董沅鑫
+  author: GODBMW 
   license: '本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> 许可协议。转载请注明出处！'
 
 # 页脚信息 
+# start: 建站时间. 格式：YYYY-MM-DD
+# more: 自定义页脚信息(支持HTML)
 footer: 
   start: '2018-02-10'
   more: 
 
-# 开启 评论 & 统计 插件：https://godbmw.com/passages/2018-11-15-theme-bmw-docs-zh/
+# 如何开启 评论&统计 插件：https://godbmw.com/passages/2018-11-15-theme-bmw-docs-zh/
+# 请申请自己的 appid 和 appkey，并且替换下面的 appid 和 appkey
 leancloud:
   appid: Hyq9wkH495DgNHWhDQCOfQSp-gzGzoHsz # 填写您的appid
   appkey: WaR7nrzhliHj9aVwdQzkdlGd # 填写您的appkey
@@ -67,6 +79,7 @@ leancloud:
 
 # 导航栏头部名称
 nav_name: GODBMW.com 
+
 # 导航栏选项
 # blank: 是否在新页面打开，默认 false
 # children：开启二级导航栏
@@ -89,7 +102,6 @@ nav:
   - 
     name: 关于
     path: /about/
-<<<<<<< HEAD
   - 
     name: 抓到我
     children:
@@ -98,20 +110,11 @@ nav:
         path: "https://github.com/dongyuanxin"
         blank: true
       -
-        name: "SegmentFault"
-        path: "https://segmentfault.com/u/godbmw"
+        name: "知乎"
+        path: "https://www.zhihu.com/people/godbmw/activities"
         blank: true
-=======
-    blank: 0
 
-leancloud:
-  appid: # 填写您的appid
-  appkey: # 填写您的appkey
-  comment: false # 是否开启评论功能
-  timer: false # 是否开启文章统计
->>>>>>> origin/master
-
-# 友链详细信息
+# 友链详细信息：支持多个友链
 friends:
   -
     nickname: GodBMW # 昵称
