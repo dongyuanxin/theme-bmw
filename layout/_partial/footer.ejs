@@ -1,44 +1,32 @@
-<script>
-  let isMathjaxConfig = false; // 防止重复调用Config，造成性能损耗
-
-  const initMathjaxConfig = () => {
-    if (!window.MathJax) {
-      return;
-    }
-    window.MathJax.Hub.Config({
-      showProcessingMessages: false, //关闭js加载过程信息
-      messageStyle: "none", //不显示信息
-      jax: ["input/TeX", "output/HTML-CSS"],
-      tex2jax: {
-        inlineMath: [["$", "$"], ["\\(", "\\)"]], //行内公式选择符
-        displayMath: [["$$", "$$"], ["\\[", "\\]"]], //段内公式选择符
-        skipTags: ["script", "noscript", "style", "textarea", "pre", "code", "a"] //避开某些标签
-      },
-      "HTML-CSS": {
-        availableFonts: ["STIX", "TeX"], //可选字体
-        showMathMenu: false //关闭右击菜单显示
-      }
-    });
-    isMathjaxConfig = true; // 
-  };
-  if (isMathjaxConfig === false) { // 如果：没有配置MathJax
-    initMathjaxConfig();
-  }
-  window.MathJax.Hub.Queue(["Typeset", MathJax.Hub, document.getElementById('app')]);
-  
-</script>
 <footer>
   <p class="site-info">
     博客已萌萌哒运行<span id="time-to-now"></span><span class="my-face">(●'◡'●)ﾉ♥</span>
     <br>
     Theme - <a href="https://github.com/dongyuanxin/theme-bmw">BMW</a> | Made With 💗 | Powered by <a href="https://godbmw.com/">GodBMW</a>
     <br>
+    <% if(theme.footer.more){ %>
+      <%- theme.footer.more %>
+    <% } %>
   </p>
 </footer>
 
+<% 
+  let footerStartTimeArr = theme.footer.start.split('-')
+  let footerStartTime = {
+    year: parseInt(footerStartTimeArr[0], 10),
+    month: parseInt(footerStartTimeArr[1], 10),
+    day: parseInt(footerStartTimeArr[2], 10)
+  }
+
+  isNaN(footerStartTime.year) && (footerStartTime.year = 2018)
+  isNaN(footerStartTime.month) && (footerStartTime.month = 2)
+  isNaN(footerStartTime.day) && (footerStartTime.day = 10)
+  
+%>
+
 <script>
 const timeToNowDOM = document.querySelector("#time-to-now");
-const startTimestamp = new Date(2018, 2, 10, 23, 58).getTime();
+const startTimestamp = new Date(<%- footerStartTime.year %>, <%- footerStartTime.month %>, <%- footerStartTime.day %>).getTime();
 
 const updateTimeStr = () => {
   let offset = parseInt(
