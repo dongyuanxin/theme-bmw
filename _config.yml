@@ -19,12 +19,19 @@ custom_script:
     src: /custom/script.js
     load: defer # async / defer / ''
 
-# 是否渲染文章目录
+# 是否 渲染文章目录
 toc: false
 
-# 是否开启音乐组件
+# 是否开启 音乐组件
 player: true
 
+# 是否开启 分享功能: https://github.com/overtrue/share.js
+social_share:
+  enable: true
+  sites: qzone, qq, weibo, wechat, douban, google, facebook, twitter
+  disabled: 
+
+# 是否开启 打赏功能
 reward: 
   enable: true
   meta: 知识 & 情怀 | 二者兼得 
