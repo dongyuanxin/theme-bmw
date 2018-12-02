@@ -32,17 +32,17 @@ p.site-info {
   left: 0;
   top: 0;
   z-index: 900;
-  width: 100vw;
+  width: 100%;
   box-shadow: 0 5px 4px -4px rgba(25, 25, 25, 0.1);
   color: #888;
   background: white; }
 
 .sidebar-active .header-wrap {
-  width: calc(100vw - 250px); }
+  width: calc(100% - 250px); }
 
 @media (max-width: 768px) {
   .sidebar-active .header-wrap {
-    width: calc(100vw - 200px); } }
+    width: calc(100% - 200px); } }
 header {
   display: block;
   max-width: 960px;
@@ -123,7 +123,7 @@ header {
 
 @media (max-width: 960px) {
   .header-wrap {
-    width: 100vw; }
+    width: 100%; }
 
   header {
     width: 100%; }
