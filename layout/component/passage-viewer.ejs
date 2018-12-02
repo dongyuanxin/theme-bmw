@@ -61,6 +61,11 @@ const getRealPath = pathname => {
       </div>
     </div>
   <% } %>
+  
+  <% if(theme.reward.enable){ %>
+    <%- partial("_partial/reward") %>
+  <% } %>
+
   <div class="article-footer">
     <div class="article-meta pull-left">
       <span>
