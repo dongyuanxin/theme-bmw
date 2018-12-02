@@ -89,6 +89,7 @@ nav:
   - 
     name: 关于
     path: /about/
+<<<<<<< HEAD
   - 
     name: 抓到我
     children:
@@ -100,6 +101,15 @@ nav:
         name: "SegmentFault"
         path: "https://segmentfault.com/u/godbmw"
         blank: true
+=======
+    blank: 0
+
+leancloud:
+  appid: # 填写您的appid
+  appkey: # 填写您的appkey
+  comment: false # 是否开启评论功能
+  timer: false # 是否开启文章统计
+>>>>>>> origin/master
 
 # 友链详细信息
 friends:

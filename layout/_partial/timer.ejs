@@ -15,12 +15,23 @@ const valineAPI = (() => {
   }
 
   const _get = (identity) => {
-    identity = identity || getRealPath();
-    return new Promise((resolve, reject) => {
-      let query = new AV.Query('Timer');
+    let query = null;
+    if(identity && identity instanceof Array){
+      let querys = [];
+      for(let i = 0; i < identity.length; ++i) {
+        querys[i] = new AV.Query('Timer');
+        querys[i].equalTo('identity', identity[i]);
+      }
+      query = AV.Query.or.apply(null ,querys);
+    } else {
+      identity = identity || getRealPath();
+      query = new AV.Query("Timer");
       query.equalTo("identity", identity);
-      query.first()
-      .then(result => resolve(result.attributes))
+    }
+
+    return new Promise((resolve, reject) => {
+      query.find()
+      .then(results => resolve(results))
       .catch(error => reject(error))
     })
   }
@@ -58,28 +69,54 @@ const valineAPI = (() => {
   }
 })()
 
-let isPost = <%- is_post()%>;
+const calcAndWriteTimes = () => {
+  let isPost = <%- is_post()%>;
 
-let timerAllDOM = document.querySelectorAll(".article-timer");
-let timerDOMCache = {};
-timerAllDOM.forEach(timerDOM => {
-  let identity = timerDOM.getAttribute("data-identity")
+  let timerAllDOM = document.querySelectorAll(".article-timer");
 
-  if(timerDOMCache[identity]) {
-    timerDOM.innerText = timerDOMCache[identity];
-    return;
+  if(isPost) {
+    let identity = timerAllDOM[0].getAttribute("data-identity");
+    valineAPI.isExist(identity)
+    .then(exist => {
+      if(exist) {
+        return valineAPI.update(identity);
+      }
+      return new Promise(resolve => resolve(true));
+    })
+    .then( succuess => valineAPI._get(identity))
+    .then( result => timerAllDOM[0].innerText = result[0].attributes.times)
+    .catch(error => console.log(error.message))
+    return ;
   }
 
-  valineAPI.isExist(identity).then(exist => {
-  if(!exist){
-    return valineAPI.create(identity);
+  let timerDOMCache = {};
+
+  for(let timerDOM of timerAllDOM) {
+    let identity = timerDOM.getAttribute("data-identity");
+    timerDOMCache[identity] = {
+      dom: timerDOM,
+      times: undefined
+    };
   }
-    return !isPost ? new Promise(resolve => resolve(true)) : valineAPI.update(identity);
-  }).then(success => {
-    return valineAPI._get(identity);
-  }).then(result => {
-    timerDOM.innerText = result.times;
-    timerDOMCache[identity] = result.times;
+
+  let identities = Object.keys(timerDOMCache);
+  valineAPI._get(identities).then(results => {
+    for(let result of results) {
+      let {identity, times} = result.attributes;
+      timerDOMCache[identity].times = times;
+      timerDOMCache[identity].dom.innerText = times;
+    }
+    for(let identity of identities) {
+      if(timerDOMCache[identity].times){
+        continue;
+      }
+      timerDOMCache[identity].dom.innerText = 1;
+      valineAPI.create(identity);
+    }
   }).catch(error => console.log(error.message))
-})
+}
+
+if(<%- theme.leancloud.timer %>){
+  calcAndWriteTimes();
+}
 </script>
