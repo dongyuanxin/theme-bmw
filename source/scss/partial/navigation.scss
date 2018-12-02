@@ -10,9 +10,23 @@
   background: white;
 }
 
+.sidebar-active {
+  .header-wrap {
+    width: calc(100vw - 250px);
+  }
+}
+
+@media (max-width: 768px) {
+  .sidebar-active {
+    .header-wrap {
+      width: calc(100vw - 200px);
+    }
+  }
+}
+
 header {
   display: block;
-  width: 960px;
+  max-width: 960px;
   margin: 0 auto;
   .site-brand {
     float: left;

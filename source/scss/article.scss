@@ -175,12 +175,12 @@ $header-level: 6 !default;
 }
 
 #sidebar {
-  margin-top: 54px;
   font-weight: 300;
   p:first-child {
     font-size: 1.5rem;
     text-align: center;
-    margin: 2rem 0;
+    height: 54px;
+    line-height: 54px;
     font-family: "Lato", "PingFang SC", "Microsoft YaHei", sans-serif;
 
     span {

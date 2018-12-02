@@ -37,9 +37,15 @@ p.site-info {
   color: #888;
   background: white; }
 
+.sidebar-active .header-wrap {
+  width: calc(100vw - 250px); }
+
+@media (max-width: 768px) {
+  .sidebar-active .header-wrap {
+    width: calc(100vw - 200px); } }
 header {
   display: block;
-  width: 960px;
+  max-width: 960px;
   margin: 0 auto; }
   header .site-brand {
     float: left;
@@ -950,12 +956,12 @@ header {
   clear: both; }
 
 #sidebar {
-  margin-top: 54px;
   font-weight: 300; }
   #sidebar p:first-child {
     font-size: 1.5rem;
     text-align: center;
-    margin: 2rem 0;
+    height: 54px;
+    line-height: 54px;
     font-family: "Lato", "PingFang SC", "Microsoft YaHei", sans-serif; }
     #sidebar p:first-child span {
       color: #87ffb2;

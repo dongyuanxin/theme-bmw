@@ -20,7 +20,7 @@ custom_script:
     load: defer # async / defer / ''
 
 # 是否 渲染文章目录
-toc: false
+toc: true
 
 # 是否开启 音乐组件
 player: true
