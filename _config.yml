@@ -1,4 +1,4 @@
-keywords: Hexo, BMW
+keywords: Hexo, theme-bmw
 
 # 站点图标和APP图标
 favicon: 
@@ -19,8 +19,11 @@ custom_script:
     src: /custom/script.js
     load: defer # async / defer / ''
 
-# 是否 渲染文章目录
+# 是否渲染 文章目录
 toc: true
+
+# 是否支持 数学公式
+mathjax: true
 
 # 是否开启 音乐组件
 player: true
@@ -44,11 +47,17 @@ reward:
       src: /images/alipay.png
       meta: "支付宝扫一扫, 向我投食"
 
+# 是否开启版权声明
 copyright: 
   enable: true
   author: 董沅鑫
   license: '本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> 许可协议。转载请注明出处！'
-    
+
+# 页脚信息 
+footer: 
+  start: '2018-02-10'
+  more: 
+
 # 开启 评论 & 统计 插件：https://godbmw.com/passages/2018-11-15-theme-bmw-docs-zh/
 leancloud:
   appid: Hyq9wkH495DgNHWhDQCOfQSp-gzGzoHsz # 填写您的appid
