@@ -25,6 +25,18 @@ toc: false
 # 是否开启音乐组件
 player: true
 
+reward: 
+  enable: true
+  meta: 知识 & 情怀 | 二者兼得 
+  button_meta: 投食
+  qrcodes:
+    -
+      src: /images/wechat.png
+      meta: "微信扫一扫, 向我投食"
+    -
+      src: /images/alipay.png
+      meta: "支付宝扫一扫, 向我投食"
+
 copyright: 
   enable: true
   author: 董沅鑫
@@ -32,10 +44,10 @@ copyright:
     
 # 开启 评论 & 统计 插件：https://godbmw.com/passages/2018-11-15-theme-bmw-docs-zh/
 leancloud:
-  appid: # 填写您的appid
-  appkey: # 填写您的appkey
-  comment: false # 是否开启评论系统
-  timer: false # 是否开启文章统计
+  appid: Hyq9wkH495DgNHWhDQCOfQSp-gzGzoHsz # 填写您的appid
+  appkey: WaR7nrzhliHj9aVwdQzkdlGd # 填写您的appkey
+  comment: true # 是否开启评论系统
+  timer: true # 是否开启文章统计
 
 # 导航栏头部名称
 nav_name: GODBMW.com 
