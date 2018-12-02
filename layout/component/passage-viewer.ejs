@@ -62,6 +62,10 @@ const getRealPath = pathname => {
     </div>
   <% } %>
   
+  <% if(theme.social_share.enable){ %>
+    <%- partial("_partial/social") %>
+  <% } %>
+
   <% if(theme.reward.enable){ %>
     <%- partial("_partial/reward") %>
   <% } %>
