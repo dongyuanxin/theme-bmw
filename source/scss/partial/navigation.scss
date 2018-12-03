@@ -31,11 +31,13 @@ header {
   .site-brand {
     float: left;
     height: 54px;
+    padding-left: 1rem;
   }
 
   .site-navigation {
     float: right;
     height: 54px;
+    padding-right: 1rem;
   }
 
   &::after {
@@ -132,21 +134,6 @@ header {
   ul.nav-menu--dropdown.active {
     width: 130px;
     box-shadow: 0px 2px 3px rgba(25, 25, 25, 0.1);
-  }
-}
-
-@media (max-width: 960px) {
-  .header-wrap {
-    width: 100%;
-  }
-  header {
-    width: 100%;
-    .site-brand {
-      padding-left: 1rem;
-    }
-    .site-navigation {
-      padding-right: 1rem;
-    }
   }
 }
 

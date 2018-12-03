@@ -49,10 +49,12 @@ header {
   margin: 0 auto; }
   header .site-brand {
     float: left;
-    height: 54px; }
+    height: 54px;
+    padding-left: 1rem; }
   header .site-navigation {
     float: right;
-    height: 54px; }
+    height: 54px;
+    padding-right: 1rem; }
   header::after {
     content: " ";
     display: block;
@@ -121,16 +123,6 @@ header {
     width: 130px;
     box-shadow: 0px 2px 3px rgba(25, 25, 25, 0.1); }
 
-@media (max-width: 960px) {
-  .header-wrap {
-    width: 100%; }
-
-  header {
-    width: 100%; }
-    header .site-brand {
-      padding-left: 1rem; }
-    header .site-navigation {
-      padding-right: 1rem; } }
 @media (max-width: 768px) {
   header {
     position: relative; }

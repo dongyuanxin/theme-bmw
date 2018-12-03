@@ -90,7 +90,10 @@ const getRealPath = pathname => {
   </div>
 </div>
 
-
 <% if(theme.toc){ %>
-  <script async> setTimeout(generateToc, 10);</script>
+  <aside id="sidebar">
+    <p id="sidebar-header"></p>
+    <ol id="sidebar-toc"></ol>
+  </aside>
+  <script async>setTimeout(generateToc, 10);</script>
 <% } %>
