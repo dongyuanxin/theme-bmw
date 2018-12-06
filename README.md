@@ -67,4 +67,5 @@
 - 📧 Email: yuanxin.me@gmail.com
 - 🐧 QQ: 2181111110
 - 👬 交流群：
-  ![](https://godbmw.com/images/开源项目/开源博客-theme-bmw-微声版发布/qq.png)
+
+![](https://godbmw.com/images/开源项目/开源博客-theme-bmw-微声版发布/qq.png)
