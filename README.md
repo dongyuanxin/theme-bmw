@@ -28,7 +28,7 @@
 - 💏 友链页面: [https://godbmw.com/friends/](https://godbmw.com/friends/)
 - 👁️ 关于页面: [https://godbmw.com/about/](https://godbmw.com/about/)
 
-<img style="width: 100%;" src="https://godbmw.com/images/开源项目/开源博客-theme-bmw-微声版发布/theme-bmw.gif" alt=""/>
+![](https://godbmw.com/images/开源项目/开源博客-theme-bmw-微声版发布/theme-bmw.gif)
 
 ## 特性一览
 
