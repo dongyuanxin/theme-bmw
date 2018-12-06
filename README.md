@@ -1,6 +1,6 @@
 <h1 align="center">Theme-BMW(版本代号: 微声)</h1>
 
-<p align="center">为自己发声</p>
+![](https://godbmw.com/images/开源项目/开源博客-theme-bmw-微声版发布/theme-bmw.jpg)
 
 [![](https://img.shields.io/badge/made_with-love-orange.svg)](https://godbmw.com/)
 [![](https://img.shields.io/badge/build-passing-green.svg)](https://godbmw.com/)
@@ -27,6 +27,8 @@
 - 🏷️ 标签页面: [https://godbmw.com/tags/](https://godbmw.com/tags/)
 - 💏 友链页面: [https://godbmw.com/friends/](https://godbmw.com/friends/)
 - 👁️ 关于页面: [https://godbmw.com/about/](https://godbmw.com/about/)
+
+![](https://godbmw.com/images/开源项目/开源博客-theme-bmw-微声版发布/theme-bmw.gif)
 
 ## 特性一览
 
@@ -60,26 +62,9 @@
 
 - 其它 · SEO | 极速 | ... 
 
-## 截图展示
+## 联系方式
 
-> 不会用PS，直接上的微信截图，请各位看官直接戳下一部分的在线演示进行查看。**相信，您看到的效果一定比我给的截图好！！！**
-
-*首页；*
-
-![首页](https://godbmw.com/images/开源项目/一款简约且实用的Hexo新主题：BMW//1.png)
-
-*移动端：*
-
-![移动端首页](https://godbmw.com/images/开源项目/一款简约且实用的Hexo新主题：BMW//2.png)
-
-*归档界面：*
-
-![归档界面](https://godbmw.com/images/开源项目/一款简约且实用的Hexo新主题：BMW//5.png)
-
-*分类界面：*
-
-![分类界面](https://godbmw.com/images/开源项目/一款简约且实用的Hexo新主题：BMW//4.png)
-
-*友链界面：*
-
-![友链界面](https://godbmw.com/images/开源项目/一款简约且实用的Hexo新主题：BMW//3.png)
+- 📧 Email: yuanxin.me@gmail.com
+- 🐧 QQ: 2181111110
+- 👬 交流群：
+  ![](https://godbmw.com/images/开源项目/开源博客-theme-bmw-微声版发布/qq.png)
