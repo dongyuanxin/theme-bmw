@@ -1,4 +1,4 @@
-<h1 align="center">Theme-BMW(版本代号: 微声)</h1>
+<h1 align="center">版本代号: 微声 | 为自己发声</h1>
 
 ![](https://godbmw.com/images/开源项目/开源博客-theme-bmw-微声版发布/theme-bmw.jpg)
 
