@@ -32,14 +32,14 @@ const getRealPath = pathname => {
       <span>
         发布 : <%- psg.date.format("YYYY-MM-DD") %>
       </span>
-      <span>
+      <% if(psg.categories && psg.categories.length > 0) { %>
+        <span>
         分类 :
-        <% if(psg.categories && psg.categories.length > 0) { %>
           <a href="<%= url_for(psg.categories.data[0].path)%>">
             <%- psg.categories.data[0].name %>
           </a>
-        <% } %>
-      </span>
+        </span>
+      <% } %>
       <% if(theme.leancloud.timer){ %>
         <span>
           浏览 : <span class="article-timer" data-identity="<%- getRealPath(psg.path) %>"></span>
@@ -59,16 +59,16 @@ const getRealPath = pathname => {
       <div class="article-meta pull-left">
         <!-- 分类pc端可见 -->
         <span class="pc-view">
-          <i class="iconfont icon-tag"></i>分类:
           <% if(psg.categories && psg.categories.length > 0) { %>
+            <i class="iconfont icon-tag"></i>分类:
             <a href="<%= url_for(psg.categories.data[0].path)%>">
               <%- psg.categories.data[0].name %>
             </a>
+          </span>
           <% } %>
-        </span>
         <span>
-          <i class="iconfont icon-06tags"></i>标签:
           <% if(psg.tags && psg.tags.length > 0){ %>
+            <i class="iconfont icon-06tags"></i>标签:
             <% for(let item of psg.tags.data){ %>
               <span class="span--tag">
                 <a href="<%= url_for(item.path)%>">
