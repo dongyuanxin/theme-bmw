@@ -23,14 +23,14 @@ const getRealPath = pathname => {
       发布 : 
       <%- page.date.format("YYYY-MM-DD") %>
     </span>
-    <span>
-      分类 : 
-        <% if(page.categories && page.categories.length > 0) { %>
+    <% if(page.categories && page.categories.length > 0) { %>
+      <span>
+        分类 : 
           <a href="<%= url_for(page.categories.data[0].path)%>">
             <%- page.categories.data[0].name %>
           </a>
-        <% } %>
-    </span>
+      </span>
+    <% } %>
     <% if(theme.leancloud.timer){ %>
       <span>
         浏览 : <span class="article-timer" data-identity="<%- getRealPath(page.path) %>"></span>
@@ -73,8 +73,8 @@ const getRealPath = pathname => {
   <div class="article-footer">
     <div class="article-meta pull-left">
       <span>
-        <i class="iconfont icon-06tags"></i>标签: 
         <% if(page.tags && page.tags.length > 0){ %>
+          <i class="iconfont icon-06tags"></i>标签: 
           <% for(let item of page.tags.data){ %>
           <span class="span--tag">
             <a href="<%= url_for(item.path)%>">
