@@ -446,6 +446,9 @@ header {
   .comment-title .iconfont {
     font-size: 1em; }
 
+@media (max-width: 768px) {
+  .comment-title {
+    margin-top: 5rem; } }
 .container.tag-index .tag-list-item, .container.category-index .category-list-item {
   display: inline-block;
   margin: 0.4rem 1.4rem;
