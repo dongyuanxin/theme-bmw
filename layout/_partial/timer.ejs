@@ -93,10 +93,14 @@ const calcAndWriteTimes = () => {
 
   for(let timerDOM of timerAllDOM) {
     let identity = timerDOM.getAttribute("data-identity");
-    timerDOMCache[identity] = {
-      dom: timerDOM,
-      times: undefined
-    };
+    if(timerDOMCache.hasOwnProperty(identity)){
+      timerDOMCache[identity].dom.push(timerDOM);
+    }else{
+      timerDOMCache[identity] = {
+        dom: [timerDOM],
+        times: undefined
+      };
+    }
   }
 
   let identities = Object.keys(timerDOMCache);
@@ -104,13 +108,13 @@ const calcAndWriteTimes = () => {
     for(let result of results) {
       let {identity, times} = result.attributes;
       timerDOMCache[identity].times = times;
-      timerDOMCache[identity].dom.innerText = times;
+      timerDOMCache[identity].dom.map(item => item.innerText = times);
     }
     for(let identity of identities) {
       if(timerDOMCache[identity].times){
         continue;
       }
-      timerDOMCache[identity].dom.innerText = 1;
+      timerDOMCache[identity].dom.map(item => item.innerText = 1);
       valineAPI.create(identity);
     }
   }).catch(error => console.log(error.message))
