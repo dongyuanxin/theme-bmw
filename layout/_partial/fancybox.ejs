@@ -6,6 +6,9 @@
     }
     $(document).ready(function() {
       $(".post img").each(function () {
+        if($(this).parent().get(0).tagName.toLowerCase() === "a") {
+          return;
+        }
         // $(this).attr("data-fancybox", "gallery"); // if you add 'data-fancybox', img will display after showed
         var element = document.createElement("a");
         $(element).attr("data-fancybox", "gallery");

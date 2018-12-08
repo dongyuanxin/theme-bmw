@@ -446,6 +446,9 @@ header {
   .comment-title .iconfont {
     font-size: 1em; }
 
+@media (max-width: 768px) {
+  .comment-title {
+    margin-top: 5rem; } }
 .container.tag-index .tag-list-item, .container.category-index .category-list-item {
   display: inline-block;
   margin: 0.4rem 1.4rem;
@@ -919,33 +922,35 @@ header {
   .article-content .markdown-body {
     margin: 0 auto; }
 
-.article-footer .article-meta {
-  font-size: 1.3rem;
-  color: #9e9e9e; }
-  .article-footer .article-meta span {
-    display: inline-block; }
-  .article-footer .article-meta span:not(:last-child) {
-    margin-right: 3rem; }
-  .article-footer .article-meta span.span--tag {
-    display: inline;
-    margin-right: 0; }
-  .article-footer .article-meta i {
-    vertical-align: middle;
-    color: #757575;
-    margin-right: 0.5rem; }
-  .article-footer .article-meta a {
-    transition: 0.15s;
+.article-footer {
+  margin-top: 3rem; }
+  .article-footer .article-meta {
+    font-size: 1.3rem;
     color: #9e9e9e; }
-  .article-footer .article-meta a:hover {
-    color: #f03838; }
-.article-footer .pull-left {
-  float: left; }
-.article-footer .pull-right {
-  float: right; }
-.article-footer::after {
-  content: " ";
-  display: block;
-  clear: both; }
+    .article-footer .article-meta span {
+      display: inline-block; }
+    .article-footer .article-meta span:not(:last-child) {
+      margin-right: 3rem; }
+    .article-footer .article-meta span.span--tag {
+      display: inline;
+      margin-right: 0; }
+    .article-footer .article-meta i {
+      vertical-align: middle;
+      color: #757575;
+      margin-right: 0.5rem; }
+    .article-footer .article-meta a {
+      transition: 0.15s;
+      color: #9e9e9e; }
+    .article-footer .article-meta a:hover {
+      color: #f03838; }
+  .article-footer .pull-left {
+    float: left; }
+  .article-footer .pull-right {
+    float: right; }
+  .article-footer::after {
+    content: " ";
+    display: block;
+    clear: both; }
 
 #sidebar {
   font-weight: 300; }
