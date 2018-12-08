@@ -4,20 +4,13 @@
 
 [![](https://img.shields.io/badge/made_with-love-orange.svg)](https://godbmw.com/)
 [![](https://img.shields.io/badge/build-passing-green.svg)](https://godbmw.com/)
-[![](https://img.shields.io/badge/release-v3.1.0-blue.svg)](https://godbmw.com/)
+[![](https://img.shields.io/badge/release-v4.0.1-blue.svg)](https://godbmw.com/)
 [![](https://img.shields.io/badge/hexo->=3.0-blue.svg)](https://godbmw.com/)
 [![](https://img.shields.io/badge/leancloud-=3.3.1-blue.svg)](https://godbmw.com/)
 [![](https://img.shields.io/badge/license-MIT-blue.svg)](https://godbmw.com/)
 
 - 🇨🇳 [中文文档](https://godbmw.com/passages/2018-11-15-theme-bmw-docs-zh/)
 - Author: [Godbmw](https://godbmw.com/)
-
-<!-- ## 源码地址
-
-> **如果您看的顺眼，欢迎来第一个地址给个Star**。每个Star都会增加我维护此主题的热情！
-
-- Github: [https://github.com/dongyuanxin/theme-bmw](https://github.com/dongyuanxin/theme-bmw)
-- ~~Vuejs版本: https://github.com/dongyuanxin/vuejs-theme-bmw~~ -->
 
 ## 在线演示
 
