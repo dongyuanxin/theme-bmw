@@ -68,7 +68,7 @@ const generateToc = () => {
       .data("id");
     $("html, body").animate(
       {
-        scrollTop: $(idName).offset().top - 54
+        scrollTop: $(idName).offset().top - $(".header-wrap").height()
       },
       { duration: 500, easing: "swing" }
     );
