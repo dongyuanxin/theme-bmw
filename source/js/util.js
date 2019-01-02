@@ -54,9 +54,10 @@ const generateToc = () => {
       let tagID = $(item)
         .text()
         .replace(/\s{2}/g, "");
+      let idName = $(item).attr("id");
       $("#sidebar-toc").append(`
       <li class="toc-${tag}">
-        <a data-id=#${tagID.replace(/\s+/g, "-")}>
+        <a data-id=#${idName}>
           ${tagID}
         </a>
       </li>
