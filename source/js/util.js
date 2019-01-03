@@ -54,13 +54,25 @@ const generateToc = () => {
       let tagID = $(item)
         .text()
         .replace(/\s{2}/g, "");
-      $(item).attr("id", tagID);
+      let idName = $(item).attr("id");
       $("#sidebar-toc").append(`
       <li class="toc-${tag}">
-        <a href="#${tagID}" target="_self">
+        <a data-id=#${idName}>
           ${tagID}
         </a>
       </li>
     `);
     });
+  $("#sidebar-toc").on("click", "li", function() {
+    let idName = $(this)
+      .find("a")
+      .data("id");
+    $("html, body").animate(
+      {
+        scrollTop: $(idName).offset().top - $(".header-wrap").height()
+      },
+      { duration: 500, easing: "swing" }
+    );
+    return false;
+  });
 }
