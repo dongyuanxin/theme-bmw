@@ -1,0 +1,32 @@
+<% const author = theme.author || config.author ||'董沅鑫, yuanxin.me@gmail.com'; %>
+
+<script> 
+  document.addEventListener('copy', (e) => {
+    let clipboardData = e.clipboardData || window.clipboardData;
+    if(!clipboardData) {
+      return;
+    }
+    
+    e.preventDefault();
+    let selection = window.getSelection().toString();
+
+    let textData = selection + '\n\n'
+      <% if(author) { %>
+        + '作者: <%- author %>\n'
+      <% } %>
+      + '链接: ' + window.location.href + '\n'
+      + '来源: ' + window.location.host + '\n'
+      + '著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。\n\n' ;
+
+    let htmlData = selection + '<br/><br/>'
+      <% if(author) { %>
+        + '<b>作者</b>: <%- author %><br/>'
+      <% } %>
+      + `<b>链接</b>: <a href="${window.location.href}">${window.location.href}</a><br/>`
+      + `<b>来源</b>: <a href="${window.location.origin}">${window.location.host}</a><br/>`
+      + '著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。<br/>';
+
+    clipboardData.setData('text/html', htmlData);
+    clipboardData.setData('text/plain', textData);
+  });  
+</script>
