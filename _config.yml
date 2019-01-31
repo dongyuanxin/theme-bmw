@@ -1,6 +1,10 @@
 # 更多细节请参考 demo: https://github.com/dongyuanxin/theme-bmw/blob/master/demo._config.yml
 keywords: Hexo, theme-bmw
 
+motto: "| step by step"
+
+github: "https://github.com/dongyuanxin/"
+
 # 站点图标和APP图标
 favicon: 
   icon: /images/favicon.ico
