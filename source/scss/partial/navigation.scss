@@ -30,13 +30,13 @@ header {
   margin: 0 auto;
   .site-brand {
     float: left;
-    height: 54px;
+    height: 65px;
     padding-left: 1rem;
   }
 
   .site-navigation {
     float: right;
-    height: 54px;
+    height: 65px;
     padding-right: 1rem;
   }
 
@@ -51,37 +51,80 @@ header {
   .iconfont.icon-menu {
     display: none;
   }
+
+  .fork-github {
+    svg {
+      fill: #151513;
+      color: #fff;
+      position: fixed;
+      top: 0;
+      border: 0;
+      left: 0;
+      z-index: 9999;
+      transform: rotate(270deg);
+
+      &:hover .octo-arm {
+        animation: octocat-wave 560ms ease-in-out
+      }
+
+      @media (max-width: 1090px) {
+        display: none;
+      }
+    }
+
+    @keyframes octocat-wave {
+      0%,100% {
+        transform: rotate(0)
+      }
+    
+      20%,60% {
+        transform: rotate(-25deg)
+      }
+    
+      40%,80% {
+        transform: rotate(10deg)
+      }
+    }
+  }
 }
 
 .site-brand {
   text-align: center;
   transition: all 0.1s linear;
-  line-height: 54px;
+  line-height: 65px;
   position: relative;
 
   .site-title {
     margin: 0;
-    font-size: 2rem;
+    font-weight: 300;
+    font-family: "Consolas";
     transition: all 0.1s linear;
+    text-shadow: 0 0 0 rgba(33, 33, 33, 1);
+
     a {
       transition: all 0.1s linear;
-      display: inline-block;
-      color: #000;
-      font-weight: 333;
-      font-family: "Sakura";
-      text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.5);
+      color: #333;
+      font-size: 2.5rem;
+    }
+
+    span {
+      position: relative;
+      top: -2px;
+      font-size: 1.5rem;
+      margin: 0;
+      color: #888;
     }
   }
 }
 
 .site-navigation {
   text-align: center;
-  height: 54px;
-  line-height: 54px;
+  height: 65px;
+  line-height: 65px;
 
   ul.nav-menu {
     list-style: none;
-    font-size: 1.4em;
+    font-size: 1.4rem;
     display: block;
 
     li.nav-item {
