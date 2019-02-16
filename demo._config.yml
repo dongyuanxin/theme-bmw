@@ -53,6 +53,9 @@ copyright:
   author: 董沅鑫
   license: '本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> 许可协议。转载请注明出处！'
 
+header:
+  author: 董沅鑫, yuanxin.me@gmail.com
+
 # 页脚信息 
 footer: 
   start: "2018-02-10"
