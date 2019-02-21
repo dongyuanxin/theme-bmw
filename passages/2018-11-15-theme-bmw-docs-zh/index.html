@@ -1,0 +1,884 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+  
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="utf-8">
+  <meta name="author" content="董沅鑫, yuanxin.me@gmail.com">
+  
+  
+  
+  <title>Theme-BMW 中文文档 | 董沅鑫的个人网站</title>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  
+    <meta name="keywords" content="开源项目,UI设计,Hexo,">
+  
+
+  <script>
+    console.log('\n%c Hexo-theme-bmw v4.0 ' + '%c 🎉 https://github.com/dongyuanxin/theme-bmw 🎉\n' + '\n%c View demo online ' + '%c 🔍 https://godbmw.com/ 🔍  \n' , 'color: #fadfa3; background: #030307; padding:3px 0;', '', 'color: #fadfa3; background: #030307; padding:3px 0;', '');
+  </script>
+
+  
+    <meta name="description" content="来点音乐公司技术合伙人, 现在腾讯(深圳)web实习, Python, ES6, CSS3, VueJS, ReactJS, Node, Webpack, PWA, Native">
+  
+
+  
+    <link rel="alternate" href="/atom.xml" title="董沅鑫的个人网站" type="application/atom+xml">
+  
+
+  
+    <link rel="icon" href="/images/favicon.ico">
+    <link rel="apple-touch-icon" href="/images/touch-icon.png">
+  
+
+  <link href="https://cdn.bootcss.com/fancybox/3.5.2/jquery.fancybox.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="/theme-bmw/css/base.css">
+<link rel="stylesheet" href="/theme-bmw/icon/iconfont.css">
+<link rel="stylesheet" href="/theme-bmw/css/github-markdown.css">
+<link rel="stylesheet" href="/theme-bmw/css/highlight.css">
+
+  <script src="/theme-bmw/js/util.js"></script>
+<script src="/theme-bmw/js/valine.min.js"></script>
+
+  
+
+  
+    <link href="https://cdn.bootcss.com/aplayer/1.10.1/APlayer.min.css" rel="stylesheet">
+    <script src="https://cdn.bootcss.com/aplayer/1.10.1/APlayer.min.js" async></script>
+  
+
+  
+    <link href="https://cdn.bootcss.com/social-share.js/1.0.16/css/share.min.css" rel="stylesheet">
+  
+  
+  <script src="//cdn.bootcss.com/jquery/3.3.1/jquery.min.js" async></script>
+  
+  
+    <script src="//cdn.jsdelivr.net/npm/leancloud-storage@3.11.0/dist/av-min.js"></script>
+  
+
+</head>
+
+  <body>
+
+    
+
+    <div id="app">
+
+      <div class="header-wrap">
+  <header>
+    <div class="site-brand">
+      <div class="site-title">
+        <a href="/theme-bmw/">GODBMW.com</a>
+      </div>
+    </div>
+    <nav class="site-navigation">
+      <ul class="nav-menu">
+      
+        <li class="nav-item" data-path="/">
+          
+            <a href="/theme-bmw/" target="_self">
+              主页
+            </a>
+          
+        </li>
+      
+        <li class="nav-item" data-path="">
+          
+            <a href="javascript:void(0);" v-else="">教程</a>
+            <ul class="nav-menu--dropdown">
+              
+                <li>
+                  <a href="/theme-bmw/categories/webpack4系列教程/" target="_self">
+                    webpack4系列教程
+                  </a>
+                </li>
+              
+                <li>
+                  <a href="https://godbmw.com/design-patterns/" target="_self">
+                    每天一个设计模式
+                  </a>
+                </li>
+              
+            </ul>
+          
+        </li>
+      
+        <li class="nav-item" data-path="/archives/">
+          
+            <a href="/theme-bmw/archives/" target="_self">
+              归档
+            </a>
+          
+        </li>
+      
+        <li class="nav-item" data-path="/categories/">
+          
+            <a href="/theme-bmw/categories/" target="_self">
+              分类
+            </a>
+          
+        </li>
+      
+        <li class="nav-item" data-path="/tags/">
+          
+            <a href="/theme-bmw/tags/" target="_self">
+              标签
+            </a>
+          
+        </li>
+      
+        <li class="nav-item" data-path="/friends/">
+          
+            <a href="/theme-bmw/friends/" target="_self">
+              友链
+            </a>
+          
+        </li>
+      
+        <li class="nav-item" data-path="/about/">
+          
+            <a href="/theme-bmw/about/" target="_self">
+              关于
+            </a>
+          
+        </li>
+      
+        <li class="nav-item" data-path="">
+          
+            <a href="javascript:void(0);" v-else="">抓到我</a>
+            <ul class="nav-menu--dropdown">
+              
+                <li>
+                  <a href="/theme-bmw/atom.xml" target="_blank">
+                    RSS 订阅
+                  </a>
+                </li>
+              
+                <li>
+                  <a href="https://github.com/dongyuanxin" target="_blank">
+                    Github
+                  </a>
+                </li>
+              
+                <li>
+                  <a href="https://juejin.im/user/5b91fcf06fb9a05d3c7fd4a5" target="_blank">
+                    掘金
+                  </a>
+                </li>
+              
+                <li>
+                  <a href="https://segmentfault.com/u/godbmw" target="_blank">
+                    SegmentFault
+                  </a>
+                </li>
+              
+                <li>
+                  <a href="https://www.zhihu.com/people/godbmw/activities" target="_blank">
+                    知乎
+                  </a>
+                </li>
+              
+            </ul>
+          
+        </li>
+      
+      </ul>
+    </nav>
+    <i class="iconfont icon-menu"></i>
+  </header>
+</div>
+
+<script>
+  let links = document.querySelectorAll('.nav-item');
+  for(let link of links){
+    let childrenLink = link.querySelector('ul');
+    link.addEventListener('mouseenter', () => {
+      if(childrenLink) {
+        childrenLink.className = "nav-menu--dropdown active";
+      }
+    })
+    link.addEventListener('mouseleave', () => {
+      if(childrenLink) {
+        childrenLink.className = "nav-menu--dropdown";
+      }
+    })
+  }
+  let rootRealPath = getRealPath(window.location.pathname, true);
+  for(let link of links) {
+    let linkPath = link.getAttribute("data-path");
+    if(linkPath && getRealPath(linkPath, true) === rootRealPath) {
+      link.className = "nav-item hover";
+    }
+  }
+
+  let iconMenu = document.querySelector("i.iconfont.icon-menu"),
+    iconMenuClicked = false;
+  let navDOM = document.querySelector("nav.site-navigation");
+  iconMenu.addEventListener("click", () => {
+    iconMenuClicked 
+      ? navDOM.className = "site-navigation active"
+      : navDOM.className = "site-navigation";
+    iconMenuClicked = !iconMenuClicked;
+  })
+</script>
+
+      
+
+
+
+
+
+
+
+
+<div class="container post-index">
+
+  
+
+<div class="post">
+  <h1 class="article-title">
+    <span>Theme-BMW 中文文档</span>
+  </h1>
+  <div class="article-top-meta">
+    <span>
+      发布 : 
+      2018-11-15
+    </span>
+    
+      <span>
+        分类 : 
+          <a href="/theme-bmw/categories/开源项目/">
+            开源项目
+          </a>
+      </span>
+    
+    
+      <span>
+        浏览 : <span class="article-timer" data-identity="2018-11-15-theme-bmw-docs-zh"></span>
+      </span>
+    
+  </div>
+
+  
+
+  <div class="article-content">
+    <div class="markdown-body">
+      <blockquote>
+<p>Now，花了几天的时间，终于把我的主题从 Vuejs 迁移到了 Hexo。这是官方的配置文档，如果您喜欢这个主题，欢迎Star ✨</p>
+</blockquote>
+<p>主题地址：</p>
+<ul>
+<li>Hexo: <a href="https://github.com/dongyuanxin/theme-bmw" target="_blank" rel="noopener">https://github.com/dongyuanxin/theme-bmw</a></li>
+<li><del>Vuejs: <a href="https://github.com/dongyuanxin/vuejs-theme-bmw" target="_blank" rel="noopener">https://github.com/dongyuanxin/vuejs-theme-bmw</a></del></li>
+</ul>
+<p>PS: <strong>非常推荐使用Hexo</strong>，配合主题提供的SEO优化服务和Github等平台的Pages服务，您可以免去DDoS、搭建服务器等方面的烦恼和费用！！！</p>
+<h2 id="1-快速开始"><a href="#1-快速开始" class="headerlink" title="1. 快速开始"></a>1. 快速开始</h2><h3 id="1-1-下载主题代码"><a href="#1-1-下载主题代码" class="headerlink" title="1.1 下载主题代码"></a>1.1 下载主题代码</h3><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ hexo init your-blog</span><br><span class="line">$ <span class="built_in">cd</span> your-blog/</span><br><span class="line">$ git <span class="built_in">clone</span> git@github.com:dongyuanxin/theme-bmw.git themes/bmw</span><br></pre></td></tr></table></figure>
+<h3 id="1-2-修改HEXO配置文件"><a href="#1-2-修改HEXO配置文件" class="headerlink" title="1.2 修改HEXO配置文件"></a>1.2 修改HEXO配置文件</h3><p>修改hexo的配置文件：<code>your-blog/_config.yml</code>:</p>
+<figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># ... </span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 位置：大概位于 6 ～ 12 行</span></span><br><span class="line"><span class="attr">title:</span> <span class="string">您自己的网站标题</span></span><br><span class="line"><span class="attr">subtitle:</span> <span class="comment"># 不需要填写</span></span><br><span class="line"><span class="attr">description:</span> <span class="string">您自己的网站描述</span></span><br><span class="line"><span class="attr">keywords:</span> <span class="string">您自己的网站关键词</span></span><br><span class="line"><span class="attr">author:</span> <span class="string">您的姓名</span></span><br><span class="line"><span class="attr">language:</span> <span class="string">zh-Hans</span> <span class="comment"># 目前仅支持中文</span></span><br><span class="line"><span class="attr">timezone:</span> <span class="comment"># 不需要填写</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 位置：大概位于 18 行</span></span><br><span class="line"><span class="attr">permalink:</span> <span class="string">passages/:title/</span> <span class="comment"># 如果您需要开启评论和文章统计，请修改此配置</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 位置：大概位于 76 行</span></span><br><span class="line"><span class="attr">theme:</span> <span class="string">bmw</span> <span class="comment"># 启用 "bmw" 主题</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># ...</span></span><br></pre></td></tr></table></figure>
+<h3 id="1-3-修改主题配置文件"><a href="#1-3-修改主题配置文件" class="headerlink" title="1.3 修改主题配置文件"></a>1.3 修改主题配置文件</h3><p>theme-bmw 的配置文件：<code>your-blog/themes/bmw/_config.yml</code></p>
+<p><em>请注意，初始阶段您并不需要修改本主题的配置文件，请继续往下看</em>。</p>
+<h3 id="1-4-启动博客"><a href="#1-4-启动博客" class="headerlink" title="1.4 启动博客"></a>1.4 启动博客</h3><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo s</span><br></pre></td></tr></table></figure>
+<p>hexo默认监听4000端口, 此时, 请使用Chrome等主流浏览器打开 <a href="http://localhost:4000/" target="_blank" rel="noopener">http://localhost:4000/</a> ，查看博客。</p>
+<h2 id="2-文章页面"><a href="#2-文章页面" class="headerlink" title="2. 文章页面"></a>2. 文章页面</h2><blockquote>
+<p>BMW主题针对文章提供了目录渲染、数学公式渲染、音乐组件、版权保护、多平台分享和用户打赏功能。您可以根据个人需求进行设置，以提高用户体验。</p>
+</blockquote>
+<h3 id="2-0-文章格式"><a href="#2-0-文章格式" class="headerlink" title="2.0 文章格式"></a>2.0 文章格式</h3><p>BMW主题针对文章的SEO做了相关优化，并且支持摘要内容渲染。如果您想让您的博客SEO更高，浏览体验更高，那么请注意文章格式。</p>
+<p>下面是一个标准的文章格式：</p>
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">---</span><br><span class="line">title: 文章标题</span><br><span class="line">date: 文章创建日期</span><br><span class="line">categories: 文章分类</span><br><span class="line">tags:</span><br><span class="line">  - 文章标签1</span><br><span class="line">  - 文章标签2</span><br><span class="line">  - ...</span><br><span class="line">---</span><br><span class="line"></span><br><span class="line">在<span class="code">`&lt;!-- more --&gt;`</span>之前编写文章的摘要内容！！！</span><br><span class="line"></span><br><span class="line"><span class="xml"><span class="comment">&lt;!-- more --&gt;</span></span></span><br><span class="line"></span><br><span class="line">在<span class="code">`&lt;!-- more --&gt;`</span>之后编写文章的正式内容！！！</span><br></pre></td></tr></table></figure>
+<p><em>注：请为您的文章撰写摘要，否则首页看起来会很空洞</em></p>
+<h3 id="2-1-目录渲染-数学公式渲染"><a href="#2-1-目录渲染-数学公式渲染" class="headerlink" title="2.1 目录渲染 | 数学公式渲染"></a>2.1 目录渲染 | 数学公式渲染</h3><p>默认是开启目录渲染和数学公式渲染，并且做了移动端兼容。如果您想关闭目录渲染或数学公式渲染，在配置文件大概27～29行左右：</p>
+<figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">toc:</span> <span class="literal">true</span></span><br><span class="line"></span><br><span class="line"><span class="attr">mathjax:</span> <span class="literal">true</span></span><br></pre></td></tr></table></figure>
+<h3 id="2-2-插入音乐"><a href="#2-2-插入音乐" class="headerlink" title="2.2 插入音乐"></a>2.2 插入音乐</h3><p>是滴，您可以为每篇文章自定义音乐。对于一篇文章，需要开头加上<code>playlist</code>字段：</p>
+<figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">playlist:</span></span><br><span class="line"><span class="bullet">  -</span></span><br><span class="line"><span class="attr">    name:</span> <span class="string">Where</span> <span class="string">are</span> <span class="string">you</span></span><br><span class="line"><span class="attr">    artist:</span> <span class="string">AniFace</span></span><br><span class="line"><span class="attr">    url:</span> <span class="string">"//music.163.com/song/media/outer/url?id=453843751.mp3"</span></span><br><span class="line"><span class="attr">    cover:</span> <span class="string">"//p1.music.126.net/AUfXMljLBgB3PBV731IzRg==/109951162857118370.jpg?param=130y130"</span></span><br><span class="line"><span class="bullet">  -</span></span><br><span class="line"><span class="attr">    name:</span> <span class="string">END</span> <span class="string">THEME</span></span><br><span class="line"><span class="attr">    artist:</span> <span class="string">天門</span></span><br><span class="line"><span class="attr">    url:</span> <span class="string">"http://music.163.com/song/media/outer/url?id=528306.mp3"</span></span><br><span class="line"><span class="attr">    cover:</span> <span class="string">"//p1.music.126.net/1sw_ptPeI_GNm58VBW1udQ==/2504687488135369.jpg?param=130y130"</span></span><br></pre></td></tr></table></figure>
+<p><em>注：此功能不需要修改配置文件</em></p>
+<h3 id="2-3-版权保护"><a href="#2-3-版权保护" class="headerlink" title="2.3 版权保护"></a>2.3 版权保护</h3><p>在配置文件60～63行，您可以自定义您的文章版权信息：</p>
+<figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">copyright:</span> </span><br><span class="line"><span class="attr">  enable:</span> <span class="literal">true</span> <span class="comment"># 是否开启版权保护</span></span><br><span class="line"><span class="attr">  author:</span> <span class="string">GODBMW</span> <span class="comment"># 您的名字</span></span><br><span class="line"><span class="attr">  license:</span> <span class="string">'本博客所有文章除特别声明外，均采用 &lt;a href="https://creativecommons.org/licenses/by-nc-sa/4.0/"&gt;CC BY-NC-SA 4.0&lt;/a&gt; 许可协议。转载请注明出处！'</span></span><br></pre></td></tr></table></figure>
+<p><em>注：<code>license</code>字段支持<code>html</code>渲染</em></p>
+<h3 id="2-4-多平台分享"><a href="#2-4-多平台分享" class="headerlink" title="2.4 多平台分享"></a>2.4 多平台分享</h3><p>在配置文件36～39行，您可以自定义分享的平台（默认开启了qq空间、qq、微信、google、推特等平台）：</p>
+<figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">social_share:</span> </span><br><span class="line"><span class="attr">  enable:</span> <span class="literal">true</span> <span class="comment"># 是否开启平台分享</span></span><br><span class="line"><span class="attr">  sites:</span> <span class="string">qzone,</span> <span class="string">qq,</span> <span class="string">weibo,</span> <span class="string">wechat,</span> <span class="string">douban,</span> <span class="string">google,</span> <span class="string">facebook,</span> <span class="string">twitter</span></span><br><span class="line"><span class="attr">  disabled:</span></span><br></pre></td></tr></table></figure>
+<p><em>注：<code>sites</code>和<code>disabled</code>字段的值请参考<a href="https://github.com/overtrue/share.js" target="_blank" rel="noopener">share.js</a></em></p>
+<h3 id="2-5-用户打赏"><a href="#2-5-用户打赏" class="headerlink" title="2.5 用户打赏"></a>2.5 用户打赏</h3><p>在配置文件42行左右，您可以开启打赏功能，并且打赏文字、按钮文字和多个支付方式：</p>
+<figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 是否开启 打赏功能</span></span><br><span class="line"><span class="attr">reward:</span> </span><br><span class="line"><span class="attr">  enable:</span> <span class="literal">true</span></span><br><span class="line"><span class="attr">  meta:</span> <span class="string">知识</span> <span class="string">&amp;</span> <span class="string">情怀</span> <span class="string">| 二者兼得 # 提示文字</span></span><br><span class="line"><span class="string"></span><span class="attr">  button_meta:</span> <span class="string">投食</span> <span class="comment"># 按钮文字</span></span><br><span class="line"><span class="attr">  qrcodes:</span> </span><br><span class="line">    <span class="comment"># 支持多个支付方式</span></span><br><span class="line">    <span class="comment"># src: 二维码位置</span></span><br><span class="line">    <span class="comment"># meta: 二维码提示信息</span></span><br><span class="line"><span class="bullet">    -</span></span><br><span class="line"><span class="attr">      src:</span> <span class="string">/images/wechat.png</span> </span><br><span class="line"><span class="attr">      meta:</span> <span class="string">"微信扫一扫, 向我投食"</span></span><br><span class="line"><span class="bullet">    -</span></span><br><span class="line"><span class="attr">      src:</span> <span class="string">/images/alipay.png</span></span><br><span class="line"><span class="attr">      meta:</span> <span class="string">"支付宝扫一扫, 向我投食"</span></span><br></pre></td></tr></table></figure>
+<p><em>注：<code>qrcodes</code>属性是个数组，您可以为每个平台设置图片<code>src</code>和对应的提示信息<code>meta</code></em></p>
+<h2 id="3-更多页面"><a href="#3-更多页面" class="headerlink" title="3. 更多页面"></a>3. 更多页面</h2><blockquote>
+<p>BMW 主题在HEXO默认界面的基础上，额外提供了标签归档、 分类归档、 关于介绍 和 友链界面。如果您想自定义更多页面，请看“进阶内容”。</p>
+</blockquote>
+<h3 id="3-1-标签页面"><a href="#3-1-标签页面" class="headerlink" title="3.1 标签页面"></a>3.1 标签页面</h3><p>生成标签页面：</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new page tags</span><br></pre></td></tr></table></figure>
+<p>修改标签归档页面的markdown文件(文件路径：<code>your-blog/source/tags/index.md</code>)的内容：</p>
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">---</span><br><span class="line">title: tags</span><br><span class="line">date: <span class="xml"><span class="comment">&lt;!-- 自动生成，无需修改 --&gt;</span></span></span><br><span class="line">type: "tags"</span><br><span class="line">categories:</span><br><span class="line">tags:</span><br><span class="line">---</span><br></pre></td></tr></table></figure>
+<p>查看标签归档页面：浏览器中打开 <a href="http://localhost:4000/tags/" target="_blank" rel="noopener">http://localhost:4000/tags/</a></p>
+<p><em>注：<code>type</code>字段的值是<code>tags</code></em></p>
+<h3 id="3-2-分类页面"><a href="#3-2-分类页面" class="headerlink" title="3.2 分类页面"></a>3.2 分类页面</h3><p>生成分类页面：</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new page categories</span><br></pre></td></tr></table></figure>
+<p>修改分类归档页面的markdown文件(文件路径：<code>your-blog/source/categories/index.md</code>)的内容：</p>
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">---</span><br><span class="line">title: categories</span><br><span class="line">date: <span class="xml"><span class="comment">&lt;!-- 自动生成，无需修改 --&gt;</span></span></span><br><span class="line">type: "categories"</span><br><span class="line">categories:</span><br><span class="line">tags:</span><br><span class="line">---</span><br></pre></td></tr></table></figure>
+<p>查看标签归档页面：浏览器中打开 <a href="http://localhost:4000/categories/" target="_blank" rel="noopener">http://localhost:4000/categories/</a></p>
+<p><em>注：<code>type</code>字段的值是<code>categories</code></em></p>
+<h3 id="3-3-关于页面"><a href="#3-3-关于页面" class="headerlink" title="3.3 关于页面"></a>3.3 关于页面</h3><p>生成分类页面：</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new page about</span><br></pre></td></tr></table></figure>
+<p>修改关于页面的markdown文件(文件路径：<code>your-blog/source/about/index.md</code>)的内容：</p>
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">---</span><br><span class="line">title: about</span><br><span class="line">date: <span class="xml"><span class="comment">&lt;!-- 自动生成，无需修改 --&gt;</span></span></span><br><span class="line">type: "about"</span><br><span class="line">categories:</span><br><span class="line">tags:</span><br><span class="line">---</span><br><span class="line"></span><br><span class="line">这里编写您的网站/博客的相关介绍：联系方式、更新日志、甚至是您的个人简历。</span><br><span class="line"></span><br><span class="line">BMW 主题会自动渲染此篇markdown，并且在 <span class="code">`http://localhost:4000/about/`</span> 展示给您！</span><br></pre></td></tr></table></figure>
+<p>查看关于页面：浏览器中打开 <a href="http://localhost:4000/about/" target="_blank" rel="noopener">http://localhost:4000/about/</a></p>
+<p><em>注：<code>type</code>字段的值是<code>about</code></em></p>
+<h3 id="3-4-友链界面"><a href="#3-4-友链界面" class="headerlink" title="3.4 友链界面"></a>3.4 友链界面</h3><blockquote>
+<p>友链界面除了要编写相关markdown文件，还需要更改 BMW主题的配置文件，以更好地方式展示您的友链！</p>
+</blockquote>
+<h4 id="3-4-1-生成友链界面"><a href="#3-4-1-生成友链界面" class="headerlink" title="3.4.1 生成友链界面"></a>3.4.1 生成友链界面</h4><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new page friends</span><br></pre></td></tr></table></figure>
+<p>修改友链页面的markdown文件(文件路径：<code>your-blog/source/friends/index.md</code>)的内容：</p>
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">---</span><br><span class="line">title: friends</span><br><span class="line">date: <span class="xml"><span class="comment">&lt;!-- 自动生成，无需修改 --&gt;</span></span></span><br><span class="line">type: "friends"</span><br><span class="line">categories: </span><br><span class="line">tags:</span><br><span class="line">---</span><br><span class="line"></span><br><span class="line">这里编写您的友链声明，您可以陈述您的友链申请规则。</span><br><span class="line"></span><br><span class="line">BMW 主题会自动渲染此篇markdown，并且在 <span class="code">`http://localhost:4000/friends/`</span> 展示给您！</span><br></pre></td></tr></table></figure>
+<p><em>注：<code>type</code>字段的值是<code>friends</code></em></p>
+<h4 id="3-4-2-展示更多友链"><a href="#3-4-2-展示更多友链" class="headerlink" title="3.4.2 展示更多友链"></a>3.4.2 展示更多友链</h4><p>请打开 BMW主题 的配置文件：<code>your-blog/themes/bmw/_config.yml</code>。您会发现在大概118行左右，有相关友情链接的配置：</p>
+<figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># ...</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 友链详细信息</span></span><br><span class="line"><span class="attr">friends:</span> <span class="comment"># 这是一个数组, 每个元素是一个obj对象</span></span><br><span class="line"><span class="bullet">  -</span></span><br><span class="line"><span class="attr">    nickname:</span> <span class="string">友链名称</span></span><br><span class="line"><span class="attr">    avatar:</span> <span class="string">友链头像</span></span><br><span class="line"><span class="attr">    site:</span> <span class="string">友链地址</span></span><br><span class="line"><span class="attr">    meta:</span> <span class="string">友链信息</span></span><br><span class="line"><span class="bullet">  -</span></span><br><span class="line"><span class="attr">    nickname:</span> <span class="string">友链名称2</span></span><br><span class="line"><span class="attr">    avatar:</span> <span class="string">友链头像2</span></span><br><span class="line"><span class="attr">    site:</span> <span class="string">友链地址2</span></span><br><span class="line"><span class="attr">    meta:</span> <span class="string">友链信息2</span></span><br><span class="line">  <span class="comment"># ...</span></span><br></pre></td></tr></table></figure>
+<p>查看友链页面：浏览器中打开 <a href="http://localhost:4000/friends/" target="_blank" rel="noopener">http://localhost:4000/friends/</a></p>
+<h2 id="4-评论系统-amp-amp-文章统计"><a href="#4-评论系统-amp-amp-文章统计" class="headerlink" title="4. 评论系统 &amp;&amp; 文章统计"></a>4. 评论系统 &amp;&amp; 文章统计</h2><blockquote>
+<p><code>theme-bmw</code>的评论系统采用的是<code>Valine</code>，并且提供了基于<code>Leancloud</code>的文章统计插件。您只需要按照以下步骤进行简单的配置，便可以提供更好的用户体验！</p>
+</blockquote>
+<p><em>如果您不想开启评论系统和文章统计插件，请跳过这一部分</em></p>
+<h3 id="4-1-配置Leancloud"><a href="#4-1-配置Leancloud" class="headerlink" title="4.1 配置Leancloud"></a>4.1 配置<code>Leancloud</code></h3><p>进入<a href="https://leancloud.cn/" target="_blank" rel="noopener">leancloud.cn</a></p>
+<p><img src="/images/开源项目/Theme-BMW中文文档/1.png" alt=""></p>
+<p>注册账户，并且登录您的账户，然后在右上角进入“控制台”。并且创建一个新应用。</p>
+<p><img src="/images/开源项目/Theme-BMW中文文档/2.png" alt=""></p>
+<p>配置默认即可（如下图所示），名字根据自己喜好取：</p>
+<p><img src="/images/开源项目/Theme-BMW中文文档/3.png" alt=""></p>
+<p>进入刚刚创建的应用，在左上方屏幕，点击创建新<code>Class</code>。接下来，我们就要为<strong>评论系统</strong>和<strong>文章统计插件</strong>分别创建2个应用。</p>
+<p><img src="/images/开源项目/Theme-BMW中文文档/4.png" alt=""></p>
+<ol>
+<li>为评论系统开通<code>Class</code>: 名称必须是<code>Comment</code>, <code>ACL</code>权限选择“限制写入”，如下图<br><img src="/images/开源项目/Theme-BMW中文文档/5.png" alt=""></li>
+<li>为文章统计插件开通<code>Class</code>: 名称必须是<code>Timer</code>, <code>ACL</code>权限选择“无限制”，如下图<br><img src="/images/开源项目/Theme-BMW中文文档/6.png" alt=""></li>
+</ol>
+<h3 id="4-2-配置密钥"><a href="#4-2-配置密钥" class="headerlink" title="4.2 配置密钥"></a>4.2 配置密钥</h3><p>进入左边导航栏 -&gt; 设置 -&gt; 应用Key：</p>
+<p><img src="/images/开源项目/Theme-BMW中文文档/7.png" alt=""></p>
+<p><strong>注意：请保存好您的密钥，关于安全问题，请阅读最后一部分！！！</strong></p>
+<p>Now，切回BMW主题的配置文件<code>your-blog/themes/bmw/_config.yml</code>。在大概74行，有一项关于<code>leancloud</code>的配置，按照上图中的<code>appId</code>和<code>appKey</code>，复制并且粘贴到配置项即可。</p>
+<h3 id="4-3-开启评论系统"><a href="#4-3-开启评论系统" class="headerlink" title="4.3 开启评论系统"></a>4.3 开启评论系统</h3><p>请先确保您按照前面步骤配置了<code>leancloud</code>，并且正确修改了配置文件中的相关配置。</p>
+<p>进入配置文件，在大概77行左右，请将<code>leancloud.comment</code>修改为<code>true</code>.</p>
+<p>重启hexo服务即可生效。</p>
+<h3 id="4-4-开启文章统计"><a href="#4-4-开启文章统计" class="headerlink" title="4.4 开启文章统计"></a>4.4 开启文章统计</h3><p>请先确保您按照前面步骤配置了<code>leancloud</code>，并且正确修改了配置文件中的相关配置。</p>
+<p>进入配置文件，在大概78行左右，请将<code>leancloud.timer</code>修改为<code>true</code>.</p>
+<p>重启hexo服务即可生效。</p>
+<h2 id="5-进阶设定"><a href="#5-进阶设定" class="headerlink" title="5. 进阶设定"></a>5. 进阶设定</h2><h3 id="5-1-自定义导航栏"><a href="#5-1-自定义导航栏" class="headerlink" title="5.1 自定义导航栏"></a>5.1 自定义导航栏</h3><p>配置文件的默认导航配置，大概在81～115行左右的<code>nav</code>属性中。</p>
+<figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 推荐：填写您的网站名称</span></span><br><span class="line"><span class="attr">nav_name:</span> <span class="string">GODBMW.com</span> </span><br><span class="line"></span><br><span class="line"><span class="attr">nav:</span></span><br><span class="line">  <span class="comment"># -</span></span><br><span class="line">  <span class="comment">#   name: 名称</span></span><br><span class="line">  <span class="comment">#   path: 网址</span></span><br><span class="line">  <span class="comment">#   blank: 是否在新页面打开，默认是false</span></span><br><span class="line">  <span class="comment">#   children: 子导航(数组)，默认为空</span></span><br><span class="line">  <span class="comment">#     ... </span></span><br><span class="line"><span class="bullet">  -</span> </span><br><span class="line"><span class="attr">    name:</span> <span class="string">关于</span></span><br><span class="line"><span class="attr">    path:</span> <span class="string">/about/</span></span><br><span class="line"><span class="bullet">  -</span> </span><br><span class="line"><span class="attr">    name:</span> <span class="string">抓到我</span></span><br><span class="line"><span class="attr">    children:</span></span><br><span class="line"><span class="bullet">      -</span></span><br><span class="line"><span class="attr">        name:</span> <span class="string">Github</span></span><br><span class="line"><span class="attr">        path:</span> <span class="string">"https://github.com/dongyuanxin"</span></span><br><span class="line"><span class="attr">        blank:</span> <span class="literal">true</span></span><br><span class="line"><span class="bullet">      -</span></span><br><span class="line"><span class="attr">        name:</span> <span class="string">"知乎"</span></span><br><span class="line"><span class="attr">        path:</span> <span class="string">"https://www.zhihu.com/people/godbmw/activities"</span></span><br><span class="line"><span class="attr">        blank:</span> <span class="literal">true</span></span><br></pre></td></tr></table></figure>
+<p><em>注：导航栏最多支持2级导航，<code>name</code>的长度避免超过7个汉字</em></p>
+<h3 id="5-2-自定义页脚"><a href="#5-2-自定义页脚" class="headerlink" title="5.2 自定义页脚"></a>5.2 自定义页脚</h3><p>在配置文件68行～70行左右，可以根据您的需要自定义页脚信息：</p>
+<figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">footer:</span></span><br><span class="line"><span class="attr">  start:</span> <span class="string">'2018-01-01'</span> <span class="comment"># 网站创建时间，格式: YYYY-MM-DD</span></span><br><span class="line"><span class="attr">  more:</span> <span class="string">'&lt;a href="https://www.google.com/analytics/" target="_blank"&gt;Google Analytics&lt;/a&gt;提供统计服务'</span></span><br></pre></td></tr></table></figure>
+<p><em>注：<code>start</code>和<code>more</code>字段请加上单引号<code>&#39;</code>，防止被<code>yml</code>转义。<code>more</code>字段支持html格式</em></p>
+<h3 id="5-3-自定义样式和脚本文件"><a href="#5-3-自定义样式和脚本文件" class="headerlink" title="5.3 自定义样式和脚本文件"></a>5.3 自定义样式和脚本文件</h3><p>在配置文件12行左右，您可以自定义样式文件：</p>
+<figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">custom_style:</span> <span class="comment"># 样式文件的路径</span></span><br></pre></td></tr></table></figure>
+<p>在配置文件18行左右，您可以自定义<code>javascript</code>脚本：</p>
+<figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">custom_script:</span> <span class="comment"># 数组</span></span><br><span class="line"><span class="bullet">  -</span></span><br><span class="line"><span class="attr">    src:</span> <span class="comment"># 脚本文件的路径</span></span><br><span class="line"><span class="attr">    load:</span> <span class="comment"># script加载和执行方式：默认 | async | defer</span></span><br></pre></td></tr></table></figure>
+<p><em>注：<code>custom_script</code>支持多个自定义脚本，每个脚本会以<code>&lt;script&gt;</code>标签插入到<code>&lt;/body&gt;</code>标签之前</em></p>
+<h2 id="6-⚠️警告⚠️"><a href="#6-⚠️警告⚠️" class="headerlink" title="6. ⚠️警告⚠️"></a>6. ⚠️警告⚠️</h2><h3 id="6-1-尊重原创"><a href="#6-1-尊重原创" class="headerlink" title="6.1 尊重原创"></a>6.1 尊重原创</h3><ol>
+<li>您可以根据个人需要修改页面底部的说明信息，<strong>但请不要去除<code>theme-bmw</code>主题的版权声明</strong></li>
+<li>评论系统采用了<code>Valine</code>，<strong>请不要去除<code>Valine</code>的版权声明</strong></li>
+<li>尊重原创，也祝您在开源社区玩得开心(*^▽^*)</li>
+</ol>
+<h3 id="6-2-Web安全问题"><a href="#6-2-Web安全问题" class="headerlink" title="6.2 Web安全问题"></a>6.2 Web安全问题</h3><p>如果您开启了评论系统和文章统计插件，请仔细阅读此节！</p>
+<p>借助了<code>Leancloud</code>规避了后端部署，傻瓜式一键启动相关功能。但随之而来的是，暴露在浏览器环境下的<code>appid</code>和<code>appkey</code>带来的安全问题。</p>
+<p>请进入<code>leancloud</code>中您的应用 =&gt; 左侧导航栏 =&gt; 设置 =&gt; 安全中心，进行相关配置：</p>
+<p><img src="/images/开源项目/Theme-BMW中文文档/8.png" alt=""></p>
+<p>首先，关闭不需要的“服务开关” (仅保留“数据存储”服务)：</p>
+<p><img src="/images/开源项目/Theme-BMW中文文档/9.png" alt=""></p>
+<p>最后，设置您的“Web”安全域名 (就是您的博客/个人网站地址):</p>
+<p><img src="/images/开源项目/Theme-BMW中文文档/10.png" alt=""></p>
+    </div>
+  </div>
+  
+    <div class="copy-right">
+      <div class="markdown-body">
+        <blockquote>
+        
+        
+          本文作者 : 董沅鑫 <br>
+        
+        原文链接 : <a href="">https://godbmw.com/theme-bmw/passages/2018-11-15-theme-bmw-docs-zh/</a><br>
+        版权声明 : 本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> 许可协议。转载请注明出处！
+        </blockquote>
+      </div>
+    </div>
+  
+  
+  
+    <div class="social-share" style="margin-top: -2rem" data-wechat-qrcode-title="<p>微信扫一扫</p>" data-wechat-qrcode-helper="<p>微信右上角, 扫一扫分享</p>" data-sites="qzone, qq, weibo, wechat, douban, google, facebook, twitter">
+  <span style="color: #6b7487; font-size: 1.4rem;">分享到: </span>
+</div>
+<script src="https://cdn.bootcss.com/social-share.js/1.0.16/js/social-share.min.js" async></script>
+  
+
+  
+    <div id="reward">
+  
+    <p id="reward-meta">知识 & 情怀 | 二者兼得</p>
+  
+  <button id="reward-btn">
+    
+    <span>投食</span>
+  </button>
+  <div id="reward-qrcode">
+    
+      <div class="reward-qrcode--container">
+        <img class="qrcode-img" src="/images/wechat.png" alt="微信扫一扫, 向我投食">
+        <p class="qrcode-meta">微信扫一扫, 向我投食</p>
+      </div>
+    
+      <div class="reward-qrcode--container">
+        <img class="qrcode-img" src="/images/alipay.png" alt="支付宝扫一扫, 向我投食">
+        <p class="qrcode-meta">支付宝扫一扫, 向我投食</p>
+      </div>
+    
+  </div>
+
+</div>
+
+<script>
+  (() => {
+    let button = document.querySelector('#reward-btn'),
+      qrcode = document.querySelector('#reward-qrcode'),
+      display = false;
+    
+    button.addEventListener('click', () => {
+      qrcode.style.display = display ? 'none' : 'block'
+      display = !display
+    }, false)
+  })()
+</script>
+  
+
+  <div class="article-footer">
+    <div class="article-meta pull-left">
+      <span>
+        
+          <i class="iconfont icon-06tags"></i>标签: 
+          
+          <span class="span--tag">
+            <a href="/theme-bmw/tags/UI设计/">
+              #UI设计
+            </a>
+          </span>
+          
+          <span class="span--tag">
+            <a href="/theme-bmw/tags/Hexo/">
+              #Hexo
+            </a>
+          </span>
+          
+        
+      </span>
+    </div>
+    <div class="article-meta pull-right">
+    </div>
+  </div>
+</div>
+
+
+  <aside id="sidebar">
+    <p id="sidebar-header"></p>
+    <ol id="sidebar-toc"></ol>
+  </aside>
+  <script async>setTimeout(generateToc, 10);</script>
+
+
+  <nav class="post-navigation">
+    
+      <div class="nav-pre">
+        <i class="iconfont icon-prev"></i>
+        上一篇:
+        <a href="/theme-bmw/passages/2018-11-14-hexo-theme-bmw/" target="_self">一款简约且实用的Hexo新主题：BMW</a>
+      </div>
+    
+    
+      <div class="nav-next">
+        下一篇:
+        <a href="/theme-bmw/passages/2018-11-18-publish-subscribe-pattern/" target="_self">每天一个设计模式之订阅-发布模式</a>
+        <i class="iconfont icon-next"></i>
+      </div>
+    
+  </nav>
+
+  
+    <a href="#comment" class="comment-anchor"></a>
+<div class="comment-title"><i class="iconfont icon-footprint"></i> 留下足迹 <i class="iconfont icon-footprint"></i></div>
+<div id="vcomments"></div>
+
+<script defer>
+  if( true ) {
+    let path = getRealPath()
+    new Valine({
+      el: "#vcomments",
+      appId: "j3TlSqBMjoXnrIrNYB5En5Y1-gzGzoHsz",
+      appKey: "d2rWR1nq5chvzXzh3bSyB8ug",
+      notify: false,
+      verify: false,
+      avatar: "robohash",
+      placeholder: "正确填写邮箱, 才能及时收到回复哦♪(^∇^*)",
+      path
+    });
+  }
+</script>
+   
+
+  
+    <script defer>
+const valineAPI = (() => {
+  try {
+    AV.init("j3TlSqBMjoXnrIrNYB5En5Y1-gzGzoHsz", "d2rWR1nq5chvzXzh3bSyB8ug");
+  } catch(error) {}
+  const isExist = (identity) => {
+    identity = identity || getRealPath();
+    let query = new AV.Query('Timer');
+    return new Promise((resolve, reject) => {
+      query.equalTo("identity", identity);
+      query.find().then(results => {
+        resolve(results.length > 0);
+      }, error => reject(error));
+    })
+  }
+
+  const _get = (identity) => {
+    let query = null;
+    if(identity && identity instanceof Array){
+      let querys = [];
+      for(let i = 0; i < identity.length; ++i) {
+        querys[i] = new AV.Query('Timer');
+        querys[i].equalTo('identity', identity[i]);
+      }
+      query = AV.Query.or.apply(null ,querys);
+    } else {
+      identity = identity || getRealPath();
+      query = new AV.Query("Timer");
+      query.equalTo("identity", identity);
+    }
+
+    return new Promise((resolve, reject) => {
+      query.find()
+      .then(results => resolve(results))
+      .catch(error => reject(error))
+    })
+  }
+
+  const create = (identity) => {
+    identity = identity || getRealPath();
+    return new Promise((resolve, reject) => {
+      let Todo = AV.Object.extend('Timer');
+      let todo = new Todo();
+      todo.set("times", 1);
+      todo.set("identity", identity);
+      todo.save().then(res => resolve(true), error => reject(error));
+    })
+  }
+
+  const update = (identity) => {
+    identity = identity || getRealPath();
+    return new Promise((resolve, reject) => {
+      let query = new AV.Query('Timer');
+      query.equalTo("identity", identity);
+      query.find().then(todos => {
+        todos.forEach(todo => {
+          todo.set("times", todo.attributes.times + 1);
+        });
+        return AV.Object.saveAll(todos);
+      }).then(todos => resolve(true), error => reject(error));
+    })
+  }
+
+  return {
+    isExist,
+    _get,
+    update,
+    create
+  }
+})()
+
+const calcAndWriteTimes = () => {
+  let isPost = true;
+
+  let timerAllDOM = document.querySelectorAll(".article-timer");
+
+  if(isPost) {
+    let identity = timerAllDOM[0].getAttribute("data-identity");
+    valineAPI.isExist(identity)
+    .then(exist => {
+      if(exist) {
+        return valineAPI.update(identity);
+      }
+      return new Promise(resolve => resolve(true));
+    })
+    .then( succuess => valineAPI._get(identity))
+    .then( result => timerAllDOM[0].innerText = result[0].attributes.times)
+    .catch(error => console.log(error.message))
+    return ;
+  }
+
+  let timerDOMCache = {};
+
+  for(let timerDOM of timerAllDOM) {
+    let identity = timerDOM.getAttribute("data-identity");
+    if(timerDOMCache.hasOwnProperty(identity)){
+      timerDOMCache[identity].dom.push(timerDOM);
+    }else{
+      timerDOMCache[identity] = {
+        dom: [timerDOM],
+        times: undefined
+      };
+    }
+  }
+
+  let identities = Object.keys(timerDOMCache);
+  valineAPI._get(identities).then(results => {
+    for(let result of results) {
+      let {identity, times} = result.attributes;
+      timerDOMCache[identity].times = times;
+      timerDOMCache[identity].dom.map(item => item.innerText = times);
+    }
+    for(let identity of identities) {
+      if(timerDOMCache[identity].times){
+        continue;
+      }
+      timerDOMCache[identity].dom.map(item => item.innerText = 1);
+      valineAPI.create(identity);
+    }
+  }).catch(error => console.log(error.message))
+}
+
+if(true){
+  calcAndWriteTimes();
+}
+</script>
+   
+
+</div>
+
+
+      <footer>
+  <p class="site-info">
+    博客已萌萌哒运行<span id="time-to-now"></span><span class="my-face">(●'◡'●)ﾉ♥</span>
+    <br>
+    Theme - <a href="https://github.com/dongyuanxin/theme-bmw">BMW</a> | Made With 💗 | Powered by <a href="https://godbmw.com/">GodBMW</a>
+    <br>
+    
+      <a href="https://www.google.com/analytics/" target="_blank">Google Analytics</a> 提供网站统计服务.  <a href="https://sg.godaddy.com/" target="_blank">GoDaddy</a> 提供域名注册服务.  <br> <a href="https://www.trustasia.com/" target="_blank">TrustAsia</a> 签发SSL证书.  <a href="http://www.miibeian.gov.cn/state/outPortal/loginPortal.action" target="_blank">粤ICP备18028400号</a> . 
+    
+  </p>
+</footer>
+
+
+
+<script>
+const timeToNowDOM = document.querySelector("#time-to-now");
+const startTimestamp = new Date(2018, 1, 10).getTime();
+
+const updateTimeStr = () => {
+  let offset = parseInt(
+      (new Date().getTime() - startTimestamp) / 1000,
+      10
+    ),
+    day = Math.floor(offset / 86400),
+    hour = Math.floor((offset % 86400) / 3600),
+    minute = Math.floor(((offset % 86400) % 3600) / 60),
+    second = Math.floor(((offset % 86400) % 3600) % 60);
+  timeToNowDOM.innerHTML =
+    day + "天" + hour + "小时" + minute + "分钟" + second + "秒";
+  setTimeout(updateTimeStr, 500);
+}
+
+setTimeout(updateTimeStr, 500);
+</script>
+
+
+      <div class="back-to-top hidden">
+  <span>
+    <i class="iconfont icon-60"></i><span></span>%
+  </span>
+</div>
+
+<script>
+const updateIconToTop = percent => {
+  let dom = document.querySelector(".back-to-top span span");
+  dom.innerText = percent;
+  if(percent < 1) {
+    document.querySelector(".back-to-top").className = "back-to-top hidden";
+  } else {
+    document.querySelector(".back-to-top").className = "back-to-top";
+  }
+}
+
+const handleScoll = () => {
+  let isRunning = false;
+  return () => {
+    if (isRunning) return;
+    isRunning = true;
+    window.requestAnimationFrame(timestamp => {
+      let scrollTop =
+          document.documentElement.scrollTop || document.body.scrollTop,
+        scrollHeight =
+          document.documentElement.scrollHeight ||
+          document.body.scrollHeight,
+        clientHeight =
+          document.documentElement.clientHeight ||
+          document.body.clientHeight;
+      isRunning = false;
+      if (scrollTop <= 1) {
+        updateIconToTop(0);
+        return;
+      }
+      if (scrollTop + clientHeight >= scrollHeight) {
+        updateIconToTop(100);
+      } else {
+        updateIconToTop(parseInt(
+          100 * scrollTop / (scrollHeight - clientHeight),
+          10
+        ));
+      }
+    });
+  };
+}
+
+const backToTop = () => {
+  let scrollTop =
+      document.documentElement.scrollTop || document.body.scrollTop,
+    delay = 10,
+    time = 200;
+  if (scrollTop <= 20) {
+    document.documentElement.scrollTop = 0;
+    document.body.scrollTop = 0;
+    return;
+  }
+  let step = Math.ceil(scrollTop * delay / time);
+  let timer = setInterval(() => {
+    scrollTop =
+      document.documentElement.scrollTop || document.body.scrollTop;
+    if (scrollTop - step <= 0) {
+      document.documentElement.scrollTop = 0;
+      document.body.scrollTop = 0;
+      clearInterval(timer);
+    } else {
+      document.documentElement.scrollTop = scrollTop - step;
+      document.body.scrollTop = scrollTop - step;
+    }
+  }, delay);
+}
+
+document.addEventListener("scroll", handleScoll(), false);
+
+document.querySelector(".back-to-top").addEventListener("click", backToTop, false);
+
+</script>
+
+    </div>
+
+    
+      <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML" async></script>
+<script>
+  (() => {
+    const mathjaxConfig = {
+      showProcessingMessages: false, //关闭js加载过程信息
+      messageStyle: "none", //不显示信息
+      jax: ["input/TeX", "output/HTML-CSS"],
+      tex2jax: {
+        inlineMath: [["$", "$"], ["\\(", "\\)"]], //行内公式选择符
+        displayMath: [["$$", "$$"], ["\\[", "\\]"]], //段内公式选择符
+        skipTags: ["script", "noscript", "style", "textarea", "pre", "code", "a"] //避开某些标签
+      },
+      "HTML-CSS": {
+        availableFonts: ["STIX", "TeX"], //可选字体
+        showMathMenu: false //关闭右击菜单显示
+      }
+    }
+
+    let mathjaxInterval = setInterval(() => {
+      if(!window.MathJax){
+        return;
+      }
+      window.MathJax.Hub.Config(mathjaxConfig)
+      window.MathJax.Hub.Queue(["Typeset", MathJax.Hub, document.getElementById('app')])
+
+      clearInterval(mathjaxInterval)
+    }, 10)    
+  })()
+</script>
+    
+
+    <script src="https://cdn.bootcss.com/fancybox/3.5.2/jquery.fancybox.min.js" async></script>
+<script async>
+  let fancyTimer = setInterval(function(){
+    if(!window.$){
+      return;
+    }
+    $(document).ready(function() {
+      $(".post img").each(function () {
+        if($(this).parent().get(0).tagName.toLowerCase() === "a") {
+          return;
+        }
+        // $(this).attr("data-fancybox", "gallery"); // if you add 'data-fancybox', img will display after showed
+        var element = document.createElement("a");
+        $(element).attr("data-fancybox", "gallery");
+        $(element).attr("href", $(this).attr("src"));
+        $(this).wrap(element);
+      });
+      
+      clearInterval(fancyTimer);
+    });
+  }, 10);
+</script>
+
+    
+    <script async>
+try {
+  AV.init("j3TlSqBMjoXnrIrNYB5En5Y1-gzGzoHsz", "d2rWR1nq5chvzXzh3bSyB8ug");
+} catch(error) {}
+
+let pathname = decodeURIComponent(window.location.pathname);
+!pathname.endsWith('/') && (pathname = pathname + '/');
+
+let Counter = AV.Object.extend("Counter");
+let counter = new Counter();
+counter.set("visit_time", new Date().getTime().toString());
+counter.set("user_agent", window.navigator.userAgent);
+counter.set("identity_path", pathname);
+counter.set("more_info", JSON.stringify(window.location));
+
+let acl = new AV.ACL();
+acl.setPublicReadAccess(true);
+acl.setPublicWriteAccess(false);
+
+counter.setACL(acl);
+counter.save();
+</script>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-124601890-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-124601890-1');
+</script>
+
+
+<script async>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+<script async>
+(function(){
+var src = (document.location.protocol == "http:") ? "http://js.passport.qihucdn.com/11.0.1.js?bbf5bdfcccab2efb9fd4e96c19271f1a":"https://jspassport.ssl.qhimg.com/11.0.1.js?bbf5bdfcccab2efb9fd4e96c19271f1a";
+document.write('<script src="' + src + '" id="sozz"><\/script>');
+})();
+</script>
+  </body>
+
+</html>

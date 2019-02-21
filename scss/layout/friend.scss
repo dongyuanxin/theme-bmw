@@ -1,0 +1,81 @@
+.friend-navigation {
+  padding: 0 0 3.5rem;
+  &::after {
+    content: " ";
+    display: block;
+    clear: both;
+  }
+}
+
+.card {
+  width: 320px;
+  font-size: 1.6rem;
+  line-height: 30px;
+  padding: 10px 20px;
+  border-radius: 3px;
+  transition-duration: 0.15s;
+  margin-bottom: 2.3rem;
+  cursor: pointer;
+
+  &:nth-child(odd) {
+    float: left;
+  }
+  &:nth-child(even) {
+    float: right;
+  }
+
+  &:hover {
+    transform: scale(1.1);
+    background-color: #f7f7f7;
+  }
+
+  img {
+    width: 5rem;
+    height: 5rem;
+    float: left;
+    margin-top: 5px;
+    margin-right: 1em;
+  }
+
+  .card-header {
+    font-style: italic;
+    a {
+      font-style: normal;
+      color: #f03838;
+      font-weight: bold;
+      text-decoration: none;
+    }
+    a:hover {
+      color: #f03838;
+      text-decoration: none;
+    }
+  }
+
+  .card-meta {
+    font-size: 1.4rem;
+    color: #9e9e9e;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    letter-spacing: 0.15rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .card {
+    float: none !important;
+    margin: 0 auto 1.6rem !important;
+  }
+}
+
+.friend-index {
+  .markdown-body {
+    margin-bottom: 3rem;
+  }
+  
+  @media (max-width: 768px) {
+    #vcomments {
+      margin-top: 5rem !important;
+    }
+  }
+}

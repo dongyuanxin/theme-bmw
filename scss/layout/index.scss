@@ -1,0 +1,69 @@
+#app {
+  margin: 0 auto;
+  margin-top: 54px;
+  background-color: white;
+  padding: 5rem 2rem 0;
+  transition: 0.15s;
+  position: relative;
+}
+
+@media (max-width: 768px) {
+  #app {
+    padding: 2.5rem 1.5rem 0;
+  }
+}
+
+.back-to-top {
+  display: block;
+  position: fixed;
+  z-index: 900;
+  right: 2rem;
+  bottom: 2rem;
+  cursor: pointer;
+  text-align: center;
+  background: #222;
+  font-size: 1.3rem;
+  opacity: 0.6;
+  color: #fff;
+  padding: 0 0.6rem;
+  height: 2.4rem;
+  line-height: 2.4rem;
+}
+
+#sidebar {
+  width: 0;
+  position: fixed;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  z-index: 600;
+  background: rgba(0, 0, 0, 0.8);
+  transition: all 0.15s;
+  display: block;
+}
+
+#app.sidebar-active {
+  margin-right: 250px;
+  max-width: none;
+}
+
+#sidebar.sidebar-active {
+  width: 250px;
+  overflow-y: auto;
+}
+
+@media (max-width: 768px) {
+  #app.sidebar-active {
+    margin-right: 200px;
+  }
+  #sidebar.sidebar-active {
+    width: 200px;
+  }
+}
+
+.hidden {
+  display: none;
+  opacity: 0;
+  width: 0;
+  height: 0;
+}

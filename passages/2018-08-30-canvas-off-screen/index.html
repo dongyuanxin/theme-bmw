@@ -1,0 +1,804 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+  
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="utf-8">
+  <meta name="author" content="董沅鑫, yuanxin.me@gmail.com">
+  
+  
+  
+  <title>canvas离屏技术与放大镜实现 | 董沅鑫的个人网站</title>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  
+    <meta name="keywords" content="JavaScript,算法,HTML5,图像处理,canvas,">
+  
+
+  <script>
+    console.log('\n%c Hexo-theme-bmw v4.0 ' + '%c 🎉 https://github.com/dongyuanxin/theme-bmw 🎉\n' + '\n%c View demo online ' + '%c 🔍 https://godbmw.com/ 🔍  \n' , 'color: #fadfa3; background: #030307; padding:3px 0;', '', 'color: #fadfa3; background: #030307; padding:3px 0;', '');
+  </script>
+
+  
+    <meta name="description" content="来点音乐公司技术合伙人, 现在腾讯(深圳)web实习, Python, ES6, CSS3, VueJS, ReactJS, Node, Webpack, PWA, Native">
+  
+
+  
+    <link rel="alternate" href="/atom.xml" title="董沅鑫的个人网站" type="application/atom+xml">
+  
+
+  
+    <link rel="icon" href="/images/favicon.ico">
+    <link rel="apple-touch-icon" href="/images/touch-icon.png">
+  
+
+  <link href="https://cdn.bootcss.com/fancybox/3.5.2/jquery.fancybox.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="/theme-bmw/css/base.css">
+<link rel="stylesheet" href="/theme-bmw/icon/iconfont.css">
+<link rel="stylesheet" href="/theme-bmw/css/github-markdown.css">
+<link rel="stylesheet" href="/theme-bmw/css/highlight.css">
+
+  <script src="/theme-bmw/js/util.js"></script>
+<script src="/theme-bmw/js/valine.min.js"></script>
+
+  
+
+  
+    <link href="https://cdn.bootcss.com/aplayer/1.10.1/APlayer.min.css" rel="stylesheet">
+    <script src="https://cdn.bootcss.com/aplayer/1.10.1/APlayer.min.js" async></script>
+  
+
+  
+    <link href="https://cdn.bootcss.com/social-share.js/1.0.16/css/share.min.css" rel="stylesheet">
+  
+  
+  <script src="//cdn.bootcss.com/jquery/3.3.1/jquery.min.js" async></script>
+  
+  
+    <script src="//cdn.jsdelivr.net/npm/leancloud-storage@3.11.0/dist/av-min.js"></script>
+  
+
+</head>
+
+  <body>
+
+    
+
+    <div id="app">
+
+      <div class="header-wrap">
+  <header>
+    <div class="site-brand">
+      <div class="site-title">
+        <a href="/theme-bmw/">GODBMW.com</a>
+      </div>
+    </div>
+    <nav class="site-navigation">
+      <ul class="nav-menu">
+      
+        <li class="nav-item" data-path="/">
+          
+            <a href="/theme-bmw/" target="_self">
+              主页
+            </a>
+          
+        </li>
+      
+        <li class="nav-item" data-path="">
+          
+            <a href="javascript:void(0);" v-else="">教程</a>
+            <ul class="nav-menu--dropdown">
+              
+                <li>
+                  <a href="/theme-bmw/categories/webpack4系列教程/" target="_self">
+                    webpack4系列教程
+                  </a>
+                </li>
+              
+                <li>
+                  <a href="https://godbmw.com/design-patterns/" target="_self">
+                    每天一个设计模式
+                  </a>
+                </li>
+              
+            </ul>
+          
+        </li>
+      
+        <li class="nav-item" data-path="/archives/">
+          
+            <a href="/theme-bmw/archives/" target="_self">
+              归档
+            </a>
+          
+        </li>
+      
+        <li class="nav-item" data-path="/categories/">
+          
+            <a href="/theme-bmw/categories/" target="_self">
+              分类
+            </a>
+          
+        </li>
+      
+        <li class="nav-item" data-path="/tags/">
+          
+            <a href="/theme-bmw/tags/" target="_self">
+              标签
+            </a>
+          
+        </li>
+      
+        <li class="nav-item" data-path="/friends/">
+          
+            <a href="/theme-bmw/friends/" target="_self">
+              友链
+            </a>
+          
+        </li>
+      
+        <li class="nav-item" data-path="/about/">
+          
+            <a href="/theme-bmw/about/" target="_self">
+              关于
+            </a>
+          
+        </li>
+      
+        <li class="nav-item" data-path="">
+          
+            <a href="javascript:void(0);" v-else="">抓到我</a>
+            <ul class="nav-menu--dropdown">
+              
+                <li>
+                  <a href="/theme-bmw/atom.xml" target="_blank">
+                    RSS 订阅
+                  </a>
+                </li>
+              
+                <li>
+                  <a href="https://github.com/dongyuanxin" target="_blank">
+                    Github
+                  </a>
+                </li>
+              
+                <li>
+                  <a href="https://juejin.im/user/5b91fcf06fb9a05d3c7fd4a5" target="_blank">
+                    掘金
+                  </a>
+                </li>
+              
+                <li>
+                  <a href="https://segmentfault.com/u/godbmw" target="_blank">
+                    SegmentFault
+                  </a>
+                </li>
+              
+                <li>
+                  <a href="https://www.zhihu.com/people/godbmw/activities" target="_blank">
+                    知乎
+                  </a>
+                </li>
+              
+            </ul>
+          
+        </li>
+      
+      </ul>
+    </nav>
+    <i class="iconfont icon-menu"></i>
+  </header>
+</div>
+
+<script>
+  let links = document.querySelectorAll('.nav-item');
+  for(let link of links){
+    let childrenLink = link.querySelector('ul');
+    link.addEventListener('mouseenter', () => {
+      if(childrenLink) {
+        childrenLink.className = "nav-menu--dropdown active";
+      }
+    })
+    link.addEventListener('mouseleave', () => {
+      if(childrenLink) {
+        childrenLink.className = "nav-menu--dropdown";
+      }
+    })
+  }
+  let rootRealPath = getRealPath(window.location.pathname, true);
+  for(let link of links) {
+    let linkPath = link.getAttribute("data-path");
+    if(linkPath && getRealPath(linkPath, true) === rootRealPath) {
+      link.className = "nav-item hover";
+    }
+  }
+
+  let iconMenu = document.querySelector("i.iconfont.icon-menu"),
+    iconMenuClicked = false;
+  let navDOM = document.querySelector("nav.site-navigation");
+  iconMenu.addEventListener("click", () => {
+    iconMenuClicked 
+      ? navDOM.className = "site-navigation active"
+      : navDOM.className = "site-navigation";
+    iconMenuClicked = !iconMenuClicked;
+  })
+</script>
+
+      
+
+
+
+
+
+
+
+
+<div class="container post-index">
+
+  
+
+<div class="post">
+  <h1 class="article-title">
+    <span>canvas离屏技术与放大镜实现</span>
+  </h1>
+  <div class="article-top-meta">
+    <span>
+      发布 : 
+      2018-08-30
+    </span>
+    
+      <span>
+        分类 : 
+          <a href="/theme-bmw/categories/JavaScript/">
+            JavaScript
+          </a>
+      </span>
+    
+    
+      <span>
+        浏览 : <span class="article-timer" data-identity="2018-08-30-canvas-off-screen"></span>
+      </span>
+    
+  </div>
+
+  
+
+  <div class="article-content">
+    <div class="markdown-body">
+      <blockquote>
+<p>利用<code>canvas</code>除了可以实现滤镜，还可以利用<strong>离屏技术</strong>放大镜功能。</p>
+</blockquote>
+<p>为了方便讲解，本文分为 2 个应用部分：</p>
+<ol>
+<li>实现水印和中心缩放</li>
+<li>实现放大镜</li>
+</ol>
+<h3 id="1-什么是离屏技术？"><a href="#1-什么是离屏技术？" class="headerlink" title="1. 什么是离屏技术？"></a>1. 什么是离屏技术？</h3><p><a href="https://godbmw.com/passage/39">canvas 学习和滤镜实现</a>介绍过<code>drawImage</code>接口。除了绘制图像，这个接口还可以：<strong>将一个<code>canvas</code>对象绘制到另一个<code>canvas</code>对象上</strong>。这就是离屏技术。</p>
+<h3 id="2-实现水印和中心缩放"><a href="#2-实现水印和中心缩放" class="headerlink" title="2. 实现水印和中心缩放"></a>2. 实现水印和中心缩放</h3><p>在代码中，有两个 canvas 标签。分别是可见与不可见。<strong>不可见的 canvas 对象上的 Context 对象，就是我们放置图像水印的地方。</strong></p>
+<p>更多详解，请看代码注释：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE html&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span> <span class="attr">lang</span>=<span class="string">"en"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">"UTF-8"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">title</span>&gt;</span>Learn Canvas<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">style</span>&gt;</span><span class="undefined"></span></span><br><span class="line"><span class="undefined">    canvas &#123;</span></span><br><span class="line"><span class="undefined">      display: block;</span></span><br><span class="line"><span class="undefined">      margin: 0 auto;</span></span><br><span class="line"><span class="css">      <span class="selector-tag">border</span>: 1<span class="selector-tag">px</span> <span class="selector-tag">solid</span> <span class="selector-id">#222</span>;</span></span><br><span class="line"><span class="undefined">    &#125;</span></span><br><span class="line"><span class="undefined"></span></span><br><span class="line"><span class="undefined">    input &#123;</span></span><br><span class="line"><span class="undefined">      display: block;</span></span><br><span class="line"><span class="undefined">      margin: 20px auto;</span></span><br><span class="line"><span class="undefined">      width: 800px</span></span><br><span class="line"><span class="undefined">    &#125;</span></span><br><span class="line"><span class="undefined">  </span><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"app"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">canvas</span> <span class="attr">id</span>=<span class="string">"my-canvas"</span>&gt;</span><span class="tag">&lt;/<span class="name">canvas</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"range"</span> <span class="attr">value</span>=<span class="string">"1.0"</span> <span class="attr">min</span>=<span class="string">"0.5"</span> <span class="attr">max</span>=<span class="string">"3.0"</span> <span class="attr">step</span>=<span class="string">"0.1"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">canvas</span> <span class="attr">id</span>=<span class="string">"watermark-canvas"</span> <span class="attr">style</span>=<span class="string">"display: none;"</span>&gt;</span><span class="tag">&lt;/<span class="name">canvas</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">"text/javascript"</span>&gt;</span><span class="undefined"></span></span><br><span class="line"><span class="javascript">    <span class="built_in">window</span>.onload = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span></span><br><span class="line"><span class="javascript">      <span class="keyword">var</span> canvas = <span class="built_in">document</span>.querySelector(<span class="string">"#my-canvas"</span>)</span></span><br><span class="line"><span class="javascript">      <span class="keyword">var</span> watermarkCanvas = <span class="built_in">document</span>.querySelector(<span class="string">"#watermark-canvas"</span>)</span></span><br><span class="line"><span class="javascript">      <span class="keyword">var</span> slider = <span class="built_in">document</span>.querySelector(<span class="string">"input"</span>)</span></span><br><span class="line"><span class="undefined"></span></span><br><span class="line"><span class="javascript">      <span class="keyword">var</span> scale = slider.value</span></span><br><span class="line"><span class="undefined"></span></span><br><span class="line"><span class="javascript">      <span class="keyword">var</span> ctx = canvas.getContext(<span class="string">'2d'</span>)</span></span><br><span class="line"><span class="javascript">      <span class="keyword">var</span> watermarkCtx = watermarkCanvas.getContext(<span class="string">"2d"</span>)</span></span><br><span class="line"><span class="undefined"></span></span><br><span class="line"><span class="javascript">      <span class="comment">/* 给第二个canvas获取的Context对象添加水印 */</span></span></span><br><span class="line"><span class="undefined">      watermarkCanvas.width = 300</span></span><br><span class="line"><span class="undefined">      watermarkCanvas.height = 100</span></span><br><span class="line"><span class="javascript">      watermarkCtx.font = <span class="string">"bold 20px Arial"</span></span></span><br><span class="line"><span class="javascript">      watermarkCtx.lineWidth = <span class="string">"1"</span></span></span><br><span class="line"><span class="javascript">      watermarkCtx.fillStyle = <span class="string">"rgba(255 , 255 , 255, 0.5)"</span></span></span><br><span class="line"><span class="javascript">      watermarkCtx.fillText(<span class="string">"=== yuanxin.me ==="</span>, <span class="number">50</span>, <span class="number">50</span>)</span></span><br><span class="line"><span class="javascript">      <span class="comment">/****************************************/</span></span></span><br><span class="line"><span class="undefined"></span></span><br><span class="line"><span class="javascript">      <span class="keyword">var</span> img = <span class="keyword">new</span> Image()</span></span><br><span class="line"><span class="javascript">      img.src = <span class="string">"./img/photo.jpg"</span></span></span><br><span class="line"><span class="undefined"></span></span><br><span class="line"><span class="javascript">      <span class="comment">/* 加载图片后执行操作 */</span></span></span><br><span class="line"><span class="javascript">      img.onload = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span></span><br><span class="line"><span class="undefined">        canvas.width = img.width;</span></span><br><span class="line"><span class="undefined">        canvas.height = img.height;</span></span><br><span class="line"><span class="undefined">        drawImageByScale(canvas, ctx, img, scale, watermarkCanvas);</span></span><br><span class="line"><span class="javascript">        <span class="comment">// 监听input标签的mousemove事件</span></span></span><br><span class="line"><span class="javascript">        <span class="comment">// 注意：mousemove实时监听值的变化，内存消耗较大</span></span></span><br><span class="line"><span class="javascript">        slider.onmousemove = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span></span><br><span class="line"><span class="undefined">          scale = slider.value</span></span><br><span class="line"><span class="undefined">          drawImageByScale(canvas, ctx, img, scale, watermarkCanvas);</span></span><br><span class="line"><span class="undefined">        &#125;</span></span><br><span class="line"><span class="undefined">      &#125;</span></span><br><span class="line"><span class="javascript">      <span class="comment">/******************/</span></span></span><br><span class="line"><span class="undefined">    &#125;</span></span><br><span class="line"><span class="undefined">    /**</span></span><br><span class="line"><span class="undefined">    *</span></span><br><span class="line"><span class="javascript">    * @param &#123;<span class="built_in">Object</span>&#125; canvas 画布对象</span></span><br><span class="line"><span class="javascript">    * @param &#123;<span class="built_in">Object</span>&#125; ctx</span></span><br><span class="line"><span class="javascript">    * @param &#123;<span class="built_in">Object</span>&#125; img</span></span><br><span class="line"><span class="javascript">    * @param &#123;<span class="built_in">Number</span>&#125; scale 缩放比例</span></span><br><span class="line"><span class="javascript">    * @param &#123;<span class="built_in">Object</span>&#125; watermark 水印对象</span></span><br><span class="line"><span class="undefined">    */</span></span><br><span class="line"><span class="javascript">    <span class="function"><span class="keyword">function</span> <span class="title">drawImageByScale</span>(<span class="params">canvas, ctx, img, scale, watermark</span>) </span>&#123;</span></span><br><span class="line"><span class="javascript">      <span class="comment">// 图像按照比例进行缩放</span></span></span><br><span class="line"><span class="javascript">      <span class="keyword">var</span> width = img.width * scale,</span></span><br><span class="line"><span class="undefined">        height = img.height * scale</span></span><br><span class="line"><span class="javascript">      <span class="comment">// (dx, dy): 画布上绘制img的起始坐标</span></span></span><br><span class="line"><span class="javascript">      <span class="keyword">var</span> dx = canvas.width / <span class="number">2</span> - width / <span class="number">2</span>,</span></span><br><span class="line"><span class="undefined">        dy = canvas.height / 2 - height / 2</span></span><br><span class="line"><span class="javascript">      ctx.clearRect(<span class="number">0</span>, <span class="number">0</span>, canvas.width, canvas.height) <span class="comment">// No1 清空画布</span></span></span><br><span class="line"><span class="javascript">      ctx.drawImage(img, dx, dy, width, height) <span class="comment">// No2 重新绘制图像</span></span></span><br><span class="line"><span class="javascript">      <span class="keyword">if</span> (watermark) &#123;</span></span><br><span class="line"><span class="javascript">        <span class="comment">// No3 判断是否有水印: 有, 绘制水印</span></span></span><br><span class="line"><span class="undefined">        ctx.drawImage(watermark, canvas.width - watermark.width, canvas.height - watermark.height)</span></span><br><span class="line"><span class="undefined">      &#125;</span></span><br><span class="line"><span class="undefined">    &#125;</span></span><br><span class="line"><span class="undefined">  </span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>实现效果如下图所示：</p>
+<p><img src="/images/JavaScript/canvas离屏技术与放大镜实现/1.png" alt=""></p>
+<p>拖动滑竿，即可放大和缩小图像。然后右键保存图像。保存后的图像，就有已经有了水印，如下图所示：</p>
+<p><img src="/images/JavaScript/canvas离屏技术与放大镜实现/2.png" alt=""></p>
+<h3 id="3-实现放大镜"><a href="#3-实现放大镜" class="headerlink" title="3. 实现放大镜"></a>3. 实现放大镜</h3><p>在上述中心缩放的基础上，实现放大镜主需要注意以下 2 个部分：</p>
+<ol>
+<li>细化处理<code>canvas</code>的鼠标响应事件：滑入、滑出、点击和松开</li>
+<li>重新计算离屏坐标（详细公式计算思路请见代码注释）</li>
+<li>重新计算鼠标相对于 canvas 标签的坐标（详细公式计算思路请见代码注释）</li>
+</ol>
+<p>代码如下：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE html&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span> <span class="attr">lang</span>=<span class="string">"en"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">"UTF-8"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">title</span>&gt;</span>Document<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">style</span>&gt;</span><span class="undefined"></span></span><br><span class="line"><span class="undefined">    canvas &#123;</span></span><br><span class="line"><span class="undefined">      display: block;</span></span><br><span class="line"><span class="undefined">      margin: 0 auto;</span></span><br><span class="line"><span class="css">      <span class="selector-tag">border</span>: 1<span class="selector-tag">px</span> <span class="selector-tag">solid</span> <span class="selector-id">#222</span>;</span></span><br><span class="line"><span class="undefined">    &#125;</span></span><br><span class="line"><span class="undefined">  </span><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">canvas</span> <span class="attr">id</span>=<span class="string">"my-canvas"</span>&gt;</span><span class="tag">&lt;/<span class="name">canvas</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">canvas</span> <span class="attr">id</span>=<span class="string">"off-canvas"</span> <span class="attr">style</span>=<span class="string">"display: none;"</span>&gt;</span><span class="tag">&lt;/<span class="name">canvas</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="undefined"></span></span><br><span class="line"><span class="javascript">    <span class="keyword">var</span> isMouseDown = <span class="literal">false</span>,</span></span><br><span class="line"><span class="undefined">      scale = 1.0</span></span><br><span class="line"><span class="javascript">    <span class="keyword">var</span> canvas = <span class="built_in">document</span>.querySelector(<span class="string">"#my-canvas"</span>)</span></span><br><span class="line"><span class="javascript">    <span class="keyword">var</span> offCanvas = <span class="built_in">document</span>.querySelector(<span class="string">"#off-canvas"</span>) <span class="comment">// 离屏 canvas</span></span></span><br><span class="line"><span class="javascript">    <span class="keyword">var</span> ctx = canvas.getContext(<span class="string">"2d"</span>)</span></span><br><span class="line"><span class="javascript">    <span class="keyword">var</span> offCtx = offCanvas.getContext(<span class="string">"2d"</span>) <span class="comment">// 离屏 canvas 的 Context对象</span></span></span><br><span class="line"><span class="javascript">    <span class="keyword">var</span> img = <span class="keyword">new</span> Image()</span></span><br><span class="line"><span class="undefined"></span></span><br><span class="line"><span class="javascript">    <span class="built_in">window</span>.onload = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span></span><br><span class="line"><span class="javascript">      img.src = <span class="string">"./img/photo.jpg"</span></span></span><br><span class="line"><span class="undefined"></span></span><br><span class="line"><span class="javascript">      img.onload = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span></span><br><span class="line"><span class="undefined">        canvas.width = img.width</span></span><br><span class="line"><span class="undefined">        canvas.height = img.height</span></span><br><span class="line"><span class="undefined"></span></span><br><span class="line"><span class="undefined">        offCanvas.width = img.width</span></span><br><span class="line"><span class="undefined">        offCanvas.height = img.height</span></span><br><span class="line"><span class="undefined"></span></span><br><span class="line"><span class="javascript">        <span class="comment">// 计算缩放比例</span></span></span><br><span class="line"><span class="undefined">        scale = offCanvas.width / canvas.width</span></span><br><span class="line"><span class="undefined"></span></span><br><span class="line"><span class="javascript">        <span class="comment">// 初识状态下, 两个canvas均绘制Image</span></span></span><br><span class="line"><span class="undefined">        ctx.drawImage(img, 0, 0, canvas.width, canvas.height)</span></span><br><span class="line"><span class="undefined">        offCtx.drawImage(img, 0, 0, canvas.width, canvas.height)</span></span><br><span class="line"><span class="undefined"></span></span><br><span class="line"><span class="undefined">      &#125;</span></span><br><span class="line"><span class="undefined"></span></span><br><span class="line"><span class="javascript">      <span class="comment">// 鼠标按下</span></span></span><br><span class="line"><span class="javascript">      canvas.onmousedown = <span class="function"><span class="keyword">function</span> (<span class="params">event</span>) </span>&#123;</span></span><br><span class="line"><span class="javascript">        event.preventDefault() <span class="comment">// 禁用默认事件</span></span></span><br><span class="line"><span class="javascript">        <span class="keyword">var</span> point = windowToCanvas(event.clientX, event.clientY) <span class="comment">// 获取鼠标相对于 canvas 标签的坐标</span></span></span><br><span class="line"><span class="javascript">        isMouseDown = <span class="literal">true</span></span></span><br><span class="line"><span class="javascript">        drawCanvasWithMagnifier(<span class="literal">true</span>, point) <span class="comment">// 绘制在离屏canvas上绘制放大后的图像</span></span></span><br><span class="line"><span class="undefined">      &#125;</span></span><br><span class="line"><span class="undefined"></span></span><br><span class="line"><span class="javascript">      <span class="comment">// 鼠标移动</span></span></span><br><span class="line"><span class="javascript">      canvas.onmousemove = <span class="function"><span class="keyword">function</span> (<span class="params">event</span>) </span>&#123;</span></span><br><span class="line"><span class="javascript">        event.preventDefault() <span class="comment">// 禁用默认事件</span></span></span><br><span class="line"><span class="javascript">        <span class="keyword">if</span> (isMouseDown === <span class="literal">true</span>) &#123;</span></span><br><span class="line"><span class="javascript">          <span class="keyword">var</span> point = windowToCanvas(event.clientX, event.clientY)</span></span><br><span class="line"><span class="javascript">          drawCanvasWithMagnifier(<span class="literal">true</span>, point)</span></span><br><span class="line"><span class="undefined">        &#125;</span></span><br><span class="line"><span class="undefined">      &#125;</span></span><br><span class="line"><span class="undefined"></span></span><br><span class="line"><span class="javascript">      <span class="comment">// 鼠标松开</span></span></span><br><span class="line"><span class="javascript">      canvas.onmouseup = <span class="function"><span class="keyword">function</span> (<span class="params">event</span>) </span>&#123;</span></span><br><span class="line"><span class="javascript">        event.preventDefault() <span class="comment">// 禁用默认事件</span></span></span><br><span class="line"><span class="javascript">        isMouseDown = <span class="literal">false</span></span></span><br><span class="line"><span class="javascript">        drawCanvasWithMagnifier(<span class="literal">false</span>) <span class="comment">// 不绘制离屏放大镜</span></span></span><br><span class="line"><span class="undefined">      &#125;</span></span><br><span class="line"><span class="undefined"></span></span><br><span class="line"><span class="javascript">      <span class="comment">// 鼠标移出canvas标签</span></span></span><br><span class="line"><span class="javascript">      canvas.onmouseout = <span class="function"><span class="keyword">function</span> (<span class="params">event</span>) </span>&#123;</span></span><br><span class="line"><span class="javascript">        event.preventDefault() <span class="comment">// 禁用默认事件</span></span></span><br><span class="line"><span class="javascript">        isMouseDown = <span class="literal">false</span></span></span><br><span class="line"><span class="javascript">        drawCanvasWithMagnifier(<span class="literal">false</span>) <span class="comment">// 不绘制离屏放大镜</span></span></span><br><span class="line"><span class="undefined">      &#125;</span></span><br><span class="line"><span class="undefined">    &#125;</span></span><br><span class="line"><span class="undefined"></span></span><br><span class="line"><span class="undefined">    /**</span></span><br><span class="line"><span class="undefined">    * 返回鼠标相对于canvas左上角的坐标</span></span><br><span class="line"><span class="javascript">    * @param &#123;<span class="built_in">Number</span>&#125; x 鼠标的屏幕坐标x</span></span><br><span class="line"><span class="javascript">    * @param &#123;<span class="built_in">Number</span>&#125; y 鼠标的屏幕坐标y</span></span><br><span class="line"><span class="undefined">    */</span></span><br><span class="line"><span class="javascript">    <span class="function"><span class="keyword">function</span> <span class="title">windowToCanvas</span>(<span class="params">x, y</span>) </span>&#123;</span></span><br><span class="line"><span class="javascript">      <span class="keyword">var</span> bbox = canvas.getBoundingClientRect() <span class="comment">// bbox中存储的是canvas相对于屏幕的坐标</span></span></span><br><span class="line"><span class="javascript">      <span class="keyword">return</span> &#123;</span></span><br><span class="line"><span class="undefined">        x: x - bbox.x,</span></span><br><span class="line"><span class="undefined">        y: y - bbox.y</span></span><br><span class="line"><span class="undefined">      &#125;</span></span><br><span class="line"><span class="undefined">    &#125;</span></span><br><span class="line"><span class="undefined"></span></span><br><span class="line"><span class="javascript">    <span class="function"><span class="keyword">function</span> <span class="title">drawCanvasWithMagnifier</span>(<span class="params">isShow, point</span>) </span>&#123;</span></span><br><span class="line"><span class="javascript">      ctx.clearRect(<span class="number">0</span>, <span class="number">0</span>, canvas.width, canvas.height) <span class="comment">// 清空画布</span></span></span><br><span class="line"><span class="javascript">      ctx.drawImage(img, <span class="number">0</span>, <span class="number">0</span>, canvas.width, canvas.height) <span class="comment">// 在画布上绘制图像</span></span></span><br><span class="line"><span class="undefined"></span></span><br><span class="line"><span class="javascript">      <span class="comment">/* 利用离屏，绘制放大镜 */</span></span></span><br><span class="line"><span class="javascript">      <span class="keyword">if</span> (isShow) &#123;</span></span><br><span class="line"><span class="javascript">        <span class="keyword">var</span> &#123; x, y &#125; = point</span></span><br><span class="line"><span class="undefined"></span></span><br><span class="line"><span class="javascript">        <span class="keyword">var</span> mr = <span class="number">50</span> <span class="comment">// 正方形放大镜边长</span></span></span><br><span class="line"><span class="undefined"></span></span><br><span class="line"><span class="javascript">        <span class="comment">// (sx, sy): 待放大图像的开始坐标</span></span></span><br><span class="line"><span class="javascript">        <span class="keyword">var</span> sx = x - mr / <span class="number">2</span>,</span></span><br><span class="line"><span class="undefined">          sy = y - mr / 2</span></span><br><span class="line"><span class="undefined"></span></span><br><span class="line"><span class="javascript">        <span class="comment">// (dx, dy): 已放大图像的开始坐标</span></span></span><br><span class="line"><span class="javascript">        <span class="keyword">var</span> dx = x - mr,</span></span><br><span class="line"><span class="undefined">          dy = y - mr</span></span><br><span class="line"><span class="undefined"></span></span><br><span class="line"><span class="javascript">        <span class="comment">// 将offCanvas上的(sx,sy)开始的长宽均为mr的正方形区域</span></span></span><br><span class="line"><span class="javascript">        <span class="comment">// 放大到</span></span></span><br><span class="line"><span class="javascript">        <span class="comment">// canvas上的(dx,dy)开始的长宽均为 2 * mr 的正方形可视区域</span></span></span><br><span class="line"><span class="javascript">        <span class="comment">// 由此实现放大效果</span></span></span><br><span class="line"><span class="undefined">        ctx.drawImage(offCanvas, sx, sy, mr, mr, dx, dy, 2 * mr, 2 * mr)</span></span><br><span class="line"><span class="undefined">      &#125;</span></span><br><span class="line"><span class="javascript">      <span class="comment">/*********************/</span></span></span><br><span class="line"><span class="undefined">    &#125;</span></span><br><span class="line"><span class="undefined">  </span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>放大镜效果如下图所示(被红笔标出的区域就是我们的正方形放大镜)：</p>
+<p><img src="/images/JavaScript/canvas离屏技术与放大镜实现/3.png" alt=""></p>
+    </div>
+  </div>
+  
+    <div class="copy-right">
+      <div class="markdown-body">
+        <blockquote>
+        
+        
+          本文作者 : 董沅鑫 <br>
+        
+        原文链接 : <a href="">https://godbmw.com/theme-bmw/passages/2018-08-30-canvas-off-screen/</a><br>
+        版权声明 : 本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> 许可协议。转载请注明出处！
+        </blockquote>
+      </div>
+    </div>
+  
+  
+  
+    <div class="social-share" style="margin-top: -2rem" data-wechat-qrcode-title="<p>微信扫一扫</p>" data-wechat-qrcode-helper="<p>微信右上角, 扫一扫分享</p>" data-sites="qzone, qq, weibo, wechat, douban, google, facebook, twitter">
+  <span style="color: #6b7487; font-size: 1.4rem;">分享到: </span>
+</div>
+<script src="https://cdn.bootcss.com/social-share.js/1.0.16/js/social-share.min.js" async></script>
+  
+
+  
+    <div id="reward">
+  
+    <p id="reward-meta">知识 & 情怀 | 二者兼得</p>
+  
+  <button id="reward-btn">
+    
+    <span>投食</span>
+  </button>
+  <div id="reward-qrcode">
+    
+      <div class="reward-qrcode--container">
+        <img class="qrcode-img" src="/images/wechat.png" alt="微信扫一扫, 向我投食">
+        <p class="qrcode-meta">微信扫一扫, 向我投食</p>
+      </div>
+    
+      <div class="reward-qrcode--container">
+        <img class="qrcode-img" src="/images/alipay.png" alt="支付宝扫一扫, 向我投食">
+        <p class="qrcode-meta">支付宝扫一扫, 向我投食</p>
+      </div>
+    
+  </div>
+
+</div>
+
+<script>
+  (() => {
+    let button = document.querySelector('#reward-btn'),
+      qrcode = document.querySelector('#reward-qrcode'),
+      display = false;
+    
+    button.addEventListener('click', () => {
+      qrcode.style.display = display ? 'none' : 'block'
+      display = !display
+    }, false)
+  })()
+</script>
+  
+
+  <div class="article-footer">
+    <div class="article-meta pull-left">
+      <span>
+        
+          <i class="iconfont icon-06tags"></i>标签: 
+          
+          <span class="span--tag">
+            <a href="/theme-bmw/tags/算法/">
+              #算法
+            </a>
+          </span>
+          
+          <span class="span--tag">
+            <a href="/theme-bmw/tags/HTML5/">
+              #HTML5
+            </a>
+          </span>
+          
+          <span class="span--tag">
+            <a href="/theme-bmw/tags/图像处理/">
+              #图像处理
+            </a>
+          </span>
+          
+          <span class="span--tag">
+            <a href="/theme-bmw/tags/canvas/">
+              #canvas
+            </a>
+          </span>
+          
+        
+      </span>
+    </div>
+    <div class="article-meta pull-right">
+    </div>
+  </div>
+</div>
+
+
+  <aside id="sidebar">
+    <p id="sidebar-header"></p>
+    <ol id="sidebar-toc"></ol>
+  </aside>
+  <script async>setTimeout(generateToc, 10);</script>
+
+
+  <nav class="post-navigation">
+    
+      <div class="nav-pre">
+        <i class="iconfont icon-prev"></i>
+        上一篇:
+        <a href="/theme-bmw/passages/2018-08-29-interview-material/" target="_self">面试资源汇总</a>
+      </div>
+    
+    
+      <div class="nav-next">
+        下一篇:
+        <a href="/theme-bmw/passages/2018-09-01-js-tree-shaking/" target="_self">webpack4 系列教程(八): JS Tree Shaking</a>
+        <i class="iconfont icon-next"></i>
+      </div>
+    
+  </nav>
+
+  
+    <a href="#comment" class="comment-anchor"></a>
+<div class="comment-title"><i class="iconfont icon-footprint"></i> 留下足迹 <i class="iconfont icon-footprint"></i></div>
+<div id="vcomments"></div>
+
+<script defer>
+  if( true ) {
+    let path = getRealPath()
+    new Valine({
+      el: "#vcomments",
+      appId: "j3TlSqBMjoXnrIrNYB5En5Y1-gzGzoHsz",
+      appKey: "d2rWR1nq5chvzXzh3bSyB8ug",
+      notify: false,
+      verify: false,
+      avatar: "robohash",
+      placeholder: "正确填写邮箱, 才能及时收到回复哦♪(^∇^*)",
+      path
+    });
+  }
+</script>
+   
+
+  
+    <script defer>
+const valineAPI = (() => {
+  try {
+    AV.init("j3TlSqBMjoXnrIrNYB5En5Y1-gzGzoHsz", "d2rWR1nq5chvzXzh3bSyB8ug");
+  } catch(error) {}
+  const isExist = (identity) => {
+    identity = identity || getRealPath();
+    let query = new AV.Query('Timer');
+    return new Promise((resolve, reject) => {
+      query.equalTo("identity", identity);
+      query.find().then(results => {
+        resolve(results.length > 0);
+      }, error => reject(error));
+    })
+  }
+
+  const _get = (identity) => {
+    let query = null;
+    if(identity && identity instanceof Array){
+      let querys = [];
+      for(let i = 0; i < identity.length; ++i) {
+        querys[i] = new AV.Query('Timer');
+        querys[i].equalTo('identity', identity[i]);
+      }
+      query = AV.Query.or.apply(null ,querys);
+    } else {
+      identity = identity || getRealPath();
+      query = new AV.Query("Timer");
+      query.equalTo("identity", identity);
+    }
+
+    return new Promise((resolve, reject) => {
+      query.find()
+      .then(results => resolve(results))
+      .catch(error => reject(error))
+    })
+  }
+
+  const create = (identity) => {
+    identity = identity || getRealPath();
+    return new Promise((resolve, reject) => {
+      let Todo = AV.Object.extend('Timer');
+      let todo = new Todo();
+      todo.set("times", 1);
+      todo.set("identity", identity);
+      todo.save().then(res => resolve(true), error => reject(error));
+    })
+  }
+
+  const update = (identity) => {
+    identity = identity || getRealPath();
+    return new Promise((resolve, reject) => {
+      let query = new AV.Query('Timer');
+      query.equalTo("identity", identity);
+      query.find().then(todos => {
+        todos.forEach(todo => {
+          todo.set("times", todo.attributes.times + 1);
+        });
+        return AV.Object.saveAll(todos);
+      }).then(todos => resolve(true), error => reject(error));
+    })
+  }
+
+  return {
+    isExist,
+    _get,
+    update,
+    create
+  }
+})()
+
+const calcAndWriteTimes = () => {
+  let isPost = true;
+
+  let timerAllDOM = document.querySelectorAll(".article-timer");
+
+  if(isPost) {
+    let identity = timerAllDOM[0].getAttribute("data-identity");
+    valineAPI.isExist(identity)
+    .then(exist => {
+      if(exist) {
+        return valineAPI.update(identity);
+      }
+      return new Promise(resolve => resolve(true));
+    })
+    .then( succuess => valineAPI._get(identity))
+    .then( result => timerAllDOM[0].innerText = result[0].attributes.times)
+    .catch(error => console.log(error.message))
+    return ;
+  }
+
+  let timerDOMCache = {};
+
+  for(let timerDOM of timerAllDOM) {
+    let identity = timerDOM.getAttribute("data-identity");
+    if(timerDOMCache.hasOwnProperty(identity)){
+      timerDOMCache[identity].dom.push(timerDOM);
+    }else{
+      timerDOMCache[identity] = {
+        dom: [timerDOM],
+        times: undefined
+      };
+    }
+  }
+
+  let identities = Object.keys(timerDOMCache);
+  valineAPI._get(identities).then(results => {
+    for(let result of results) {
+      let {identity, times} = result.attributes;
+      timerDOMCache[identity].times = times;
+      timerDOMCache[identity].dom.map(item => item.innerText = times);
+    }
+    for(let identity of identities) {
+      if(timerDOMCache[identity].times){
+        continue;
+      }
+      timerDOMCache[identity].dom.map(item => item.innerText = 1);
+      valineAPI.create(identity);
+    }
+  }).catch(error => console.log(error.message))
+}
+
+if(true){
+  calcAndWriteTimes();
+}
+</script>
+   
+
+</div>
+
+
+      <footer>
+  <p class="site-info">
+    博客已萌萌哒运行<span id="time-to-now"></span><span class="my-face">(●'◡'●)ﾉ♥</span>
+    <br>
+    Theme - <a href="https://github.com/dongyuanxin/theme-bmw">BMW</a> | Made With 💗 | Powered by <a href="https://godbmw.com/">GodBMW</a>
+    <br>
+    
+      <a href="https://www.google.com/analytics/" target="_blank">Google Analytics</a> 提供网站统计服务.  <a href="https://sg.godaddy.com/" target="_blank">GoDaddy</a> 提供域名注册服务.  <br> <a href="https://www.trustasia.com/" target="_blank">TrustAsia</a> 签发SSL证书.  <a href="http://www.miibeian.gov.cn/state/outPortal/loginPortal.action" target="_blank">粤ICP备18028400号</a> . 
+    
+  </p>
+</footer>
+
+
+
+<script>
+const timeToNowDOM = document.querySelector("#time-to-now");
+const startTimestamp = new Date(2018, 1, 10).getTime();
+
+const updateTimeStr = () => {
+  let offset = parseInt(
+      (new Date().getTime() - startTimestamp) / 1000,
+      10
+    ),
+    day = Math.floor(offset / 86400),
+    hour = Math.floor((offset % 86400) / 3600),
+    minute = Math.floor(((offset % 86400) % 3600) / 60),
+    second = Math.floor(((offset % 86400) % 3600) % 60);
+  timeToNowDOM.innerHTML =
+    day + "天" + hour + "小时" + minute + "分钟" + second + "秒";
+  setTimeout(updateTimeStr, 500);
+}
+
+setTimeout(updateTimeStr, 500);
+</script>
+
+
+      <div class="back-to-top hidden">
+  <span>
+    <i class="iconfont icon-60"></i><span></span>%
+  </span>
+</div>
+
+<script>
+const updateIconToTop = percent => {
+  let dom = document.querySelector(".back-to-top span span");
+  dom.innerText = percent;
+  if(percent < 1) {
+    document.querySelector(".back-to-top").className = "back-to-top hidden";
+  } else {
+    document.querySelector(".back-to-top").className = "back-to-top";
+  }
+}
+
+const handleScoll = () => {
+  let isRunning = false;
+  return () => {
+    if (isRunning) return;
+    isRunning = true;
+    window.requestAnimationFrame(timestamp => {
+      let scrollTop =
+          document.documentElement.scrollTop || document.body.scrollTop,
+        scrollHeight =
+          document.documentElement.scrollHeight ||
+          document.body.scrollHeight,
+        clientHeight =
+          document.documentElement.clientHeight ||
+          document.body.clientHeight;
+      isRunning = false;
+      if (scrollTop <= 1) {
+        updateIconToTop(0);
+        return;
+      }
+      if (scrollTop + clientHeight >= scrollHeight) {
+        updateIconToTop(100);
+      } else {
+        updateIconToTop(parseInt(
+          100 * scrollTop / (scrollHeight - clientHeight),
+          10
+        ));
+      }
+    });
+  };
+}
+
+const backToTop = () => {
+  let scrollTop =
+      document.documentElement.scrollTop || document.body.scrollTop,
+    delay = 10,
+    time = 200;
+  if (scrollTop <= 20) {
+    document.documentElement.scrollTop = 0;
+    document.body.scrollTop = 0;
+    return;
+  }
+  let step = Math.ceil(scrollTop * delay / time);
+  let timer = setInterval(() => {
+    scrollTop =
+      document.documentElement.scrollTop || document.body.scrollTop;
+    if (scrollTop - step <= 0) {
+      document.documentElement.scrollTop = 0;
+      document.body.scrollTop = 0;
+      clearInterval(timer);
+    } else {
+      document.documentElement.scrollTop = scrollTop - step;
+      document.body.scrollTop = scrollTop - step;
+    }
+  }, delay);
+}
+
+document.addEventListener("scroll", handleScoll(), false);
+
+document.querySelector(".back-to-top").addEventListener("click", backToTop, false);
+
+</script>
+
+    </div>
+
+    
+      <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML" async></script>
+<script>
+  (() => {
+    const mathjaxConfig = {
+      showProcessingMessages: false, //关闭js加载过程信息
+      messageStyle: "none", //不显示信息
+      jax: ["input/TeX", "output/HTML-CSS"],
+      tex2jax: {
+        inlineMath: [["$", "$"], ["\\(", "\\)"]], //行内公式选择符
+        displayMath: [["$$", "$$"], ["\\[", "\\]"]], //段内公式选择符
+        skipTags: ["script", "noscript", "style", "textarea", "pre", "code", "a"] //避开某些标签
+      },
+      "HTML-CSS": {
+        availableFonts: ["STIX", "TeX"], //可选字体
+        showMathMenu: false //关闭右击菜单显示
+      }
+    }
+
+    let mathjaxInterval = setInterval(() => {
+      if(!window.MathJax){
+        return;
+      }
+      window.MathJax.Hub.Config(mathjaxConfig)
+      window.MathJax.Hub.Queue(["Typeset", MathJax.Hub, document.getElementById('app')])
+
+      clearInterval(mathjaxInterval)
+    }, 10)    
+  })()
+</script>
+    
+
+    <script src="https://cdn.bootcss.com/fancybox/3.5.2/jquery.fancybox.min.js" async></script>
+<script async>
+  let fancyTimer = setInterval(function(){
+    if(!window.$){
+      return;
+    }
+    $(document).ready(function() {
+      $(".post img").each(function () {
+        if($(this).parent().get(0).tagName.toLowerCase() === "a") {
+          return;
+        }
+        // $(this).attr("data-fancybox", "gallery"); // if you add 'data-fancybox', img will display after showed
+        var element = document.createElement("a");
+        $(element).attr("data-fancybox", "gallery");
+        $(element).attr("href", $(this).attr("src"));
+        $(this).wrap(element);
+      });
+      
+      clearInterval(fancyTimer);
+    });
+  }, 10);
+</script>
+
+    
+    <script async>
+try {
+  AV.init("j3TlSqBMjoXnrIrNYB5En5Y1-gzGzoHsz", "d2rWR1nq5chvzXzh3bSyB8ug");
+} catch(error) {}
+
+let pathname = decodeURIComponent(window.location.pathname);
+!pathname.endsWith('/') && (pathname = pathname + '/');
+
+let Counter = AV.Object.extend("Counter");
+let counter = new Counter();
+counter.set("visit_time", new Date().getTime().toString());
+counter.set("user_agent", window.navigator.userAgent);
+counter.set("identity_path", pathname);
+counter.set("more_info", JSON.stringify(window.location));
+
+let acl = new AV.ACL();
+acl.setPublicReadAccess(true);
+acl.setPublicWriteAccess(false);
+
+counter.setACL(acl);
+counter.save();
+</script>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-124601890-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-124601890-1');
+</script>
+
+
+<script async>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+<script async>
+(function(){
+var src = (document.location.protocol == "http:") ? "http://js.passport.qihucdn.com/11.0.1.js?bbf5bdfcccab2efb9fd4e96c19271f1a":"https://jspassport.ssl.qhimg.com/11.0.1.js?bbf5bdfcccab2efb9fd4e96c19271f1a";
+document.write('<script src="' + src + '" id="sozz"><\/script>');
+})();
+</script>
+  </body>
+
+</html>

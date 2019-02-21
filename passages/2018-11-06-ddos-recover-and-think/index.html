@@ -1,0 +1,823 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+  
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="utf-8">
+  <meta name="author" content="董沅鑫, yuanxin.me@gmail.com">
+  
+  
+  
+  <title>被DDos后的及时补救与一些思考 | 董沅鑫的个人网站</title>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  
+    <meta name="keywords" content="网站搭建与运营,服务器,CDN,网络安全,云服务,">
+  
+
+  <script>
+    console.log('\n%c Hexo-theme-bmw v4.0 ' + '%c 🎉 https://github.com/dongyuanxin/theme-bmw 🎉\n' + '\n%c View demo online ' + '%c 🔍 https://godbmw.com/ 🔍  \n' , 'color: #fadfa3; background: #030307; padding:3px 0;', '', 'color: #fadfa3; background: #030307; padding:3px 0;', '');
+  </script>
+
+  
+    <meta name="description" content="来点音乐公司技术合伙人, 现在腾讯(深圳)web实习, Python, ES6, CSS3, VueJS, ReactJS, Node, Webpack, PWA, Native">
+  
+
+  
+    <link rel="alternate" href="/atom.xml" title="董沅鑫的个人网站" type="application/atom+xml">
+  
+
+  
+    <link rel="icon" href="/images/favicon.ico">
+    <link rel="apple-touch-icon" href="/images/touch-icon.png">
+  
+
+  <link href="https://cdn.bootcss.com/fancybox/3.5.2/jquery.fancybox.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="/theme-bmw/css/base.css">
+<link rel="stylesheet" href="/theme-bmw/icon/iconfont.css">
+<link rel="stylesheet" href="/theme-bmw/css/github-markdown.css">
+<link rel="stylesheet" href="/theme-bmw/css/highlight.css">
+
+  <script src="/theme-bmw/js/util.js"></script>
+<script src="/theme-bmw/js/valine.min.js"></script>
+
+  
+
+  
+    <link href="https://cdn.bootcss.com/aplayer/1.10.1/APlayer.min.css" rel="stylesheet">
+    <script src="https://cdn.bootcss.com/aplayer/1.10.1/APlayer.min.js" async></script>
+  
+
+  
+    <link href="https://cdn.bootcss.com/social-share.js/1.0.16/css/share.min.css" rel="stylesheet">
+  
+  
+  <script src="//cdn.bootcss.com/jquery/3.3.1/jquery.min.js" async></script>
+  
+  
+    <script src="//cdn.jsdelivr.net/npm/leancloud-storage@3.11.0/dist/av-min.js"></script>
+  
+
+</head>
+
+  <body>
+
+    
+
+    <div id="app">
+
+      <div class="header-wrap">
+  <header>
+    <div class="site-brand">
+      <div class="site-title">
+        <a href="/theme-bmw/">GODBMW.com</a>
+      </div>
+    </div>
+    <nav class="site-navigation">
+      <ul class="nav-menu">
+      
+        <li class="nav-item" data-path="/">
+          
+            <a href="/theme-bmw/" target="_self">
+              主页
+            </a>
+          
+        </li>
+      
+        <li class="nav-item" data-path="">
+          
+            <a href="javascript:void(0);" v-else="">教程</a>
+            <ul class="nav-menu--dropdown">
+              
+                <li>
+                  <a href="/theme-bmw/categories/webpack4系列教程/" target="_self">
+                    webpack4系列教程
+                  </a>
+                </li>
+              
+                <li>
+                  <a href="https://godbmw.com/design-patterns/" target="_self">
+                    每天一个设计模式
+                  </a>
+                </li>
+              
+            </ul>
+          
+        </li>
+      
+        <li class="nav-item" data-path="/archives/">
+          
+            <a href="/theme-bmw/archives/" target="_self">
+              归档
+            </a>
+          
+        </li>
+      
+        <li class="nav-item" data-path="/categories/">
+          
+            <a href="/theme-bmw/categories/" target="_self">
+              分类
+            </a>
+          
+        </li>
+      
+        <li class="nav-item" data-path="/tags/">
+          
+            <a href="/theme-bmw/tags/" target="_self">
+              标签
+            </a>
+          
+        </li>
+      
+        <li class="nav-item" data-path="/friends/">
+          
+            <a href="/theme-bmw/friends/" target="_self">
+              友链
+            </a>
+          
+        </li>
+      
+        <li class="nav-item" data-path="/about/">
+          
+            <a href="/theme-bmw/about/" target="_self">
+              关于
+            </a>
+          
+        </li>
+      
+        <li class="nav-item" data-path="">
+          
+            <a href="javascript:void(0);" v-else="">抓到我</a>
+            <ul class="nav-menu--dropdown">
+              
+                <li>
+                  <a href="/theme-bmw/atom.xml" target="_blank">
+                    RSS 订阅
+                  </a>
+                </li>
+              
+                <li>
+                  <a href="https://github.com/dongyuanxin" target="_blank">
+                    Github
+                  </a>
+                </li>
+              
+                <li>
+                  <a href="https://juejin.im/user/5b91fcf06fb9a05d3c7fd4a5" target="_blank">
+                    掘金
+                  </a>
+                </li>
+              
+                <li>
+                  <a href="https://segmentfault.com/u/godbmw" target="_blank">
+                    SegmentFault
+                  </a>
+                </li>
+              
+                <li>
+                  <a href="https://www.zhihu.com/people/godbmw/activities" target="_blank">
+                    知乎
+                  </a>
+                </li>
+              
+            </ul>
+          
+        </li>
+      
+      </ul>
+    </nav>
+    <i class="iconfont icon-menu"></i>
+  </header>
+</div>
+
+<script>
+  let links = document.querySelectorAll('.nav-item');
+  for(let link of links){
+    let childrenLink = link.querySelector('ul');
+    link.addEventListener('mouseenter', () => {
+      if(childrenLink) {
+        childrenLink.className = "nav-menu--dropdown active";
+      }
+    })
+    link.addEventListener('mouseleave', () => {
+      if(childrenLink) {
+        childrenLink.className = "nav-menu--dropdown";
+      }
+    })
+  }
+  let rootRealPath = getRealPath(window.location.pathname, true);
+  for(let link of links) {
+    let linkPath = link.getAttribute("data-path");
+    if(linkPath && getRealPath(linkPath, true) === rootRealPath) {
+      link.className = "nav-item hover";
+    }
+  }
+
+  let iconMenu = document.querySelector("i.iconfont.icon-menu"),
+    iconMenuClicked = false;
+  let navDOM = document.querySelector("nav.site-navigation");
+  iconMenu.addEventListener("click", () => {
+    iconMenuClicked 
+      ? navDOM.className = "site-navigation active"
+      : navDOM.className = "site-navigation";
+    iconMenuClicked = !iconMenuClicked;
+  })
+</script>
+
+      
+
+
+
+
+
+
+
+
+<div class="container post-index">
+
+  
+
+<div class="post">
+  <h1 class="article-title">
+    <span>被DDos后的及时补救与一些思考</span>
+  </h1>
+  <div class="article-top-meta">
+    <span>
+      发布 : 
+      2018-11-06
+    </span>
+    
+      <span>
+        分类 : 
+          <a href="/theme-bmw/categories/网站搭建与运营/">
+            网站搭建与运营
+          </a>
+      </span>
+    
+    
+      <span>
+        浏览 : <span class="article-timer" data-identity="2018-11-06-ddos-recover-and-think"></span>
+      </span>
+    
+  </div>
+
+  
+
+  <div class="article-content">
+    <div class="markdown-body">
+      <blockquote>
+<p>最近3天，我的小站<a href="https://godbmw.com">godbmw.com</a>经历了2次DDoS。第一次因为没有限制QPS，短短几分钟内CDN被盗刷了300G流量。第二次完善了相关保护措施后，CDN依然被D了90G的流量。经过2天的迁移和补救，终于使得网站服务恢复正常。用此篇记录下整个奋战过程。希望对广大站长有帮助。</p>
+</blockquote>
+<h2 id="1-来自歪果仁的恶意"><a href="#1-来自歪果仁的恶意" class="headerlink" title="1. 来自歪果仁的恶意"></a>1. 来自歪果仁的恶意</h2><h3 id="1-1-遭遇DDoS"><a href="#1-1-遭遇DDoS" class="headerlink" title="1.1 遭遇DDoS"></a>1.1 遭遇DDoS</h3><p>我的CDN部署在腾讯云，10月2日接收到短信提醒：CDN流量已用完。登陆控制台后发现，被盗刷了360G，宽带峰值也到达了难以想象的680Mbps。<strong>这对于一个个人网站来说，几乎是不可能的流量。</strong></p>
+<p><img src="/images/网站搭建与运营/被DDoS后的及时补救与一些思考/1.png" alt=""></p>
+<p>抱着怀疑的态度，我查看了区域商分布，果然，海外的请求占了总请求的98.24%。其中300多G的流量都来自海外，现在可以确定是歪果仁盗刷了我的CDN流量。</p>
+<p><img src="/images/网站搭建与运营/被DDoS后的及时补救与一些思考/2.png" alt=""></p>
+<p>没有办法，被迫联系工单，但因为我自己的一些防御没做好，所以这次的补偿不了了之。无奈，只能出钱补上了被盗刷的流量，以保证服务正常使用。并且在工单的交流中，增设了QPS等安全措施。</p>
+<p><strong>毫无疑问，限制QPS会影响用户的正常使用，造成延迟。但保险起见，我还是设置了QPS，只希望不要再被攻击。</strong></p>
+<h3 id="1-2-再次遭遇"><a href="#1-2-再次遭遇" class="headerlink" title="1.2 再次遭遇"></a>1.2 再次遭遇</h3><p>但好景不长，仅安稳度过了一天，又一波来自海外的DDoS让我不得不临时关闭CDN和COS服务。下图中第一个峰值是上一次DDoS，第二个峰值是这次的DDoS。</p>
+<p><img src="/images/网站搭建与运营/被DDoS后的及时补救与一些思考/3.png" alt=""></p>
+<p>这次的攻击更高级，颇有一种“道高一尺，魔高一丈”的味道。因为之前应增设了QPS等限制，但这样完全限制不了IP代理池等攻击手段，黑客这次也选择了体积较大的单文件进行攻击。</p>
+<p><img src="/images/网站搭建与运营/被DDoS后的及时补救与一些思考/4.png" alt=""></p>
+<p>我惯例去找了工单，<strong>因为上次腾讯云的工程师专门call过来：只要增设了相关安全限制，下次确认是盗刷立即给予补偿</strong>。然而这次工单依然是打太极，各种文档、规则扔给我，闭口不谈补偿问题，并且说是我的QPS设置太高了:)。</p>
+<p>问题是：QPS设置成5，项目还用不用了？如果用户处于同一个局域网下（校内网、Wifi等场景），那在同一秒中只有一个用户可以正常使用？</p>
+<p>最后，工程师还是call过来，经过了1小时的聊天，可以补偿，但是要等一段时间才能批下来这90G的流量包。然而我的流量已经超了，我还是要自己补以保证第二天正常使用。好吧，也算是一个解决方案。</p>
+<h3 id="1-3-无路可走"><a href="#1-3-无路可走" class="headerlink" title="1.3 无路可走"></a>1.3 无路可走</h3><p>经历了2次DDoS，我设置了“宽带封顶配置“。根据平日的使用量，我估计“3Mbps”，并且在超值的时候，返回404，关停服务。</p>
+<p><img src="/images/网站搭建与运营/被DDoS后的及时补救与一些思考/5.png" alt=""></p>
+<p>当日晚，就接收到了CDN到达宽带封顶的短信，自动关停了CDN服务：项目也无法正常使用了。</p>
+<p>这次，彻底是绝望了，只能先关闭CDN服务，寻求别的解决方法。</p>
+<h2 id="2-坎坷的补救措施"><a href="#2-坎坷的补救措施" class="headerlink" title="2. 坎坷的补救措施"></a>2. 坎坷的补救措施</h2><p>在补救的时候，首先排除了工单的意见：回源到原站或者COS（对象存储服务）。前者会直接造成服务器瘫痪，DDoS是结结实实打在服务器上；后者COS也是流量或者宽带后收费，本质上和CDN没区别。</p>
+<p>所以，关闭当前的CDN加速域名，并且清空了COS中的文件。然后针对个人网站和项目应用做了不同的处理。</p>
+<h3 id="2-1-公司项目：更改CDN域名"><a href="#2-1-公司项目：更改CDN域名" class="headerlink" title="2.1 公司项目：更改CDN域名"></a>2.1 公司项目：更改CDN域名</h3><p>观察被盗刷的资源，全部都是个人网站的静态资源。而公司项目只有合作的商户在使用，并且在<code>robots.txt</code>中禁止了爬虫，所以用利用另一个账号开启了一个新的COS并且开启了对应的CDN加速域名。</p>
+<p><em>至于为什么个人网站和公司项目要放在一起，只是因为方便上传和管理，现在看来省事一步，后患无穷。</em></p>
+<h3 id="2-2-个人网站：Git平台"><a href="#2-2-个人网站：Git平台" class="headerlink" title="2.2 个人网站：Git平台"></a>2.2 个人网站：Git平台</h3><p>借助免费的Git平台，可以存放图片、代码等数据，并且可以在外部访问到。考虑到国内用户居多，所以我将<a href="https://godbmw.com/friend">友链界面</a>的图片和文章中的图片存放到了<a href="https://coding.net/" target="_blank" rel="noopener">Coding.net</a>的公有仓库中。</p>
+<p>例如下面这种图片的地址就是：<a href="https://qcloud.coding.net/u/godbmw/p/blog/git/raw/master/markdown-static/网站搭建与运营/第一次遭遇云服务器完全崩溃/1.png" target="_blank" rel="noopener">https://qcloud.coding.net/u/godbmw/p/blog/git/raw/master/markdown-static/网站搭建与运营/第一次遭遇云服务器完全崩溃/1.png</a></p>
+<p><img src="https://qcloud.coding.net/u/godbmw/p/blog/git/raw/master/markdown-static/%E7%BD%91%E7%AB%99%E6%90%AD%E5%BB%BA%E4%B8%8E%E8%BF%90%E8%90%A5/%E7%AC%AC%E4%B8%80%E6%AC%A1%E9%81%AD%E9%81%87%E4%BA%91%E6%9C%8D%E5%8A%A1%E5%99%A8%E5%AE%8C%E5%85%A8%E5%B4%A9%E6%BA%83/1.png" alt=""></p>
+<p>当当我把代码放在Coding或者github上时，虽然可以请求到代码的内容，<strong>但是<code>Response Header</code>中的<code>Content-Type</code>字段的值是: <code>text/plain; ...</code>。对于CSS样式文件，浏览器无法自动解析</strong>。因此，打包后的js、css等项目文件不能放在Git平台。</p>
+<h3 id="2-3-免费CDN：CloudFlare"><a href="#2-3-免费CDN：CloudFlare" class="headerlink" title="2.3 免费CDN：CloudFlare"></a>2.3 免费CDN：<a href="https://www.cloudflare.com/" target="_blank" rel="noopener">CloudFlare</a></h3><p>这是全球最大的<strong>免费的CDN</strong>，并且<strong>国内也可以访问</strong>。ping值稳定在100ms左右，具体可以去查看相关测试文章。除此之外，cloudflare可以<strong>抗下DDoS、CC等攻击</strong>，听说百度抗不下来海外的DDoS的时候，也是DNS解析到cloudflare进行处理。</p>
+<p>cloudflare的操作很简单，首次注册按照它的指导到域名注册上修改DNS解析即可。如果是国外的域名注册商，几分钟就可以同步。国内的并没有尝试。如果成功了，CONSOLE页面就会显示“Active”。</p>
+<p><img src="/images/网站搭建与运营/被DDoS后的及时补救与一些思考/6.png" alt=""></p>
+<p><strong>感谢来自V友们的提示：请在CloudFlare的控制台的DNS面板中，点亮小云朵（开启HTTP Proxy），否则是无法使用他们的CDN的，IP还是暴露的</strong>。</p>
+<p>除此之外，还有一下措施：</p>
+<ol>
+<li>控制台提高安全等级：默认是Essentially Off，可以根据情况提升</li>
+<li>设置防火墙规则：国内ip直接访问，国外ip需要通过Javascript验证</li>
+<li>限制访问频次</li>
+</ol>
+<p>到此，<a href="https://godbmw.com">个人网站</a>就可以正常访问了。</p>
+<h2 id="3-一些思考"><a href="#3-一些思考" class="headerlink" title="3. 一些思考"></a>3. 一些思考</h2><p>在这之前一直在使用腾讯云，希望云平台可以采纳预付费（现在是后付费）限制宽带的做法。</p>
+<p>而腾讯云的官方文档也有提及DDos等攻击造成流量激增的免除措施，如下图所示：</p>
+<p><img src="/images/网站搭建与运营/被DDoS后的及时补救与一些思考/7.png" alt=""></p>
+<p>不知道大家发现了没有，宽带必须到达10Gbps以上才可以免除。然而这次经历的才只有680Mbps，如果到10Gbps，那后果真是不敢想象，怕是要赔掉裤子。<strong>和工单讨论的时候，工单就给了我这张图片，如果用户被盗刷达到了9Gbps呢？也是他们说的不符合要求，还是需要用户自己买单</strong>。损失肯定难以衡量。希望日后平台可以改进相关规定。</p>
+<p>刚做网站的时候关心名头（傻傻觉得越大公司越靠谱），现在才发现云平台的<strong>安全稳定、补救措施、收费标准</strong>才是关键。</p>
+<p><strong>最后，如果是个人项目，强烈推荐使用国外的“cloudflare”，免费、不限流量、抗攻击，就像国外的JetBrians（教育版免费），都是有情怀的公司，致敬！！！</strong></p>
+    </div>
+  </div>
+  
+    <div class="copy-right">
+      <div class="markdown-body">
+        <blockquote>
+        
+        
+          本文作者 : 董沅鑫 <br>
+        
+        原文链接 : <a href="">https://godbmw.com/theme-bmw/passages/2018-11-06-ddos-recover-and-think/</a><br>
+        版权声明 : 本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> 许可协议。转载请注明出处！
+        </blockquote>
+      </div>
+    </div>
+  
+  
+  
+    <div class="social-share" style="margin-top: -2rem" data-wechat-qrcode-title="<p>微信扫一扫</p>" data-wechat-qrcode-helper="<p>微信右上角, 扫一扫分享</p>" data-sites="qzone, qq, weibo, wechat, douban, google, facebook, twitter">
+  <span style="color: #6b7487; font-size: 1.4rem;">分享到: </span>
+</div>
+<script src="https://cdn.bootcss.com/social-share.js/1.0.16/js/social-share.min.js" async></script>
+  
+
+  
+    <div id="reward">
+  
+    <p id="reward-meta">知识 & 情怀 | 二者兼得</p>
+  
+  <button id="reward-btn">
+    
+    <span>投食</span>
+  </button>
+  <div id="reward-qrcode">
+    
+      <div class="reward-qrcode--container">
+        <img class="qrcode-img" src="/images/wechat.png" alt="微信扫一扫, 向我投食">
+        <p class="qrcode-meta">微信扫一扫, 向我投食</p>
+      </div>
+    
+      <div class="reward-qrcode--container">
+        <img class="qrcode-img" src="/images/alipay.png" alt="支付宝扫一扫, 向我投食">
+        <p class="qrcode-meta">支付宝扫一扫, 向我投食</p>
+      </div>
+    
+  </div>
+
+</div>
+
+<script>
+  (() => {
+    let button = document.querySelector('#reward-btn'),
+      qrcode = document.querySelector('#reward-qrcode'),
+      display = false;
+    
+    button.addEventListener('click', () => {
+      qrcode.style.display = display ? 'none' : 'block'
+      display = !display
+    }, false)
+  })()
+</script>
+  
+
+  <div class="article-footer">
+    <div class="article-meta pull-left">
+      <span>
+        
+          <i class="iconfont icon-06tags"></i>标签: 
+          
+          <span class="span--tag">
+            <a href="/theme-bmw/tags/服务器/">
+              #服务器
+            </a>
+          </span>
+          
+          <span class="span--tag">
+            <a href="/theme-bmw/tags/CDN/">
+              #CDN
+            </a>
+          </span>
+          
+          <span class="span--tag">
+            <a href="/theme-bmw/tags/网络安全/">
+              #网络安全
+            </a>
+          </span>
+          
+          <span class="span--tag">
+            <a href="/theme-bmw/tags/云服务/">
+              #云服务
+            </a>
+          </span>
+          
+        
+      </span>
+    </div>
+    <div class="article-meta pull-right">
+    </div>
+  </div>
+</div>
+
+
+  <aside id="sidebar">
+    <p id="sidebar-header"></p>
+    <ol id="sidebar-toc"></ol>
+  </aside>
+  <script async>setTimeout(generateToc, 10);</script>
+
+
+  <nav class="post-navigation">
+    
+      <div class="nav-pre">
+        <i class="iconfont icon-prev"></i>
+        上一篇:
+        <a href="/theme-bmw/passages/2018-11-06-iter-pattern/" target="_self">每天一个设计模式之迭代器模式</a>
+      </div>
+    
+    
+      <div class="nav-next">
+        下一篇:
+        <a href="/theme-bmw/passages/2018-11-14-hexo-theme-bmw/" target="_self">一款简约且实用的Hexo新主题：BMW</a>
+        <i class="iconfont icon-next"></i>
+      </div>
+    
+  </nav>
+
+  
+    <a href="#comment" class="comment-anchor"></a>
+<div class="comment-title"><i class="iconfont icon-footprint"></i> 留下足迹 <i class="iconfont icon-footprint"></i></div>
+<div id="vcomments"></div>
+
+<script defer>
+  if( true ) {
+    let path = getRealPath()
+    new Valine({
+      el: "#vcomments",
+      appId: "j3TlSqBMjoXnrIrNYB5En5Y1-gzGzoHsz",
+      appKey: "d2rWR1nq5chvzXzh3bSyB8ug",
+      notify: false,
+      verify: false,
+      avatar: "robohash",
+      placeholder: "正确填写邮箱, 才能及时收到回复哦♪(^∇^*)",
+      path
+    });
+  }
+</script>
+   
+
+  
+    <script defer>
+const valineAPI = (() => {
+  try {
+    AV.init("j3TlSqBMjoXnrIrNYB5En5Y1-gzGzoHsz", "d2rWR1nq5chvzXzh3bSyB8ug");
+  } catch(error) {}
+  const isExist = (identity) => {
+    identity = identity || getRealPath();
+    let query = new AV.Query('Timer');
+    return new Promise((resolve, reject) => {
+      query.equalTo("identity", identity);
+      query.find().then(results => {
+        resolve(results.length > 0);
+      }, error => reject(error));
+    })
+  }
+
+  const _get = (identity) => {
+    let query = null;
+    if(identity && identity instanceof Array){
+      let querys = [];
+      for(let i = 0; i < identity.length; ++i) {
+        querys[i] = new AV.Query('Timer');
+        querys[i].equalTo('identity', identity[i]);
+      }
+      query = AV.Query.or.apply(null ,querys);
+    } else {
+      identity = identity || getRealPath();
+      query = new AV.Query("Timer");
+      query.equalTo("identity", identity);
+    }
+
+    return new Promise((resolve, reject) => {
+      query.find()
+      .then(results => resolve(results))
+      .catch(error => reject(error))
+    })
+  }
+
+  const create = (identity) => {
+    identity = identity || getRealPath();
+    return new Promise((resolve, reject) => {
+      let Todo = AV.Object.extend('Timer');
+      let todo = new Todo();
+      todo.set("times", 1);
+      todo.set("identity", identity);
+      todo.save().then(res => resolve(true), error => reject(error));
+    })
+  }
+
+  const update = (identity) => {
+    identity = identity || getRealPath();
+    return new Promise((resolve, reject) => {
+      let query = new AV.Query('Timer');
+      query.equalTo("identity", identity);
+      query.find().then(todos => {
+        todos.forEach(todo => {
+          todo.set("times", todo.attributes.times + 1);
+        });
+        return AV.Object.saveAll(todos);
+      }).then(todos => resolve(true), error => reject(error));
+    })
+  }
+
+  return {
+    isExist,
+    _get,
+    update,
+    create
+  }
+})()
+
+const calcAndWriteTimes = () => {
+  let isPost = true;
+
+  let timerAllDOM = document.querySelectorAll(".article-timer");
+
+  if(isPost) {
+    let identity = timerAllDOM[0].getAttribute("data-identity");
+    valineAPI.isExist(identity)
+    .then(exist => {
+      if(exist) {
+        return valineAPI.update(identity);
+      }
+      return new Promise(resolve => resolve(true));
+    })
+    .then( succuess => valineAPI._get(identity))
+    .then( result => timerAllDOM[0].innerText = result[0].attributes.times)
+    .catch(error => console.log(error.message))
+    return ;
+  }
+
+  let timerDOMCache = {};
+
+  for(let timerDOM of timerAllDOM) {
+    let identity = timerDOM.getAttribute("data-identity");
+    if(timerDOMCache.hasOwnProperty(identity)){
+      timerDOMCache[identity].dom.push(timerDOM);
+    }else{
+      timerDOMCache[identity] = {
+        dom: [timerDOM],
+        times: undefined
+      };
+    }
+  }
+
+  let identities = Object.keys(timerDOMCache);
+  valineAPI._get(identities).then(results => {
+    for(let result of results) {
+      let {identity, times} = result.attributes;
+      timerDOMCache[identity].times = times;
+      timerDOMCache[identity].dom.map(item => item.innerText = times);
+    }
+    for(let identity of identities) {
+      if(timerDOMCache[identity].times){
+        continue;
+      }
+      timerDOMCache[identity].dom.map(item => item.innerText = 1);
+      valineAPI.create(identity);
+    }
+  }).catch(error => console.log(error.message))
+}
+
+if(true){
+  calcAndWriteTimes();
+}
+</script>
+   
+
+</div>
+
+
+      <footer>
+  <p class="site-info">
+    博客已萌萌哒运行<span id="time-to-now"></span><span class="my-face">(●'◡'●)ﾉ♥</span>
+    <br>
+    Theme - <a href="https://github.com/dongyuanxin/theme-bmw">BMW</a> | Made With 💗 | Powered by <a href="https://godbmw.com/">GodBMW</a>
+    <br>
+    
+      <a href="https://www.google.com/analytics/" target="_blank">Google Analytics</a> 提供网站统计服务.  <a href="https://sg.godaddy.com/" target="_blank">GoDaddy</a> 提供域名注册服务.  <br> <a href="https://www.trustasia.com/" target="_blank">TrustAsia</a> 签发SSL证书.  <a href="http://www.miibeian.gov.cn/state/outPortal/loginPortal.action" target="_blank">粤ICP备18028400号</a> . 
+    
+  </p>
+</footer>
+
+
+
+<script>
+const timeToNowDOM = document.querySelector("#time-to-now");
+const startTimestamp = new Date(2018, 1, 10).getTime();
+
+const updateTimeStr = () => {
+  let offset = parseInt(
+      (new Date().getTime() - startTimestamp) / 1000,
+      10
+    ),
+    day = Math.floor(offset / 86400),
+    hour = Math.floor((offset % 86400) / 3600),
+    minute = Math.floor(((offset % 86400) % 3600) / 60),
+    second = Math.floor(((offset % 86400) % 3600) % 60);
+  timeToNowDOM.innerHTML =
+    day + "天" + hour + "小时" + minute + "分钟" + second + "秒";
+  setTimeout(updateTimeStr, 500);
+}
+
+setTimeout(updateTimeStr, 500);
+</script>
+
+
+      <div class="back-to-top hidden">
+  <span>
+    <i class="iconfont icon-60"></i><span></span>%
+  </span>
+</div>
+
+<script>
+const updateIconToTop = percent => {
+  let dom = document.querySelector(".back-to-top span span");
+  dom.innerText = percent;
+  if(percent < 1) {
+    document.querySelector(".back-to-top").className = "back-to-top hidden";
+  } else {
+    document.querySelector(".back-to-top").className = "back-to-top";
+  }
+}
+
+const handleScoll = () => {
+  let isRunning = false;
+  return () => {
+    if (isRunning) return;
+    isRunning = true;
+    window.requestAnimationFrame(timestamp => {
+      let scrollTop =
+          document.documentElement.scrollTop || document.body.scrollTop,
+        scrollHeight =
+          document.documentElement.scrollHeight ||
+          document.body.scrollHeight,
+        clientHeight =
+          document.documentElement.clientHeight ||
+          document.body.clientHeight;
+      isRunning = false;
+      if (scrollTop <= 1) {
+        updateIconToTop(0);
+        return;
+      }
+      if (scrollTop + clientHeight >= scrollHeight) {
+        updateIconToTop(100);
+      } else {
+        updateIconToTop(parseInt(
+          100 * scrollTop / (scrollHeight - clientHeight),
+          10
+        ));
+      }
+    });
+  };
+}
+
+const backToTop = () => {
+  let scrollTop =
+      document.documentElement.scrollTop || document.body.scrollTop,
+    delay = 10,
+    time = 200;
+  if (scrollTop <= 20) {
+    document.documentElement.scrollTop = 0;
+    document.body.scrollTop = 0;
+    return;
+  }
+  let step = Math.ceil(scrollTop * delay / time);
+  let timer = setInterval(() => {
+    scrollTop =
+      document.documentElement.scrollTop || document.body.scrollTop;
+    if (scrollTop - step <= 0) {
+      document.documentElement.scrollTop = 0;
+      document.body.scrollTop = 0;
+      clearInterval(timer);
+    } else {
+      document.documentElement.scrollTop = scrollTop - step;
+      document.body.scrollTop = scrollTop - step;
+    }
+  }, delay);
+}
+
+document.addEventListener("scroll", handleScoll(), false);
+
+document.querySelector(".back-to-top").addEventListener("click", backToTop, false);
+
+</script>
+
+    </div>
+
+    
+      <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML" async></script>
+<script>
+  (() => {
+    const mathjaxConfig = {
+      showProcessingMessages: false, //关闭js加载过程信息
+      messageStyle: "none", //不显示信息
+      jax: ["input/TeX", "output/HTML-CSS"],
+      tex2jax: {
+        inlineMath: [["$", "$"], ["\\(", "\\)"]], //行内公式选择符
+        displayMath: [["$$", "$$"], ["\\[", "\\]"]], //段内公式选择符
+        skipTags: ["script", "noscript", "style", "textarea", "pre", "code", "a"] //避开某些标签
+      },
+      "HTML-CSS": {
+        availableFonts: ["STIX", "TeX"], //可选字体
+        showMathMenu: false //关闭右击菜单显示
+      }
+    }
+
+    let mathjaxInterval = setInterval(() => {
+      if(!window.MathJax){
+        return;
+      }
+      window.MathJax.Hub.Config(mathjaxConfig)
+      window.MathJax.Hub.Queue(["Typeset", MathJax.Hub, document.getElementById('app')])
+
+      clearInterval(mathjaxInterval)
+    }, 10)    
+  })()
+</script>
+    
+
+    <script src="https://cdn.bootcss.com/fancybox/3.5.2/jquery.fancybox.min.js" async></script>
+<script async>
+  let fancyTimer = setInterval(function(){
+    if(!window.$){
+      return;
+    }
+    $(document).ready(function() {
+      $(".post img").each(function () {
+        if($(this).parent().get(0).tagName.toLowerCase() === "a") {
+          return;
+        }
+        // $(this).attr("data-fancybox", "gallery"); // if you add 'data-fancybox', img will display after showed
+        var element = document.createElement("a");
+        $(element).attr("data-fancybox", "gallery");
+        $(element).attr("href", $(this).attr("src"));
+        $(this).wrap(element);
+      });
+      
+      clearInterval(fancyTimer);
+    });
+  }, 10);
+</script>
+
+    
+    <script async>
+try {
+  AV.init("j3TlSqBMjoXnrIrNYB5En5Y1-gzGzoHsz", "d2rWR1nq5chvzXzh3bSyB8ug");
+} catch(error) {}
+
+let pathname = decodeURIComponent(window.location.pathname);
+!pathname.endsWith('/') && (pathname = pathname + '/');
+
+let Counter = AV.Object.extend("Counter");
+let counter = new Counter();
+counter.set("visit_time", new Date().getTime().toString());
+counter.set("user_agent", window.navigator.userAgent);
+counter.set("identity_path", pathname);
+counter.set("more_info", JSON.stringify(window.location));
+
+let acl = new AV.ACL();
+acl.setPublicReadAccess(true);
+acl.setPublicWriteAccess(false);
+
+counter.setACL(acl);
+counter.save();
+</script>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-124601890-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-124601890-1');
+</script>
+
+
+<script async>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+<script async>
+(function(){
+var src = (document.location.protocol == "http:") ? "http://js.passport.qihucdn.com/11.0.1.js?bbf5bdfcccab2efb9fd4e96c19271f1a":"https://jspassport.ssl.qhimg.com/11.0.1.js?bbf5bdfcccab2efb9fd4e96c19271f1a";
+document.write('<script src="' + src + '" id="sozz"><\/script>');
+})();
+</script>
+  </body>
+
+</html>

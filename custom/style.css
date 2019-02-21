@@ -1,0 +1,5 @@
+@media (min-width: 769px) and (max-width: 960px){
+  .site-navigation ul.nav-menu li.nav-item {
+    margin: 0 .7rem;
+  }
+}

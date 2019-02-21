@@ -1,0 +1,546 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>董沅鑫的个人网站</title>
+  
+  
+  <link href="/theme-bmw/atom.xml" rel="self"/>
+  
+  <link href="https://godbmw.com/theme-bmw/"/>
+  <updated>2019-02-04T12:25:23.942Z</updated>
+  <id>https://godbmw.com/theme-bmw/</id>
+  
+  <author>
+    <name>董沅鑫</name>
+    
+  </author>
+  
+  <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>每天一个设计模式之状态模式</title>
+    <link href="https://godbmw.com/theme-bmw/passages/2019-01-16-state-pattern/"/>
+    <id>https://godbmw.com/theme-bmw/passages/2019-01-16-state-pattern/</id>
+    <published>2019-01-19T00:00:00.000Z</published>
+    <updated>2019-02-04T12:25:23.942Z</updated>
+    
+    <summary type="html">
+    
+      &lt;blockquote&gt;
+&lt;p&gt;状态模式：对象行为是&lt;strong&gt;基于状态&lt;/strong&gt;来改变的。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;内部的状态转化，导致了行为表现形式不同。&lt;br&gt;所以，用户在外面看起来，&lt;strong&gt;好像&lt;/strong&gt;是修改了行为。&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="每天一个设计模式" scheme="https://godbmw.com/theme-bmw/categories/%E6%AF%8F%E5%A4%A9%E4%B8%80%E4%B8%AA%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/"/>
+    
+    
+      <category term="设计模式" scheme="https://godbmw.com/theme-bmw/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/"/>
+    
+      <category term="Python" scheme="https://godbmw.com/theme-bmw/tags/Python/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>每天一个设计模式之装饰者模式</title>
+    <link href="https://godbmw.com/theme-bmw/passages/2019-01-12-decorator-pattern/"/>
+    <id>https://godbmw.com/theme-bmw/passages/2019-01-12-decorator-pattern/</id>
+    <published>2019-01-12T00:00:00.000Z</published>
+    <updated>2019-02-04T12:25:23.941Z</updated>
+    
+    <summary type="html">
+    
+      &lt;blockquote&gt;
+&lt;p&gt;装饰者模式：在&lt;strong&gt;不改变&lt;/strong&gt;对象自身的基础上，&lt;strong&gt;动态&lt;/strong&gt;地添加功能代码。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;根据描述，装饰者显然比继承等方式更灵活，而且&lt;strong&gt;不污染&lt;/strong&gt;原来的代码，代码逻辑松耦合。&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="每天一个设计模式" scheme="https://godbmw.com/theme-bmw/categories/%E6%AF%8F%E5%A4%A9%E4%B8%80%E4%B8%AA%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/"/>
+    
+    
+      <category term="设计模式" scheme="https://godbmw.com/theme-bmw/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/"/>
+    
+      <category term="Python" scheme="https://godbmw.com/theme-bmw/tags/Python/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>每天一个设计模式之责任链模式</title>
+    <link href="https://godbmw.com/theme-bmw/passages/2019-01-07-chain-of-responsibility-pattern/"/>
+    <id>https://godbmw.com/theme-bmw/passages/2019-01-07-chain-of-responsibility-pattern/</id>
+    <published>2019-01-07T00:00:00.000Z</published>
+    <updated>2019-02-04T12:25:23.940Z</updated>
+    
+    <summary type="html">
+    
+      &lt;blockquote&gt;
+&lt;p&gt;责任链模式：多个对象均有机会处理请求，从而&lt;strong&gt;解除&lt;/strong&gt;发送者和接受者之间的耦合关系。这些对象连接成为&lt;strong&gt;链式结构&lt;/strong&gt;，每个节点转发请求，直到有对象处理请求为止。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;其核心就是：&lt;strong&gt;请求者不必知道是谁哪个节点对象处理的请求&lt;/strong&gt;。如果当前不符合终止条件，那么把请求转发给下一个节点处理。&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="每天一个设计模式" scheme="https://godbmw.com/theme-bmw/categories/%E6%AF%8F%E5%A4%A9%E4%B8%80%E4%B8%AA%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/"/>
+    
+    
+      <category term="设计模式" scheme="https://godbmw.com/theme-bmw/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/"/>
+    
+      <category term="Python" scheme="https://godbmw.com/theme-bmw/tags/Python/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>每周分享第 2 期</title>
+    <link href="https://godbmw.com/theme-bmw/passages/2018-12-24-weekly-share-2/"/>
+    <id>https://godbmw.com/theme-bmw/passages/2018-12-24-weekly-share-2/</id>
+    <published>2018-12-24T00:00:00.000Z</published>
+    <updated>2019-02-04T12:25:23.939Z</updated>
+    
+    <summary type="html">
+    
+      &lt;blockquote&gt;
+&lt;p&gt;每每周分享会系统梳理过去一周我看的的值得记录和分享的技术、工具、文章/段子，致力于为收藏夹“瘦身”！&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;👇 内容速览 👇&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;谁说虚拟 DOM 比原生 DOM 操作快？（尤大大亲答）&lt;/li&gt;
+&lt;li&gt;Windows 平台下使用 Git 出现“warning: LF will be replaced by CRLF”？&lt;/li&gt;
+&lt;li&gt;怎么清空一个 github 线上仓库？&lt;/li&gt;
+&lt;li&gt;为什么要用&lt;code&gt;Golang&lt;/code&gt;替代&lt;code&gt;Python&lt;/code&gt;?&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;React&lt;/code&gt;封装&lt;code&gt;Toast&lt;/code&gt;组件&lt;/li&gt;
+&lt;li&gt;…&lt;/li&gt;
+&lt;/ul&gt;
+    
+    </summary>
+    
+      <category term="每周分享" scheme="https://godbmw.com/theme-bmw/categories/%E6%AF%8F%E5%91%A8%E5%88%86%E4%BA%AB/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>每天一个设计模式之享元模式</title>
+    <link href="https://godbmw.com/theme-bmw/passages/2018-12-16-flyweight-pattern/"/>
+    <id>https://godbmw.com/theme-bmw/passages/2018-12-16-flyweight-pattern/</id>
+    <published>2018-12-16T00:00:00.000Z</published>
+    <updated>2019-02-04T12:25:23.939Z</updated>
+    
+    <summary type="html">
+    
+      &lt;blockquote&gt;
+&lt;p&gt;享元模式：运用共享技术来减少创建对象的数量，从而减少内存占用、提高性能。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;ol&gt;
+&lt;li&gt;享元模式提醒我们将一个&lt;strong&gt;对象的属性划分为内部和外部状态&lt;/strong&gt;。&lt;ul&gt;
+&lt;li&gt;内部状态：可以被对象集合共享，通常不会改变&lt;/li&gt;
+&lt;li&gt;外部状态：根据应用场景经常改变&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;享元模式是&lt;strong&gt;利用时间换取空间&lt;/strong&gt;的优化模式。&lt;/li&gt;
+&lt;/ol&gt;
+    
+    </summary>
+    
+      <category term="每天一个设计模式" scheme="https://godbmw.com/theme-bmw/categories/%E6%AF%8F%E5%A4%A9%E4%B8%80%E4%B8%AA%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/"/>
+    
+    
+      <category term="设计模式" scheme="https://godbmw.com/theme-bmw/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/"/>
+    
+      <category term="Python" scheme="https://godbmw.com/theme-bmw/tags/Python/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>每天一个设计模式之组合模式</title>
+    <link href="https://godbmw.com/theme-bmw/passages/2018-12-12-composite-pattern/"/>
+    <id>https://godbmw.com/theme-bmw/passages/2018-12-12-composite-pattern/</id>
+    <published>2018-12-12T00:00:00.000Z</published>
+    <updated>2019-02-04T12:25:23.938Z</updated>
+    
+    <summary type="html">
+    
+      &lt;blockquote&gt;
+&lt;p&gt;组合模式，将对象组合成树形结构以表示“部分-整体”的层次结构。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;ol&gt;
+&lt;li&gt;用小的子对象构造更大的父对象，而这些子对象也由更小的子对象构成&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;单个对象和组合对象对于用户暴露的接口具有一致性&lt;/strong&gt;，而同种接口不同表现形式亦体现了多态性&lt;/li&gt;
+&lt;/ol&gt;
+    
+    </summary>
+    
+      <category term="每天一个设计模式" scheme="https://godbmw.com/theme-bmw/categories/%E6%AF%8F%E5%A4%A9%E4%B8%80%E4%B8%AA%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/"/>
+    
+    
+      <category term="设计模式" scheme="https://godbmw.com/theme-bmw/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/"/>
+    
+      <category term="Python" scheme="https://godbmw.com/theme-bmw/tags/Python/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>每周分享第 1 期</title>
+    <link href="https://godbmw.com/theme-bmw/passages/2018-12-08-weekly-share-1/"/>
+    <id>https://godbmw.com/theme-bmw/passages/2018-12-08-weekly-share-1/</id>
+    <published>2018-12-08T00:00:00.000Z</published>
+    <updated>2019-02-04T12:25:23.937Z</updated>
+    
+    <summary type="html">
+    
+      &lt;blockquote&gt;
+&lt;p&gt;每周分享主要目的是将这一周我看的的值得记录和分享的技术、工具、文章还有段子进行系统梳理，以方便回顾查看。灵感来源于阮一峰老师的“每周分享”专题。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;欢迎投稿，或推荐好玩的东西，方式是向&lt;a href=&quot;mailto:`yuanxin.me@gmail.com&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;`yuanxin.me@gmail.com&lt;/a&gt;`发邮件或者在每周分享文章的评论区留言。&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="每周分享" scheme="https://godbmw.com/theme-bmw/categories/%E6%AF%8F%E5%91%A8%E5%88%86%E4%BA%AB/"/>
+    
+    
+      <category term="音乐分享" scheme="https://godbmw.com/theme-bmw/tags/%E9%9F%B3%E4%B9%90%E5%88%86%E4%BA%AB/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>开源博客|Theme-bmw：&quot;微声&quot;版发布</title>
+    <link href="https://godbmw.com/theme-bmw/passages/2018-12-06-theme-bmw-v4/"/>
+    <id>https://godbmw.com/theme-bmw/passages/2018-12-06-theme-bmw-v4/</id>
+    <published>2018-12-05T16:00:00.000Z</published>
+    <updated>2019-02-04T12:25:23.936Z</updated>
+    
+    <summary type="html">
+    
+      &lt;blockquote&gt;
+&lt;p&gt;&lt;code&gt;Theme-BMW&lt;/code&gt;是一款基于&lt;code&gt;HEXO&lt;/code&gt;开发的博客框架：提供了友链、关于、标签云等页面，支持数学公式渲染、文章目录、多级导航栏，自带评论系统和浏览统计插件，并且增加了文章分享、打赏、版权声明音乐播放等功能。这次的版本代号是“微声”：&lt;strong&gt;旨在号召每个人为自己发声！&lt;/strong&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;&lt;img src=&quot;/images/开源项目/开源博客-theme-bmw-微声版发布/theme-bmw.jpg&quot; style=&quot;max-width: 90% !important;&quot;&gt;&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="开源项目" scheme="https://godbmw.com/theme-bmw/categories/%E5%BC%80%E6%BA%90%E9%A1%B9%E7%9B%AE/"/>
+    
+    
+      <category term="UI设计" scheme="https://godbmw.com/theme-bmw/tags/UI%E8%AE%BE%E8%AE%A1/"/>
+    
+      <category term="Hexo" scheme="https://godbmw.com/theme-bmw/tags/Hexo/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>刷《一年半经验，百度、有赞、阿里面试总结》·手记</title>
+    <link href="https://godbmw.com/theme-bmw/passages/2018-11-28-try-web-interview/"/>
+    <id>https://godbmw.com/theme-bmw/passages/2018-11-28-try-web-interview/</id>
+    <published>2018-11-27T16:00:00.000Z</published>
+    <updated>2019-02-04T12:25:23.936Z</updated>
+    
+    <summary type="html">
+    
+      &lt;blockquote&gt;
+&lt;p&gt;在掘金上看到了一位大佬发了一篇很详细的面试记录文章-&lt;a href=&quot;https://juejin.im/post/5befeb5051882511a8527dbe&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;《一年半经验，百度、有赞、阿里面试总结》&lt;/a&gt;，为了查漏补缺，抽空就详细做了下。（&lt;em&gt;估计只有我这么无聊了哈哈哈&lt;/em&gt;）&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;原文没有给出的或者有些不完善的答案，也尽力给出/完善了（可能有错，大家自行辨别）。有些很困难的题目（例如实现&lt;code&gt;Promise&lt;/code&gt;），附带相关链接（懒癌患者福利）。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;总的来说，将这些题目分成了“Javascript”、“CSS”、“浏览器/协议”、“算法”和“Web工程化”5个部分进行回答和代码实现。&lt;/strong&gt;&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="JavaScript" scheme="https://godbmw.com/theme-bmw/categories/JavaScript/"/>
+    
+    
+      <category term="面试" scheme="https://godbmw.com/theme-bmw/tags/%E9%9D%A2%E8%AF%95/"/>
+    
+      <category term="算法" scheme="https://godbmw.com/theme-bmw/tags/%E7%AE%97%E6%B3%95/"/>
+    
+      <category term="HTML5" scheme="https://godbmw.com/theme-bmw/tags/HTML5/"/>
+    
+      <category term="网络协议" scheme="https://godbmw.com/theme-bmw/tags/%E7%BD%91%E7%BB%9C%E5%8D%8F%E8%AE%AE/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>每天一个设计模式之命令模式</title>
+    <link href="https://godbmw.com/theme-bmw/passages/2018-11-25-command-pattern/"/>
+    <id>https://godbmw.com/theme-bmw/passages/2018-11-25-command-pattern/</id>
+    <published>2018-11-24T16:00:00.000Z</published>
+    <updated>2019-02-04T12:25:23.935Z</updated>
+    
+    <summary type="html">
+    
+      &lt;blockquote&gt;
+&lt;p&gt;命令模式是一种数据驱动的设计模式，它属于行为型模式。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;ol&gt;
+&lt;li&gt;请求以命令的形式包裹在对象中，并传给调用对象。&lt;/li&gt;
+&lt;li&gt;调用对象寻找可以处理该命令的合适的对象，并把该命令传给相应的对象。&lt;/li&gt;
+&lt;li&gt;该对象执行命令。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;在这三步骤中，分别有3个不同的主体：&lt;strong&gt;发送者、传递者和执行者&lt;/strong&gt;。在实现过程中，需要特别关注。&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="每天一个设计模式" scheme="https://godbmw.com/theme-bmw/categories/%E6%AF%8F%E5%A4%A9%E4%B8%80%E4%B8%AA%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/"/>
+    
+    
+      <category term="设计模式" scheme="https://godbmw.com/theme-bmw/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/"/>
+    
+      <category term="Python" scheme="https://godbmw.com/theme-bmw/tags/Python/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>每天一个设计模式之订阅-发布模式</title>
+    <link href="https://godbmw.com/theme-bmw/passages/2018-11-18-publish-subscribe-pattern/"/>
+    <id>https://godbmw.com/theme-bmw/passages/2018-11-18-publish-subscribe-pattern/</id>
+    <published>2018-11-17T16:00:00.000Z</published>
+    <updated>2019-02-04T12:25:23.934Z</updated>
+    
+    <summary type="html">
+    
+      &lt;blockquote&gt;
+&lt;p&gt;订阅-发布模式定义了对象之间的一种一对多的依赖关系，当一个对象的状态发生改变时，所有依赖它的对象都可以得到通知。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;了解过事件机制或者函数式编程的朋友，应该会体会到“订阅-发布模式”所带来的“&lt;strong&gt;时间解耦&lt;/strong&gt;”和“&lt;strong&gt;空间解耦&lt;/strong&gt;”的优点。借助函数式编程中闭包和回调的概念，可以很优雅地实现这种设计模式。&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="每天一个设计模式" scheme="https://godbmw.com/theme-bmw/categories/%E6%AF%8F%E5%A4%A9%E4%B8%80%E4%B8%AA%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/"/>
+    
+    
+      <category term="设计模式" scheme="https://godbmw.com/theme-bmw/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/"/>
+    
+      <category term="Python" scheme="https://godbmw.com/theme-bmw/tags/Python/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Theme-BMW 中文文档</title>
+    <link href="https://godbmw.com/theme-bmw/passages/2018-11-15-theme-bmw-docs-zh/"/>
+    <id>https://godbmw.com/theme-bmw/passages/2018-11-15-theme-bmw-docs-zh/</id>
+    <published>2018-11-14T16:00:00.000Z</published>
+    <updated>2019-02-04T12:25:23.933Z</updated>
+    
+    <summary type="html">
+    
+      &lt;blockquote&gt;
+&lt;p&gt;Now，花了几天的时间，终于把我的主题从 Vuejs 迁移到了 Hexo。这是官方的配置文档，如果您喜欢这个主题，欢迎Star ✨&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;主题地址：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Hexo: &lt;a href=&quot;https://github.com/dongyuanxin/theme-bmw&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;https://github.com/dongyuanxin/theme-bmw&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;del&gt;Vuejs: &lt;a href=&quot;https://github.com/dongyuanxin/vuejs-theme-bmw&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;https://github.com/dongyuanxin/vuejs-theme-bmw&lt;/a&gt;&lt;/del&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;请注意: 非常推荐使用Hexo，配合主题提供的SEO优化服务和Github等平台的Pages服务，您可以免去DDoS、搭建服务器等方面的烦恼和费用！！！&lt;/strong&gt;&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="开源项目" scheme="https://godbmw.com/theme-bmw/categories/%E5%BC%80%E6%BA%90%E9%A1%B9%E7%9B%AE/"/>
+    
+    
+      <category term="UI设计" scheme="https://godbmw.com/theme-bmw/tags/UI%E8%AE%BE%E8%AE%A1/"/>
+    
+      <category term="Hexo" scheme="https://godbmw.com/theme-bmw/tags/Hexo/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>一款简约且实用的Hexo新主题：BMW</title>
+    <link href="https://godbmw.com/theme-bmw/passages/2018-11-14-hexo-theme-bmw/"/>
+    <id>https://godbmw.com/theme-bmw/passages/2018-11-14-hexo-theme-bmw/</id>
+    <published>2018-11-13T16:00:00.000Z</published>
+    <updated>2019-02-04T12:25:23.932Z</updated>
+    
+    <summary type="html">
+    
+      &lt;blockquote&gt;
+&lt;p&gt;这是一个简约、大气、实用的Hexo新主题：BMW👇&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;ul&gt;
+&lt;li&gt;🏠 首页页面: &lt;a href=&quot;https://godbmw.com/&quot;&gt;https://godbmw.com/&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;🗓️ 归档页面: &lt;a href=&quot;https://godbmw.com/archives/&quot;&gt;https://godbmw.com/archives/&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;🔖 分类页面: &lt;a href=&quot;https://godbmw.com/categories/&quot;&gt;https://godbmw.com/categories/&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;🏷️ 标签页面: &lt;a href=&quot;https://godbmw.com/tags/&quot;&gt;https://godbmw.com/tags/&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;💏 友链页面: &lt;a href=&quot;https://godbmw.com/friends/&quot;&gt;https://godbmw.com/friends/&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;👁️ 关于页面: &lt;a href=&quot;https://godbmw.com/about/&quot;&gt;https://godbmw.com/about/&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+    
+    </summary>
+    
+      <category term="开源项目" scheme="https://godbmw.com/theme-bmw/categories/%E5%BC%80%E6%BA%90%E9%A1%B9%E7%9B%AE/"/>
+    
+    
+      <category term="UI设计" scheme="https://godbmw.com/theme-bmw/tags/UI%E8%AE%BE%E8%AE%A1/"/>
+    
+      <category term="Hexo" scheme="https://godbmw.com/theme-bmw/tags/Hexo/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>每天一个设计模式之迭代器模式</title>
+    <link href="https://godbmw.com/theme-bmw/passages/2018-11-06-iter-pattern/"/>
+    <id>https://godbmw.com/theme-bmw/passages/2018-11-06-iter-pattern/</id>
+    <published>2018-11-05T16:00:00.000Z</published>
+    <updated>2019-02-04T12:25:23.932Z</updated>
+    
+    <summary type="html">
+    
+      &lt;blockquote&gt;
+&lt;p&gt;迭代器模式是指提供一种方法顺序访问一个集合对象的各个元素，使用者不需要了解集合对象的底层实现。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;迭代器模式常见和常用的有：内部迭代器、外部迭代器、倒序迭代器等等。&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="每天一个设计模式" scheme="https://godbmw.com/theme-bmw/categories/%E6%AF%8F%E5%A4%A9%E4%B8%80%E4%B8%AA%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/"/>
+    
+    
+      <category term="设计模式" scheme="https://godbmw.com/theme-bmw/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/"/>
+    
+      <category term="Python" scheme="https://godbmw.com/theme-bmw/tags/Python/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>被DDos后的及时补救与一些思考</title>
+    <link href="https://godbmw.com/theme-bmw/passages/2018-11-06-ddos-recover-and-think/"/>
+    <id>https://godbmw.com/theme-bmw/passages/2018-11-06-ddos-recover-and-think/</id>
+    <published>2018-11-05T16:00:00.000Z</published>
+    <updated>2019-02-04T12:25:23.931Z</updated>
+    
+    <summary type="html">
+    
+      &lt;blockquote&gt;
+&lt;p&gt;最近3天，我的小站&lt;a href=&quot;https://godbmw.com&quot;&gt;godbmw.com&lt;/a&gt;经历了2次DDoS。第一次因为没有限制QPS，短短几分钟内CDN被盗刷了300G流量。第二次完善了相关保护措施后，CDN依然被D了90G的流量。经过2天的迁移和补救，终于使得网站服务恢复正常。用此篇记录下整个奋战过程。希望对广大站长有帮助。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;&lt;strong&gt;如果是个人项目，强烈推荐使用国外的“cloudflare”，免费、不限流量、抗攻击，就像国外的JetBrians（教育版免费），都是有情怀、不坑用户的公司，致敬！！！&lt;/strong&gt;&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="网站搭建与运营" scheme="https://godbmw.com/theme-bmw/categories/%E7%BD%91%E7%AB%99%E6%90%AD%E5%BB%BA%E4%B8%8E%E8%BF%90%E8%90%A5/"/>
+    
+    
+      <category term="服务器" scheme="https://godbmw.com/theme-bmw/tags/%E6%9C%8D%E5%8A%A1%E5%99%A8/"/>
+    
+      <category term="CDN" scheme="https://godbmw.com/theme-bmw/tags/CDN/"/>
+    
+      <category term="网络安全" scheme="https://godbmw.com/theme-bmw/tags/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/"/>
+    
+      <category term="云服务" scheme="https://godbmw.com/theme-bmw/tags/%E4%BA%91%E6%9C%8D%E5%8A%A1/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>课程常用资源下载</title>
+    <link href="https://godbmw.com/theme-bmw/passages/2018-11-02-school-class-metarial/"/>
+    <id>https://godbmw.com/theme-bmw/passages/2018-11-02-school-class-metarial/</id>
+    <published>2018-11-01T16:00:00.000Z</published>
+    <updated>2019-02-04T12:25:23.930Z</updated>
+    
+    <summary type="html">
+    
+      &lt;blockquote&gt;
+&lt;p&gt;为大学课程需要的一些资源专门开的一篇文章。请无视。&lt;/p&gt;
+&lt;/blockquote&gt;
+    
+    </summary>
+    
+      <category term="资源" scheme="https://godbmw.com/theme-bmw/categories/%E8%B5%84%E6%BA%90/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>每天一个设计模式之代理模式</title>
+    <link href="https://godbmw.com/theme-bmw/passages/2018-11-01-proxy-pattern/"/>
+    <id>https://godbmw.com/theme-bmw/passages/2018-11-01-proxy-pattern/</id>
+    <published>2018-10-31T16:00:00.000Z</published>
+    <updated>2019-02-04T12:25:23.928Z</updated>
+    
+    <summary type="html">
+    
+      &lt;blockquote&gt;
+&lt;p&gt;代理模式的定义：为一个对象提供一种代理以方便对它的访问。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;&lt;strong&gt;代理模式可以解决避免对一些对象的直接访问&lt;/strong&gt;，以此为基础，常见的有保护代理和虚拟代理。保护代理可以在代理中直接拒绝对对象的访问；虚拟代理可以延迟访问到真正需要的时候，以节省程序开销。&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="每天一个设计模式" scheme="https://godbmw.com/theme-bmw/categories/%E6%AF%8F%E5%A4%A9%E4%B8%80%E4%B8%AA%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/"/>
+    
+    
+      <category term="设计模式" scheme="https://godbmw.com/theme-bmw/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/"/>
+    
+      <category term="Python" scheme="https://godbmw.com/theme-bmw/tags/Python/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>【置顶】我为什么坚持写博客</title>
+    <link href="https://godbmw.com/theme-bmw/passages/2018-11-01-why-i-blog/"/>
+    <id>https://godbmw.com/theme-bmw/passages/2018-11-01-why-i-blog/</id>
+    <published>2018-10-31T16:00:00.000Z</published>
+    <updated>2019-02-04T12:25:23.929Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;&lt;a href=&quot;https://github.com/dongyuanxin/theme-bmw&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;hexo-theme-bmw&lt;/a&gt;(&lt;strong&gt;版本代号：微声&lt;/strong&gt;)重磅来袭：&lt;strong&gt;为自己发声&lt;/strong&gt;！&lt;/p&gt;
+&lt;p&gt;✨ 分享功能、打赏功能、版权声明、幻灯片播放、音乐播放、评论社交… 一大波高逼格功能已抵达 ✨&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="碎碎念" scheme="https://godbmw.com/theme-bmw/categories/%E7%A2%8E%E7%A2%8E%E5%BF%B5/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>图遍历实现及其应用</title>
+    <link href="https://godbmw.com/theme-bmw/passages/2018-10-27-graph-traversal-application/"/>
+    <id>https://godbmw.com/theme-bmw/passages/2018-10-27-graph-traversal-application/</id>
+    <published>2018-10-26T16:00:00.000Z</published>
+    <updated>2019-02-04T12:25:23.927Z</updated>
+    
+    <summary type="html">
+    
+      &lt;blockquote&gt;
+&lt;p&gt;介绍一些如何利用深度优先解决联通分量、是否联通、查找路径等相关问题，如何利用广度优先查找最短路径、计算最短距离等相关问题。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;本文代码中用到的&lt;code&gt;SparseGraph&lt;/code&gt;和&lt;code&gt;DenseGraph&lt;/code&gt;两个类的实现和封装，以及读取测试数据的类的封装，请见&lt;a href=&quot;https://godbmw.com/passage/82&quot;&gt;《稠密图和稀疏图实现及应用》&lt;/a&gt;中的讲解和实现。&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="算法与数学" scheme="https://godbmw.com/theme-bmw/categories/%E7%AE%97%E6%B3%95%E4%B8%8E%E6%95%B0%E5%AD%A6/"/>
+    
+    
+      <category term="算法" scheme="https://godbmw.com/theme-bmw/tags/%E7%AE%97%E6%B3%95/"/>
+    
+      <category term="C与C++" scheme="https://godbmw.com/theme-bmw/tags/C%E4%B8%8EC/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>每天一个设计模式之策略模式</title>
+    <link href="https://godbmw.com/theme-bmw/passages/2018-10-25-stragegy-pattern/"/>
+    <id>https://godbmw.com/theme-bmw/passages/2018-10-25-stragegy-pattern/</id>
+    <published>2018-10-24T16:00:00.000Z</published>
+    <updated>2019-02-04T12:25:23.927Z</updated>
+    
+    <summary type="html">
+    
+      &lt;blockquote&gt;
+&lt;p&gt;策略模式定义：就是能够把一系列“可互换的”算法封装起来，并根据用户需求来选择其中一种。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;&lt;strong&gt;策略模式实现的核心就是：将算法的使用和算法的实现分离。&lt;/strong&gt;算法的实现交给策略类。算法的使用交给环境类，环境类会根据不同的情况选择合适的算法。&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="每天一个设计模式" scheme="https://godbmw.com/theme-bmw/categories/%E6%AF%8F%E5%A4%A9%E4%B8%80%E4%B8%AA%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/"/>
+    
+    
+      <category term="设计模式" scheme="https://godbmw.com/theme-bmw/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/"/>
+    
+      <category term="Python" scheme="https://godbmw.com/theme-bmw/tags/Python/"/>
+    
+  </entry>
+  
+</feed>

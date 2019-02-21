@@ -1,0 +1,74 @@
+#reward {
+  margin: 2rem 0 4rem;
+  text-align: center;
+
+  #reward-meta {
+    margin-bottom: 5px;
+    color: #6b7484;
+  }
+
+  #reward-btn {
+    border: 0;
+    outline: 0;
+    border-radius: 5px;
+    padding: 0;
+    margin: 0;
+    letter-spacing: normal;
+    text-transform: none;
+    text-indent: 0;
+    text-shadow: none;
+    cursor: pointer;
+
+    span {
+      display: inline-block;
+      background: #e26d6d;
+      height: 34px;
+      width: 80px;
+      border-radius: 4px;
+      line-height: 34px;
+      color: #fff;
+      font-size: 15px;
+      transition: .1s linear background;
+
+      &:hover {
+        background: #f7877f;
+      }
+    }
+  }
+
+  #reward-qrcode {
+    text-align: center;
+    display: none;
+    margin-top: 1.5rem;
+
+    .reward-qrcode--container {
+      display: inline-block;
+      color: #101116;
+      .qrcode-img {
+        width: 200px;
+        height: 200px;
+        max-width: 100%;
+        display: inline-block;
+        margin: 1rem 2rem 0;
+      }
+      .qrcode-meta {
+        margin: .6rem 0 0;
+        font-size: 1.3rem;
+      }
+    }
+  }
+}
+
+@media (max-width: 767px) {
+  #reward {
+    #reward-qrcode {
+      .reward-qrcode--container {
+        .qrcode-img {
+          width: 140px;
+          height: 140px;
+          margin: 1rem 1rem 0;
+        }
+      }
+    }
+  }
+}

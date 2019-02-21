@@ -1,0 +1,11 @@
+.about-index {
+  .markdown-body {
+    margin-bottom: 3rem;
+  }
+
+  @media (max-width: 768px) {
+    #vcomments {
+      margin-top: 5rem !important;
+    }
+  }
+}

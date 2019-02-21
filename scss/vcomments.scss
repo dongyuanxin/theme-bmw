@@ -1,0 +1,153 @@
+$rem: 16px;
+
+.v hr {
+  margin: 0.825 * $rem 0 !important;
+}
+
+.v blockquote {
+  margin: 0.5 * $rem 0 !important;
+  padding: 0 0 0 1 * $rem !important;
+}
+
+.v .vinput {
+  font-size: 0.775 * $rem !important;
+}
+
+.v .vwrap .vcontrol .col {
+  font-size: 0.725 * $rem !important;
+}
+
+.v .vwrap .vmark .valert {
+  padding-top: 3 * $rem !important;
+}
+
+.v .vwrap .vmark .valert .vtext {
+  padding: 1 * $rem 0 !important;
+}
+
+.v .vwrap .vmark .valert .vcode {
+  width: 4.6875 * $rem !important;
+  border-radius: 0.3125 * $rem !important;
+  padding: 0.5 * $rem !important;
+}
+
+@media screen and (max-width: 720px) {
+  .v .vwrap .vmark .valert {
+    padding-top: 5.5 * $rem !important;
+  }
+  .v .vwrap .vmark .valert .vtext {
+    padding: 1 * $rem 0 !important;
+  }
+}
+
+.v .power {
+  padding: 0.5 * $rem 0 !important;
+}
+.v .power,
+.v .power a {
+  font-size: 0.75 * $rem !important;
+}
+
+.v .vinfo .col {
+  font-size: 0.875 * $rem !important;
+}
+.v .vinfo .vcount .vnum {
+  font-size: 1.25 * $rem !important;
+}
+
+.v ul {
+  margin-left: 1.25 * $rem !important;
+}
+
+.v .veditor {
+  min-height: 8.75 * $rem !important;
+  font-size: 0.875 * $rem !important;
+}
+
+.v .vbtn {
+  border-radius: 0.3 * $rem !important;
+  padding: 0.5 * $rem 1.25 * $rem !important;
+  font-size: 0.875 * $rem !important;
+}
+
+.v .vbtn + .vbtn {
+  margin-left: 1.25 * $rem !important;
+}
+
+.v .vempty {
+  padding: 1.25 * $rem !important;
+}
+
+.v .vlist .vcard {
+  padding-top: 1.5 * $rem !important;
+}
+
+.v .vlist .vcard .vimg {
+  width: 3.125 * $rem !important;
+  height: 3.125 * $rem !important;
+
+  margin-right: 0.7525 * $rem !important;
+  padding: 0.125 * $rem !important;
+}
+
+@media screen and (max-width: 720px) {
+  .v .vlist .vcard .vimg {
+    width: 2.5 * $rem !important;
+    height: 2.5 * $rem !important;
+  }
+}
+.v .vlist .vcard .vhead .vnick {
+  font-size: 0.875 * $rem !important;
+  margin-right: 0.875 * $rem !important;
+}
+
+.v .vlist .vcard .vhead .vsys {
+  padding: 0.2 * $rem 0.5 * $rem !important;
+
+  font-size: 0.75 * $rem !important;
+  border-radius: 0.2 * $rem !important;
+  margin-right: 0.3 * $rem !important;
+}
+
+.v .vlist .vcard .vh {
+  padding-bottom: 0.5 * $rem !important;
+}
+.v .vlist .vcard .vh .vtime {
+  font-size: 0.75 * $rem !important;
+  margin-right: 0.875 * $rem !important;
+}
+
+.v .vlist .vcard .vh .vmeta .vat {
+  font-size: 0.8125 * $rem !important;
+}
+
+.v .vlist .vcard .vcontent {
+  font-size: 0.875 * $rem !important;
+
+  margin-bottom: 0.75 * $rem !important;
+  padding-top: 0.625 * $rem !important;
+}
+
+.v .vlist .vcard .vcontent.expand {
+  max-height: 11.25 * $rem !important;
+}
+
+.v .vlist .vcard .vcontent.expand:before {
+  bottom: 3.15 * $rem !important;
+}
+
+.v .vlist .vcard .vcontent.expand:after {
+  height: 3.15 * $rem !important;
+  line-height: 3.15 * $rem !important;
+}
+.v .vlist .vcard .vquote {
+  margin-top: 1 * $rem !important;
+  padding-left: 1 * $rem !important;
+}
+.v .vlist .vcard .vquote .vimg {
+  width: 2.225 * $rem !important;
+  height: 2.225 * $rem !important;
+}
+.v .vpage .vmore {
+  margin: 1 * $rem 0 !important;
+}

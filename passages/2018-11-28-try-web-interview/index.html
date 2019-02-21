@@ -1,0 +1,921 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+  
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="utf-8">
+  <meta name="author" content="董沅鑫, yuanxin.me@gmail.com">
+  
+  
+  
+  <title>刷《一年半经验，百度、有赞、阿里面试总结》·手记 | 董沅鑫的个人网站</title>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  
+    <meta name="keywords" content="JavaScript,面试,算法,HTML5,网络协议,">
+  
+
+  <script>
+    console.log('\n%c Hexo-theme-bmw v4.0 ' + '%c 🎉 https://github.com/dongyuanxin/theme-bmw 🎉\n' + '\n%c View demo online ' + '%c 🔍 https://godbmw.com/ 🔍  \n' , 'color: #fadfa3; background: #030307; padding:3px 0;', '', 'color: #fadfa3; background: #030307; padding:3px 0;', '');
+  </script>
+
+  
+    <meta name="description" content="来点音乐公司技术合伙人, 现在腾讯(深圳)web实习, Python, ES6, CSS3, VueJS, ReactJS, Node, Webpack, PWA, Native">
+  
+
+  
+    <link rel="alternate" href="/atom.xml" title="董沅鑫的个人网站" type="application/atom+xml">
+  
+
+  
+    <link rel="icon" href="/images/favicon.ico">
+    <link rel="apple-touch-icon" href="/images/touch-icon.png">
+  
+
+  <link href="https://cdn.bootcss.com/fancybox/3.5.2/jquery.fancybox.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="/theme-bmw/css/base.css">
+<link rel="stylesheet" href="/theme-bmw/icon/iconfont.css">
+<link rel="stylesheet" href="/theme-bmw/css/github-markdown.css">
+<link rel="stylesheet" href="/theme-bmw/css/highlight.css">
+
+  <script src="/theme-bmw/js/util.js"></script>
+<script src="/theme-bmw/js/valine.min.js"></script>
+
+  
+
+  
+    <link href="https://cdn.bootcss.com/aplayer/1.10.1/APlayer.min.css" rel="stylesheet">
+    <script src="https://cdn.bootcss.com/aplayer/1.10.1/APlayer.min.js" async></script>
+  
+
+  
+    <link href="https://cdn.bootcss.com/social-share.js/1.0.16/css/share.min.css" rel="stylesheet">
+  
+  
+  <script src="//cdn.bootcss.com/jquery/3.3.1/jquery.min.js" async></script>
+  
+  
+    <script src="//cdn.jsdelivr.net/npm/leancloud-storage@3.11.0/dist/av-min.js"></script>
+  
+
+</head>
+
+  <body>
+
+    
+
+    <div id="app">
+
+      <div class="header-wrap">
+  <header>
+    <div class="site-brand">
+      <div class="site-title">
+        <a href="/theme-bmw/">GODBMW.com</a>
+      </div>
+    </div>
+    <nav class="site-navigation">
+      <ul class="nav-menu">
+      
+        <li class="nav-item" data-path="/">
+          
+            <a href="/theme-bmw/" target="_self">
+              主页
+            </a>
+          
+        </li>
+      
+        <li class="nav-item" data-path="">
+          
+            <a href="javascript:void(0);" v-else="">教程</a>
+            <ul class="nav-menu--dropdown">
+              
+                <li>
+                  <a href="/theme-bmw/categories/webpack4系列教程/" target="_self">
+                    webpack4系列教程
+                  </a>
+                </li>
+              
+                <li>
+                  <a href="https://godbmw.com/design-patterns/" target="_self">
+                    每天一个设计模式
+                  </a>
+                </li>
+              
+            </ul>
+          
+        </li>
+      
+        <li class="nav-item" data-path="/archives/">
+          
+            <a href="/theme-bmw/archives/" target="_self">
+              归档
+            </a>
+          
+        </li>
+      
+        <li class="nav-item" data-path="/categories/">
+          
+            <a href="/theme-bmw/categories/" target="_self">
+              分类
+            </a>
+          
+        </li>
+      
+        <li class="nav-item" data-path="/tags/">
+          
+            <a href="/theme-bmw/tags/" target="_self">
+              标签
+            </a>
+          
+        </li>
+      
+        <li class="nav-item" data-path="/friends/">
+          
+            <a href="/theme-bmw/friends/" target="_self">
+              友链
+            </a>
+          
+        </li>
+      
+        <li class="nav-item" data-path="/about/">
+          
+            <a href="/theme-bmw/about/" target="_self">
+              关于
+            </a>
+          
+        </li>
+      
+        <li class="nav-item" data-path="">
+          
+            <a href="javascript:void(0);" v-else="">抓到我</a>
+            <ul class="nav-menu--dropdown">
+              
+                <li>
+                  <a href="/theme-bmw/atom.xml" target="_blank">
+                    RSS 订阅
+                  </a>
+                </li>
+              
+                <li>
+                  <a href="https://github.com/dongyuanxin" target="_blank">
+                    Github
+                  </a>
+                </li>
+              
+                <li>
+                  <a href="https://juejin.im/user/5b91fcf06fb9a05d3c7fd4a5" target="_blank">
+                    掘金
+                  </a>
+                </li>
+              
+                <li>
+                  <a href="https://segmentfault.com/u/godbmw" target="_blank">
+                    SegmentFault
+                  </a>
+                </li>
+              
+                <li>
+                  <a href="https://www.zhihu.com/people/godbmw/activities" target="_blank">
+                    知乎
+                  </a>
+                </li>
+              
+            </ul>
+          
+        </li>
+      
+      </ul>
+    </nav>
+    <i class="iconfont icon-menu"></i>
+  </header>
+</div>
+
+<script>
+  let links = document.querySelectorAll('.nav-item');
+  for(let link of links){
+    let childrenLink = link.querySelector('ul');
+    link.addEventListener('mouseenter', () => {
+      if(childrenLink) {
+        childrenLink.className = "nav-menu--dropdown active";
+      }
+    })
+    link.addEventListener('mouseleave', () => {
+      if(childrenLink) {
+        childrenLink.className = "nav-menu--dropdown";
+      }
+    })
+  }
+  let rootRealPath = getRealPath(window.location.pathname, true);
+  for(let link of links) {
+    let linkPath = link.getAttribute("data-path");
+    if(linkPath && getRealPath(linkPath, true) === rootRealPath) {
+      link.className = "nav-item hover";
+    }
+  }
+
+  let iconMenu = document.querySelector("i.iconfont.icon-menu"),
+    iconMenuClicked = false;
+  let navDOM = document.querySelector("nav.site-navigation");
+  iconMenu.addEventListener("click", () => {
+    iconMenuClicked 
+      ? navDOM.className = "site-navigation active"
+      : navDOM.className = "site-navigation";
+    iconMenuClicked = !iconMenuClicked;
+  })
+</script>
+
+      
+
+
+
+
+
+
+
+
+<div class="container post-index">
+
+  
+
+<div class="post">
+  <h1 class="article-title">
+    <span>刷《一年半经验，百度、有赞、阿里面试总结》·手记</span>
+  </h1>
+  <div class="article-top-meta">
+    <span>
+      发布 : 
+      2018-11-28
+    </span>
+    
+      <span>
+        分类 : 
+          <a href="/theme-bmw/categories/JavaScript/">
+            JavaScript
+          </a>
+      </span>
+    
+    
+      <span>
+        浏览 : <span class="article-timer" data-identity="2018-11-28-try-web-interview"></span>
+      </span>
+    
+  </div>
+
+  
+
+  <div class="article-content">
+    <div class="markdown-body">
+      <blockquote>
+<p>在掘金上看到了一位大佬发了一篇很详细的面试记录文章-<a href="https://juejin.im/post/5befeb5051882511a8527dbe" target="_blank" rel="noopener">《一年半经验，百度、有赞、阿里面试总结》</a>，为了查漏补缺，抽空就详细做了下。（<em>估计只有我这么无聊了哈哈哈</em>）</p>
+</blockquote>
+<p>有给出的或者有些不完善的答案，也尽力给出/完善了（可能有错，大家自行辨别）。有些很困难的题目（例如实现<code>Promise</code>），附带相关链接（懒癌患者福利）。</p>
+<p><strong>总的来说，将这些题目分成了“Javascript”、“CSS”、“浏览器/协议”、“算法”和“Web工程化”5个部分进行回答和代码实现。</strong></p>
+<h2 id="1-Javascript相关"><a href="#1-Javascript相关" class="headerlink" title="1. Javascript相关"></a>1. Javascript相关</h2><h4 id="1-1-回文字符串"><a href="#1-1-回文字符串" class="headerlink" title="1.1 回文字符串"></a>1.1 回文字符串</h4><blockquote>
+<p>题目：实现一个函数，判断是不是回文字符串</p>
+</blockquote>
+<p>原文的思路是将字符串转化成数组=&gt;反转数组=&gt;拼接成字符串。<strong>这种做法充分利用了js的BIF，但性能有所损耗</strong>：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">run</span>(<span class="params">input</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">if</span> (<span class="keyword">typeof</span> input !== <span class="string">'string'</span>) <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">  <span class="keyword">return</span> input.split(<span class="string">''</span>).reverse().join(<span class="string">''</span>) === input;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>其实正常思路也很简单就能实现,<strong>性能更高，但是没有利用js的特性</strong>：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 回文字符串</span></span><br><span class="line"><span class="keyword">const</span> palindrome = <span class="function">(<span class="params">str</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="comment">// 类型判断</span></span><br><span class="line">  <span class="keyword">if</span>(<span class="keyword">typeof</span> str !== <span class="string">'string'</span>) &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">let</span> len = str.length;</span><br><span class="line">  <span class="keyword">for</span>(<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; len / <span class="number">2</span>; ++i)&#123;</span><br><span class="line">    <span class="keyword">if</span>(str[i] !== str[len - i - <span class="number">1</span>])&#123;</span><br><span class="line">      <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h4 id="1-2-实现Storage"><a href="#1-2-实现Storage" class="headerlink" title="1.2 实现Storage"></a>1.2 实现<code>Storage</code></h4><blockquote>
+<p>题目：实现Storage，使得该对象为单例，并对localStorage进行封装设置值setItem(key,value)和getItem(key)</p>
+</blockquote>
+<p>题目重点是<strong>单例模式</strong>，需要注意的是借助<code>localStorage</code>，不是让自己手动实现！</p>
+<p><em>感谢<a href="https://juejin.im/user/57b68c2dc4c97100557f5b9c" target="_blank" rel="noopener">@whiteyork_</a>和<a href="https://juejin.im/user/582733cbda2f600056d5f067" target="_blank" rel="noopener">@chenzesam</a>的提醒：箭头函数没有<code>prototype</code></em></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Storage</span>(<span class="params"></span>)</span>&#123;&#125;</span><br><span class="line"></span><br><span class="line">Storage.getInstance = (<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">  <span class="keyword">var</span> instance = <span class="literal">null</span></span><br><span class="line">  <span class="keyword">return</span> <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(!instance)&#123;</span><br><span class="line">      instance = <span class="keyword">new</span> Storage()</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> instance</span><br><span class="line">  &#125;</span><br><span class="line">&#125;)()</span><br><span class="line"></span><br><span class="line">Storage.prototype.setItem = <span class="function"><span class="keyword">function</span>(<span class="params">key, value</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> localStorage.setItem(key, value)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">Storage.prototype.getItem = <span class="function"><span class="keyword">function</span>(<span class="params">key</span>)</span>&#123;</span><br><span class="line">  <span class="keyword">return</span> localStorage.getItem(key)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 测试代码：Chrome环境</span></span><br><span class="line"><span class="keyword">let</span> a = Storage.getInstance()</span><br><span class="line"><span class="keyword">let</span> b = Storage.getInstance()</span><br><span class="line"><span class="built_in">console</span>.log(a === b)</span><br><span class="line"></span><br><span class="line">a.setItem(<span class="string">"key"</span>, <span class="number">1</span>)</span><br><span class="line"><span class="built_in">console</span>.log(b.getItem(<span class="string">"key"</span>))</span><br></pre></td></tr></table></figure>
+<h4 id="1-3-JS事件流"><a href="#1-3-JS事件流" class="headerlink" title="1.3 JS事件流"></a>1.3 JS事件流</h4><blockquote>
+<p>题目：说说事件流吧</p>
+</blockquote>
+<p>事件流分为冒泡和捕获。</p>
+<p>事件冒泡：子元素的触发事件会一直向父节点传递，一直到根结点停止。此过程中，可以在每个节点捕捉到相关事件。可以通过<code>stopPropagation</code>方法终止冒泡。</p>
+<p>事件捕获：和“事件冒泡”相反，从根节点开始执行，一直向子节点传递，直到目标节点。<del>印象中只有少数浏览器的老旧版本才是这种事件流，可以忽略。</del>这里说的确实有问题，更正下：<strong><code>addEventLister</code>给出了第三个参数同时支持冒泡与捕获。</strong></p>
+<p><em>感谢<a href="https://juejin.im/user/5be944636fb9a04a102ecf22" target="_blank" rel="noopener">@junior-yang</a>的提醒</em></p>
+<h4 id="1-4-实现函数继承"><a href="#1-4-实现函数继承" class="headerlink" title="1.4 实现函数继承"></a>1.4 实现函数继承</h4><blockquote>
+<p>题目：现在有一个函数A和函数B，请你实现B继承A。并且说明他们优缺点。</p>
+</blockquote>
+<p><strong>方法一：绑定构造函数</strong></p>
+<p>优点：可以实现多继承</p>
+<p>缺点：不能继承父类原型方法/属性</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Animal</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">  <span class="keyword">this</span>.species = <span class="string">"动物"</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Cat</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">  Animal.apply(<span class="keyword">this</span>, <span class="built_in">arguments</span>); <span class="comment">// 父对象的构造函数绑定到子节点上</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> cat = <span class="keyword">new</span> Cat()</span><br><span class="line"><span class="built_in">console</span>.log(cat.species) <span class="comment">// 输出：动物</span></span><br></pre></td></tr></table></figure>
+<p><strong>方法二：原型链继承</strong></p>
+<p>优点：能够继承父类原型和实例方法/属性，并且可以捕获父类的原型链改动</p>
+<p>缺点：无法实现多继承，会浪费一些内存（<code>Cat.prototype.constructor = Cat</code>）。<strong>除此之外，需要注意应该将<code>Cat.prototype.constructor</code>重新指向本身。</strong></p>
+<p><strong>js中交换原型链，均需要修复<code>prototype.constructor</code>指向问题。</strong></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Animal</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">  <span class="keyword">this</span>.species = <span class="string">"动物"</span>;</span><br><span class="line">&#125;</span><br><span class="line">Animal.prototype.func = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">"heel"</span>)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Cat</span>(<span class="params"></span>)</span>&#123;&#125;</span><br><span class="line">Cat.prototype = <span class="keyword">new</span> Animal()</span><br><span class="line">Cat.prototype.constructor = Cat</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> cat = <span class="keyword">new</span> Cat()</span><br><span class="line"><span class="built_in">console</span>.log(cat.func, cat.species)</span><br></pre></td></tr></table></figure>
+<p><strong>方法3:结合上面2种方法</strong></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Animal</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">  <span class="keyword">this</span>.species = <span class="string">"动物"</span>;</span><br><span class="line">&#125;</span><br><span class="line">Animal.prototype.func = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">"heel"</span>)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Cat</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">  Animal.apply(<span class="keyword">this</span>, <span class="built_in">arguments</span>)</span><br><span class="line">&#125;</span><br><span class="line">Cat.prototype = <span class="keyword">new</span> Animal()</span><br><span class="line">Cat.prototype.constructor = Cat;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> cat = <span class="keyword">new</span> Cat()</span><br><span class="line"><span class="built_in">console</span>.log(cat.func, cat.species)</span><br></pre></td></tr></table></figure>
+<h4 id="1-5-ES5对象-vs-ES6对象"><a href="#1-5-ES5对象-vs-ES6对象" class="headerlink" title="1.5 ES5对象 vs ES6对象"></a>1.5 ES5对象 vs ES6对象</h4><blockquote>
+<p>题目：es6 class 的new实例和es5的new实例有什么区别？</p>
+</blockquote>
+<p>在<code>ES6</code>中（和<code>ES5</code>相比），<code>class</code>的<code>new</code>实例有以下特点：</p>
+<ul>
+<li><code>class</code>的构造参数必须是<code>new</code>来调用，不可以将其作为普通函数执行</li>
+<li><code>es6</code> 的<code>class</code>不存在变量提升</li>
+<li><strong>最重要的是：<code>es6</code>内部方法不可以枚举</strong>。es5的<code>prototype</code>上的方法可以枚举。</li>
+</ul>
+<p>为此我做了以下测试代码进行验证：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(ES5Class()) <span class="comment">// es5:可以直接作为函数运行</span></span><br><span class="line"><span class="comment">// console.log(new ES6Class()) // 会报错：不存在变量提升</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">ES5Class</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">"hello"</span>)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">ES5Class.prototype.func = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123; <span class="built_in">console</span>.log(<span class="string">"Hello world"</span>) &#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">ES6Class</span></span>&#123;</span><br><span class="line">  <span class="keyword">constructor</span>()&#123;&#125;</span><br><span class="line">  func()&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">"Hello world"</span>)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> es5 = <span class="keyword">new</span> ES5Class()</span><br><span class="line"><span class="keyword">let</span> es6 = <span class="keyword">new</span> ES6Class()</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">"ES5 :"</span>)</span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">let</span> _ <span class="keyword">in</span> es5)&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(_)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// es6:不可枚举</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">"ES6 :"</span>)</span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">let</span> _ <span class="keyword">in</span> es6)&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(_)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>这篇<a href="https://fed.renren.com/2017/08/07/js-oop-es52es6/" target="_blank" rel="noopener">《JavaScript创建对象—从es5到es6》</a>对这个问题的深入解释很好，推荐观看！</p>
+<h4 id="1-6-实现MVVM"><a href="#1-6-实现MVVM" class="headerlink" title="1.6 实现MVVM"></a>1.6 实现<code>MVVM</code></h4><blockquote>
+<p>题目：请简单实现双向数据绑定mvvm</p>
+</blockquote>
+<p><strong>vuejs是利用<code>Object.defineProperty</code>来实现的MVVM，采用的是订阅发布模式。</strong>每个<code>data</code>中都有set和get属性，这种点对点的效率，比<code>Angular</code>实现MVVM的方式的效率更高。</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"text"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="undefined"></span></span><br><span class="line"><span class="javascript">    <span class="keyword">const</span> input = <span class="built_in">document</span>.querySelector(<span class="string">'input'</span>)</span></span><br><span class="line"><span class="javascript">    <span class="keyword">const</span> obj = &#123;&#125;</span></span><br><span class="line"><span class="undefined"></span></span><br><span class="line"><span class="javascript">    <span class="built_in">Object</span>.defineProperty(obj, <span class="string">'data'</span>, &#123;</span></span><br><span class="line"><span class="javascript">      enumerable: <span class="literal">false</span>,  <span class="comment">// 不可枚举</span></span></span><br><span class="line"><span class="javascript">      configurable: <span class="literal">false</span>, <span class="comment">// 不可删除</span></span></span><br><span class="line"><span class="undefined">      set(value)&#123;</span></span><br><span class="line"><span class="undefined">        input.value = value</span></span><br><span class="line"><span class="undefined">        _value = value</span></span><br><span class="line"><span class="javascript">        <span class="comment">// console.log(input.value)</span></span></span><br><span class="line"><span class="undefined">      &#125;,</span></span><br><span class="line"><span class="undefined">      get()&#123;</span></span><br><span class="line"><span class="javascript">        <span class="keyword">return</span> _value</span></span><br><span class="line"><span class="undefined">      &#125;</span></span><br><span class="line"><span class="undefined">    &#125;) </span></span><br><span class="line"><span class="javascript">    obj.data = <span class="string">'123'</span></span></span><br><span class="line"><span class="javascript">    input.onchange = <span class="function"><span class="params">e</span> =&gt;</span> &#123;</span></span><br><span class="line"><span class="undefined">      obj.data = e.target.value</span></span><br><span class="line"><span class="undefined">    &#125;</span></span><br><span class="line"><span class="undefined">  </span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h4 id="1-7-实现Promise"><a href="#1-7-实现Promise" class="headerlink" title="1.7 实现Promise"></a>1.7 实现<code>Promise</code></h4><p>这是一位大佬实现的<code>Promise</code>版本：<strong>过了<code>Promie/A+</code>标准的测试</strong>！！！<strong>网上能搜到的基本都是从这篇文章变形而来或者直接照搬</strong>！！！原文地址，直接戳：<a href="https://github.com/xieranmaya/blog/issues/3" target="_blank" rel="noopener">剖析Promise内部结构，一步一步实现一个完整的、能通过所有Test case的Promise类</a></p>
+<p>下面附上一种近乎完美的实现：可能无法和其他<code>Promise</code>库的实现无缝对接。但是，上面的原文实现了全部的，欢迎Mark！<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">MyPromise</span>(<span class="params">executor</span>)</span>&#123;</span><br><span class="line">  <span class="keyword">var</span> that = <span class="keyword">this</span></span><br><span class="line">  <span class="keyword">this</span>.status = <span class="string">'pending'</span> <span class="comment">// 当前状态</span></span><br><span class="line">  <span class="keyword">this</span>.data = <span class="literal">undefined</span></span><br><span class="line">  <span class="keyword">this</span>.onResolvedCallback = [] <span class="comment">// Promise resolve时的回调函数集，因为在Promise结束之前有可能有多个回调添加到它上面</span></span><br><span class="line">  <span class="keyword">this</span>.onRejectedCallback = [] <span class="comment">// Promise reject时的回调函数集，因为在Promise结束之前有可能有多个回调添加到它上面</span></span><br><span class="line"></span><br><span class="line">  <span class="comment">// 更改状态 =&gt; 绑定数据 =&gt; 执行回调函数集</span></span><br><span class="line">  <span class="function"><span class="keyword">function</span> <span class="title">resolve</span>(<span class="params">value</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(that.status === <span class="string">'pending'</span>)&#123;</span><br><span class="line">      that.status = <span class="string">'resolved'</span></span><br><span class="line">      that.data = value</span><br><span class="line">      <span class="keyword">for</span>(<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; that.onResolvedCallback.length; ++i)&#123;</span><br><span class="line">        that.onResolvedCallback[i](value)</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="function"><span class="keyword">function</span> <span class="title">reject</span>(<span class="params">reason</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(that.status === <span class="string">'pending'</span>)&#123;</span><br><span class="line">      that.status = <span class="string">'rejected'</span></span><br><span class="line">      that.data = reason</span><br><span class="line">      <span class="keyword">for</span>(<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; that.onResolvedCallback.length; ++i)&#123;</span><br><span class="line">        that.onRejectedCallback[i](reason)</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">try</span>&#123; </span><br><span class="line">    executor(resolve, reject) <span class="comment">// resolve, reject两个函数可以在外部传入的函数（executor）中调用</span></span><br><span class="line">  &#125; <span class="keyword">catch</span>(e) &#123; <span class="comment">// 考虑到执行过程可能有错</span></span><br><span class="line">    reject(e)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 标准是没有catch方法的，实现了then，就实现了catch</span></span><br><span class="line"><span class="comment">// then/catch 均要返回一个新的Promise实例</span></span><br><span class="line"></span><br><span class="line">MyPromise.prototype.then = <span class="function"><span class="keyword">function</span>(<span class="params">onResolved, onRejected</span>)</span>&#123;</span><br><span class="line">  <span class="keyword">var</span> that = <span class="keyword">this</span></span><br><span class="line">  <span class="keyword">var</span> promise2</span><br><span class="line"></span><br><span class="line">  <span class="comment">// 值穿透</span></span><br><span class="line">  onResolved = <span class="keyword">typeof</span> onResolved === <span class="string">'function'</span> ? onResolved : <span class="function"><span class="keyword">function</span>(<span class="params">v</span>)</span>&#123; <span class="keyword">return</span> v &#125;</span><br><span class="line">  onRejected = <span class="keyword">typeof</span> onRejected === <span class="string">'function'</span> ? onRejected : <span class="function"><span class="keyword">function</span>(<span class="params">r</span>)</span>&#123; <span class="keyword">return</span> r &#125;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">if</span>(that.status === <span class="string">'resolved'</span>)&#123;</span><br><span class="line">    <span class="keyword">return</span> promise2 = <span class="keyword">new</span> MyPromise(<span class="function"><span class="keyword">function</span>(<span class="params">resolve, reject</span>)</span>&#123;</span><br><span class="line">      <span class="keyword">try</span>&#123;</span><br><span class="line">        <span class="keyword">var</span> x = onResolved(that.data)</span><br><span class="line">        <span class="keyword">if</span>(x <span class="keyword">instanceof</span> MyPromise)&#123; <span class="comment">// 如果onResolved的返回值是一个Promise对象，直接取它的结果做为promise2的结果</span></span><br><span class="line">          x.then(resolve, reject)</span><br><span class="line">        &#125;</span><br><span class="line">        resolve(x) <span class="comment">// 否则，以它的返回值做为promise2的结果 </span></span><br><span class="line">      &#125; <span class="keyword">catch</span>(e) &#123;</span><br><span class="line">        reject(e) <span class="comment">// 如果出错，以捕获到的错误做为promise2的结果</span></span><br><span class="line">      &#125;</span><br><span class="line">    &#125;)</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">if</span>(that.status === <span class="string">'rejected'</span>)&#123;</span><br><span class="line">    <span class="keyword">return</span> promise2 = <span class="keyword">new</span> MyPromise(<span class="function"><span class="keyword">function</span>(<span class="params">resolve, reject</span>)</span>&#123;</span><br><span class="line">      <span class="keyword">try</span>&#123;</span><br><span class="line">        <span class="keyword">var</span> x = onRejected(that.data)</span><br><span class="line">        <span class="keyword">if</span>(x <span class="keyword">instanceof</span> MyPromise)&#123;</span><br><span class="line">          x.then(resolve, reject)</span><br><span class="line">        &#125;</span><br><span class="line">      &#125; <span class="keyword">catch</span>(e) &#123;</span><br><span class="line">        reject(e)</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;)</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">if</span>(that.status === <span class="string">'pending'</span>)&#123;</span><br><span class="line">    <span class="keyword">return</span> promise2 = <span class="keyword">new</span> MyPromise(<span class="function"><span class="keyword">function</span>(<span class="params">resolve, reject</span>)</span>&#123;</span><br><span class="line">      self.onResolvedCallback.push(<span class="function"><span class="keyword">function</span>(<span class="params">reason</span>)</span>&#123;</span><br><span class="line">        <span class="keyword">try</span>&#123;</span><br><span class="line">          <span class="keyword">var</span> x = onResolved(that.data)</span><br><span class="line">          <span class="keyword">if</span>(x <span class="keyword">instanceof</span> MyPromise)&#123;</span><br><span class="line">            x.then(resolve, reject)</span><br><span class="line">          &#125;</span><br><span class="line">        &#125; <span class="keyword">catch</span>(e) &#123;</span><br><span class="line">          reject(e)</span><br><span class="line">        &#125;</span><br><span class="line">      &#125;)</span><br><span class="line"></span><br><span class="line">      self.onRejectedCallback.push(<span class="function"><span class="keyword">function</span>(<span class="params">value</span>)</span>&#123;</span><br><span class="line">        <span class="keyword">try</span>&#123;</span><br><span class="line">          <span class="keyword">var</span> x = onRejected(that.data)</span><br><span class="line">          <span class="keyword">if</span>(x <span class="keyword">instanceof</span> MyPromise)&#123;</span><br><span class="line">            x.then(resolve, reject)</span><br><span class="line">          &#125;</span><br><span class="line">        &#125; <span class="keyword">catch</span>(e) &#123;</span><br><span class="line">          reject(e)</span><br><span class="line">        &#125;</span><br><span class="line">      &#125;)</span><br><span class="line">    &#125;)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">MyPromise.prototype.catch = <span class="function"><span class="keyword">function</span>(<span class="params">onRejected</span>)</span>&#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="keyword">this</span>.then(<span class="literal">null</span>, onRejected)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 以下是简单的测试样例：</span></span><br><span class="line"><span class="keyword">new</span> MyPromise(<span class="function"><span class="params">resolve</span> =&gt;</span> resolve(<span class="number">8</span>)).then(<span class="function"><span class="params">value</span> =&gt;</span> &#123;</span><br><span class="line">  <span class="built_in">console</span>.log(value)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure></p>
+<h4 id="1-8-Event-Loop"><a href="#1-8-Event-Loop" class="headerlink" title="1.8 Event Loop"></a>1.8 Event Loop</h4><blockquote>
+<p>题目：说一下JS的EventLoop</p>
+</blockquote>
+<p>其实阮一峰老师这篇<a href="http://www.ruanyifeng.com/blog/2014/10/event-loop.html" target="_blank" rel="noopener">《JavaScript 运行机制详解：再谈Event Loop》</a>已经讲的很清晰了（手动赞）！</p>
+<p>这里简单总结下：</p>
+<ol>
+<li>JS是单线程的，其上面的所有任务都是在两个地方执行：<strong>执行栈和任务队列</strong>。前者是存放同步任务；后者是异步任务有结果后，就在其中放入一个事件。</li>
+<li>当执行栈的任务都执行完了（栈空），js会读取任务队列，并将可以执行的任务从任务队列丢到执行栈中执行。</li>
+<li>这个过程是循环进行，所以称作<code>Loop</code>。</li>
+</ol>
+<h2 id="2-CSS相关"><a href="#2-CSS相关" class="headerlink" title="2. CSS相关"></a>2. CSS相关</h2><h4 id="2-1-水平垂直居中"><a href="#2-1-水平垂直居中" class="headerlink" title="2.1 水平垂直居中"></a>2.1 水平垂直居中</h4><blockquote>
+<p>题目： 两种以上方式实现已知或者未知宽度的垂直水平居中</p>
+</blockquote>
+<p>第一种方法就是利用<code>CSS3</code>的<code>translate</code>进行偏移定位，<strong>注意：两个参数的百分比都是针对元素本身计算的。</strong></p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.wrap</span> &#123;</span><br><span class="line">  <span class="attribute">position</span>: relative;</span><br><span class="line">  <span class="attribute">width</span>: <span class="number">100vw</span>;</span><br><span class="line">  <span class="attribute">height</span>: <span class="number">100vh</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.box</span> &#123;</span><br><span class="line">  <span class="attribute">position</span>: absolute;</span><br><span class="line">  <span class="attribute">top</span>: <span class="number">50%</span>;</span><br><span class="line">  <span class="attribute">left</span>: <span class="number">50%</span>;</span><br><span class="line">  <span class="attribute">transform</span>: <span class="built_in">translate</span>(-50%, -50%);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>第二种方法是利用<code>CSS3</code>的<code>flex</code>布局，父元素diplay属性设置为<code>flex</code>，并且定义元素在两条轴线的布局方式均为<code>center</code></p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.wrap</span> &#123;</span><br><span class="line">  <span class="attribute">display</span>: flex;</span><br><span class="line">  <span class="attribute">justify-content</span>: center;</span><br><span class="line">  <span class="attribute">align-items</span>: center;</span><br><span class="line">  <span class="attribute">width</span>: <span class="number">100vw</span>;</span><br><span class="line">  <span class="attribute">height</span>: <span class="number">100vh</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.wrap</span> <span class="selector-class">.box</span> &#123;</span><br><span class="line">  <span class="attribute">width</span>: <span class="number">100px</span>;</span><br><span class="line">  <span class="attribute">height</span>: <span class="number">100px</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>第三种方法是利用<strong>margin负值</strong>来进行元素偏移，优点是浏览器兼容好，缺点是不够灵活（要自行计算margin的值）：</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.wrap</span> &#123;</span><br><span class="line">  <span class="attribute">position</span>: relative;</span><br><span class="line">  <span class="attribute">width</span>: <span class="number">100vw</span>;</span><br><span class="line">  <span class="attribute">height</span>: <span class="number">100vh</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.box</span> &#123;</span><br><span class="line">  <span class="attribute">position</span>: absolute;</span><br><span class="line">  <span class="attribute">top</span>: <span class="number">50%</span>;</span><br><span class="line">  <span class="attribute">left</span>: <span class="number">50%</span>;</span><br><span class="line">  <span class="attribute">width</span>: <span class="number">100px</span>;</span><br><span class="line">  <span class="attribute">height</span>: <span class="number">100px</span>;</span><br><span class="line">  <span class="attribute">margin</span>: -<span class="number">50px</span> <span class="number">0</span> <span class="number">0</span> -<span class="number">50px</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="2-2-“点击”改变样式"><a href="#2-2-“点击”改变样式" class="headerlink" title="2.2 “点击”改变样式"></a>2.2 “点击”改变样式</h4><blockquote>
+<p>题目：实现效果，点击容器内的图标，图标边框变成border 1px solid red，点击空白处重置。</p>
+</blockquote>
+<p>利用<code>event.target</code>可以判断是否是指定元素本身（判断“空白处”），除此之外，注意禁止冒泡（题目指明了“容器内”）。</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE html&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span> <span class="attr">lang</span>=<span class="string">"en"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">"UTF-8"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">"viewport"</span> <span class="attr">content</span>=<span class="string">"width=device-width, initial-scale=1.0"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">meta</span> <span class="attr">http-equiv</span>=<span class="string">"X-UA-Compatible"</span> <span class="attr">content</span>=<span class="string">"ie=edge"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">title</span>&gt;</span>Document<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">style</span>&gt;</span><span class="undefined"></span></span><br><span class="line"><span class="css">  <span class="selector-id">#app</span> &#123;</span></span><br><span class="line"><span class="undefined">    min-width: 100vw;</span></span><br><span class="line"><span class="undefined">    min-height: 100vh;</span></span><br><span class="line"><span class="undefined">  &#125;</span></span><br><span class="line"><span class="css">  <span class="selector-id">#app</span> <span class="selector-class">.icon</span>&#123;</span></span><br><span class="line"><span class="undefined">    display: inline-block;</span></span><br><span class="line"><span class="undefined">    cursor: pointer;</span></span><br><span class="line"><span class="undefined">  &#125;</span></span><br><span class="line"><span class="undefined">  </span><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"app"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">span</span> <span class="attr">class</span>=<span class="string">"icon"</span>&gt;</span>123456<span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="undefined"></span></span><br><span class="line"><span class="javascript">  <span class="keyword">const</span> app = <span class="built_in">document</span>.querySelector(<span class="string">"#app"</span>)</span></span><br><span class="line"><span class="javascript">  <span class="keyword">const</span> icon = <span class="built_in">document</span>.querySelector(<span class="string">".icon"</span>)</span></span><br><span class="line"><span class="undefined"></span></span><br><span class="line"><span class="javascript">  app.addEventListener(<span class="string">"click"</span>, e =&gt; &#123;</span></span><br><span class="line"><span class="javascript">    <span class="keyword">if</span>(e.target === icon)&#123;</span></span><br><span class="line"><span class="javascript">      <span class="keyword">return</span>;</span></span><br><span class="line"><span class="undefined">    &#125;</span></span><br><span class="line"><span class="javascript">    <span class="comment">// 非空白处才去除 border </span></span></span><br><span class="line"><span class="javascript">    icon.style.border = <span class="string">"none"</span>;</span></span><br><span class="line"><span class="undefined">  &#125;)</span></span><br><span class="line"><span class="undefined"></span></span><br><span class="line"><span class="javascript">  icon.addEventListener(<span class="string">"click"</span>, e =&gt; &#123;</span></span><br><span class="line"><span class="javascript">    <span class="comment">// 禁止冒泡</span></span></span><br><span class="line"><span class="undefined">    e.stopPropagation()</span></span><br><span class="line"><span class="javascript">    <span class="comment">// 更改样式</span></span></span><br><span class="line"><span class="javascript">    icon.style.border = <span class="string">"1px solid red"</span>;</span></span><br><span class="line"><span class="undefined">  &#125;)</span></span><br><span class="line"><span class="undefined">  </span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h2 id="3-浏览器-协议相关"><a href="#3-浏览器-协议相关" class="headerlink" title="3. 浏览器/协议相关"></a>3. 浏览器/协议相关</h2><h4 id="3-1-缓存机制"><a href="#3-1-缓存机制" class="headerlink" title="3.1 缓存机制"></a>3.1 缓存机制</h4><blockquote>
+<p>题目：说一下浏览器的缓存机制。</p>
+</blockquote>
+<p>浏览器缓存<strong>分为强缓存和协商缓存</strong>。缓存的作用是<strong>提高客户端速度、节省网络流量、降低服务器压力</strong>。</p>
+<p>强缓存：浏览器请求资源，如果header中的<code>Cache-Control</code>和<code>Expires</code>没有过期，直接从缓存（本地）读取资源，不需要再向服务器请求资源。</p>
+<p>协商缓存：浏览器请求的资源如果是过期的，那么会向服务器发送请求，header中带有<code>Etag</code>字段。服务器再进行判断，如果ETag匹配，则返回给客户端300系列状态码，客户端继续使用本地缓存；否则，客户端会重新获取数据资源。</p>
+<p>关于过程中详细的字段，可以参考这篇《<a href="https://segmentfault.com/a/1190000008956069" target="_blank" rel="noopener">http协商缓存VS强缓存</a>》</p>
+<h4 id="3-2-从URL到页面生成"><a href="#3-2-从URL到页面生成" class="headerlink" title="3.2 从URL到页面生成"></a>3.2 从URL到页面生成</h4><blockquote>
+<p> 题目：输入URL到看到页面发生的全过程，越详细越好</p>
+</blockquote>
+<ol>
+<li>DNS解析</li>
+<li>建立TCP连接（3次握手）</li>
+<li>发送HTTP请求，从服务器下载相关内容</li>
+<li>浏览器构建DOM树和CSS树，然后生成渲染树。这个一个渐进式过程，引擎会力求最快将内容呈现给用户。</li>
+<li>在第四步的过程中，<code>&lt;script&gt;</code>的位置和加载方式会影响响应速度。</li>
+<li>搞定了，关闭TCP连接（4次握手）</li>
+</ol>
+<h4 id="3-3-TCP握手"><a href="#3-3-TCP握手" class="headerlink" title="3.3 TCP握手"></a>3.3 TCP握手</h4><blockquote>
+<p>题目：解释TCP建立的时候的3次握手和关闭时候的4次握手</p>
+</blockquote>
+<p>看这题的时候，我也是突然懵（手动捂脸）。推荐翻一下计算机网络的相关书籍，对于<code>FIN</code>、<code>ACK</code>等字段的讲解很赞！</p>
+<h4 id="3-4-CSS和JS位置"><a href="#3-4-CSS和JS位置" class="headerlink" title="3.4 CSS和JS位置"></a>3.4 CSS和JS位置</h4><blockquote>
+<p>题目：CSS和JS的位置会影响页面效率，为什么？</p>
+</blockquote>
+<p>先说CSS。CSS的位置不会影响加载速度，但是CSS一般放在<code>&lt;head&gt;</code>标签中。前面有说DOM树和CSS树共同生成渲染树，CSS位置太靠后的话，在CSS加载之前，可能会出现闪屏、样式混乱、白屏等情况。</p>
+<p>再说JS。JS是阻塞加载，默认的<code>&lt;script&gt;</code>标签会加载并且立即执行脚本，如果脚本很复杂或者网络不好，会出现很久的白屏。所以，JS标签一般放到<code>&lt;body&gt;</code>标签最后。</p>
+<p>现在，也可以为<code>&lt;script&gt;</code>标签设置<code>async</code>或者<code>defer</code>属性。前者是js脚本的加载和执行将与后续文档的加载和渲染同步执行。后者是js脚本的加载将与后续文档的加载和渲染同步执行，当所有元素解析完，再执行js脚本。</p>
+<h2 id="4-算法相关"><a href="#4-算法相关" class="headerlink" title="4. 算法相关"></a>4. 算法相关</h2><h4 id="4-1-数组全排列"><a href="#4-1-数组全排列" class="headerlink" title="4.1 数组全排列"></a>4.1 数组全排列</h4><blockquote>
+<p>题目：现在有一个数组[1,2,3,4]，请实现算法，得到这个数组的全排列的数组，如[2,1,3,4]，[2,1,4,3]。。。。你这个算法的时间复杂度是多少</p>
+</blockquote>
+<p>实现思路：从“开始元素”起，每个元素都和开始元素进行交换；不断缩小范围，最后输出这种排列。暴力法的时间复杂度是 $O(N_N)$，递归实现的时间复杂度是 $O(N!)$</p>
+<p><strong>如何去重？去重的全排列就是从第一个数字起每个数分别与它后面非重复出现的数字交换。</strong>对于有重复元素的数组，例如：<code>[1, 2, 2]</code>，应该剔除重复的情况。每次只需要检查<code>arr[start, i)</code>中是不是有和<code>arr[i]</code>相同的元素，有的话，说明之前已经输出过了，不需要考虑。</p>
+<p>代码实现：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> swap = <span class="function">(<span class="params">arr, i, j</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="keyword">let</span> tmp = arr[i]</span><br><span class="line">  arr[i] = arr[j]</span><br><span class="line">  arr[j] = tmp</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> permutation = <span class="function"><span class="params">arr</span> =&gt;</span> &#123;</span><br><span class="line">  <span class="keyword">const</span> _permutation = <span class="function">(<span class="params">arr, start</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">if</span>(start === arr.length)&#123;</span><br><span class="line">      <span class="built_in">console</span>.log(arr)</span><br><span class="line">      <span class="keyword">return</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">let</span> i = start; i &lt; arr.length; ++i)&#123;</span><br><span class="line">      <span class="comment">// 全排列：去重操作</span></span><br><span class="line">      <span class="keyword">if</span>(arr.slice(start, i).indexOf(arr[i]) !== <span class="number">-1</span>)&#123;</span><br><span class="line">        <span class="keyword">continue</span></span><br><span class="line">      &#125;</span><br><span class="line">      swap(arr, i, start) <span class="comment">// 和开始元素进行交换</span></span><br><span class="line">      _permutation(arr, start + <span class="number">1</span>)</span><br><span class="line">      swap(arr, i, start) <span class="comment">// 恢复数组</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> </span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> _permutation(arr, <span class="number">0</span>)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">permutation([<span class="number">1</span>, <span class="number">2</span>, <span class="number">2</span>])</span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">"**********"</span>)</span><br><span class="line">permutation([<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>])</span><br></pre></td></tr></table></figure></p>
+<h4 id="4-2-背包问题"><a href="#4-2-背包问题" class="headerlink" title="4.2 背包问题"></a>4.2 背包问题</h4><blockquote>
+<p>题目：我现在有一个背包，容量为m，然后有n个货物，重量分别为w1,w2,w3…wn，每个货物的价值是v1,v2,v3…vn，w和v没有任何关系，请求背包能装下的最大价值。</p>
+</blockquote>
+<p><em>这个还在学习中，背包问题博大精深。。。</em></p>
+<h4 id="4-3-图的连通分量"><a href="#4-3-图的连通分量" class="headerlink" title="4.3 图的连通分量"></a>4.3 图的连通分量</h4><blockquote>
+<p>题目：我现在有一个canvas，上面随机布着一些黑块，请实现方法，计算canvas上有多少个黑块。</p>
+</blockquote>
+<p><strong>这一题可以转化成图的联通分量问题</strong>。通过<code>getImageData</code>获得像素数组，从头到尾遍历一遍，就可以判断每个像素是否是黑色。同时，准备一个<code>width * height</code>大小的二维数组，这个数组的每个元素是<code>1/0</code>。如果是黑色，二维数组对应元素就置1；否则置0。</p>
+<p>然后问题就被转换成了图的连通分量问题。可以通过深度优先遍历或者并查集来实现。之前我用C++实现了，这里不再冗赘：</p>
+<ul>
+<li><a href="https://godbmw.com/passages/2018-10-27-graph-traversal-application/#2.1%20%E6%89%BE%E5%88%B0%E5%9B%BE%E7%9A%84%E8%81%94%E9%80%9A%E5%88%86%E9%87%8F">图的遍历和应用</a></li>
+<li><a href="https://godbmw.com/passages/2018-10-11-union-find/">并查集</a></li>
+</ul>
+<h2 id="5-Web工程化"><a href="#5-Web工程化" class="headerlink" title="5. Web工程化"></a>5. Web工程化</h2><h4 id="5-1-Dialog组件思路"><a href="#5-1-Dialog组件思路" class="headerlink" title="5.1 Dialog组件思路"></a>5.1 Dialog组件思路</h4><blockquote>
+<p>题目：现在要你完成一个Dialog组件，说说你设计的思路？它应该有什么功能？</p>
+</blockquote>
+<ul>
+<li>可以指定宽度、高度和位置</li>
+<li>需要一个遮盖层，遮住底层内容</li>
+<li>由头部、尾部和正文构成</li>
+<li>需要监听事件和自定义事件，非单向数据流：例如点击组件右上角，修改父组件的<code>visible</code>属性，关闭组件。</li>
+</ul>
+<p>关于工程化组件封装，可以去试试ElementUI。这个是ElementUI的Dialog组件：<a href="http://element-cn.eleme.io/#/zh-CN/component/dialog" target="_blank" rel="noopener">Element-Dialog</a></p>
+<h4 id="5-2-React的Diff算法和虚拟DOM"><a href="#5-2-React的Diff算法和虚拟DOM" class="headerlink" title="5.2 React的Diff算法和虚拟DOM"></a>5.2 React的Diff算法和虚拟DOM</h4><blockquote>
+<p>题目： react 的虚拟dom是怎么实现的</p>
+</blockquote>
+<p>原答案写的挺好滴，这里直接贴了。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">首先说说为什么要使用Virturl DOM，因为操作真实DOM的耗费的性能代价太高，所以react内部使用js实现了一套dom结构。</span><br><span class="line">在每次操作在和真实dom之前，使用实现好的diff算法，对虚拟dom进行比较，递归找出有变化的dom节点，然后对其进行更新操作。</span><br><span class="line">为了实现虚拟DOM，我们需要把每一种节点类型抽象成对象，每一种节点类型有自己的属性，也就是prop，每次进行diff的时候，react会先比较该节点类型：</span><br><span class="line">假如节点类型不一样，那么react会直接删除该节点，然后直接创建新的节点插入到其中；</span><br><span class="line">假如节点类型一样，那么会比较prop是否有更新，假如有prop不一样，那么react会判定该节点有更新，那么重渲染该节点，然后在对其子节点进行比较，一层一层往下，直到没有子节点。</span><br></pre></td></tr></table></figure>
+<p>参考链接：<a href="https://segmentfault.com/a/1190000010686582" target="_blank" rel="noopener">React源码之Diff算法</a></p>
+    </div>
+  </div>
+  
+    <div class="copy-right">
+      <div class="markdown-body">
+        <blockquote>
+        
+        
+          本文作者 : 董沅鑫 <br>
+        
+        原文链接 : <a href="">https://godbmw.com/theme-bmw/passages/2018-11-28-try-web-interview/</a><br>
+        版权声明 : 本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> 许可协议。转载请注明出处！
+        </blockquote>
+      </div>
+    </div>
+  
+  
+  
+    <div class="social-share" style="margin-top: -2rem" data-wechat-qrcode-title="<p>微信扫一扫</p>" data-wechat-qrcode-helper="<p>微信右上角, 扫一扫分享</p>" data-sites="qzone, qq, weibo, wechat, douban, google, facebook, twitter">
+  <span style="color: #6b7487; font-size: 1.4rem;">分享到: </span>
+</div>
+<script src="https://cdn.bootcss.com/social-share.js/1.0.16/js/social-share.min.js" async></script>
+  
+
+  
+    <div id="reward">
+  
+    <p id="reward-meta">知识 & 情怀 | 二者兼得</p>
+  
+  <button id="reward-btn">
+    
+    <span>投食</span>
+  </button>
+  <div id="reward-qrcode">
+    
+      <div class="reward-qrcode--container">
+        <img class="qrcode-img" src="/images/wechat.png" alt="微信扫一扫, 向我投食">
+        <p class="qrcode-meta">微信扫一扫, 向我投食</p>
+      </div>
+    
+      <div class="reward-qrcode--container">
+        <img class="qrcode-img" src="/images/alipay.png" alt="支付宝扫一扫, 向我投食">
+        <p class="qrcode-meta">支付宝扫一扫, 向我投食</p>
+      </div>
+    
+  </div>
+
+</div>
+
+<script>
+  (() => {
+    let button = document.querySelector('#reward-btn'),
+      qrcode = document.querySelector('#reward-qrcode'),
+      display = false;
+    
+    button.addEventListener('click', () => {
+      qrcode.style.display = display ? 'none' : 'block'
+      display = !display
+    }, false)
+  })()
+</script>
+  
+
+  <div class="article-footer">
+    <div class="article-meta pull-left">
+      <span>
+        
+          <i class="iconfont icon-06tags"></i>标签: 
+          
+          <span class="span--tag">
+            <a href="/theme-bmw/tags/面试/">
+              #面试
+            </a>
+          </span>
+          
+          <span class="span--tag">
+            <a href="/theme-bmw/tags/算法/">
+              #算法
+            </a>
+          </span>
+          
+          <span class="span--tag">
+            <a href="/theme-bmw/tags/HTML5/">
+              #HTML5
+            </a>
+          </span>
+          
+          <span class="span--tag">
+            <a href="/theme-bmw/tags/网络协议/">
+              #网络协议
+            </a>
+          </span>
+          
+        
+      </span>
+    </div>
+    <div class="article-meta pull-right">
+    </div>
+  </div>
+</div>
+
+
+  <aside id="sidebar">
+    <p id="sidebar-header"></p>
+    <ol id="sidebar-toc"></ol>
+  </aside>
+  <script async>setTimeout(generateToc, 10);</script>
+
+
+  <nav class="post-navigation">
+    
+      <div class="nav-pre">
+        <i class="iconfont icon-prev"></i>
+        上一篇:
+        <a href="/theme-bmw/passages/2018-11-25-command-pattern/" target="_self">每天一个设计模式之命令模式</a>
+      </div>
+    
+    
+      <div class="nav-next">
+        下一篇:
+        <a href="/theme-bmw/passages/2018-12-06-theme-bmw-v4/" target="_self">开源博客|Theme-bmw："微声"版发布</a>
+        <i class="iconfont icon-next"></i>
+      </div>
+    
+  </nav>
+
+  
+    <a href="#comment" class="comment-anchor"></a>
+<div class="comment-title"><i class="iconfont icon-footprint"></i> 留下足迹 <i class="iconfont icon-footprint"></i></div>
+<div id="vcomments"></div>
+
+<script defer>
+  if( true ) {
+    let path = getRealPath()
+    new Valine({
+      el: "#vcomments",
+      appId: "j3TlSqBMjoXnrIrNYB5En5Y1-gzGzoHsz",
+      appKey: "d2rWR1nq5chvzXzh3bSyB8ug",
+      notify: false,
+      verify: false,
+      avatar: "robohash",
+      placeholder: "正确填写邮箱, 才能及时收到回复哦♪(^∇^*)",
+      path
+    });
+  }
+</script>
+   
+
+  
+    <script defer>
+const valineAPI = (() => {
+  try {
+    AV.init("j3TlSqBMjoXnrIrNYB5En5Y1-gzGzoHsz", "d2rWR1nq5chvzXzh3bSyB8ug");
+  } catch(error) {}
+  const isExist = (identity) => {
+    identity = identity || getRealPath();
+    let query = new AV.Query('Timer');
+    return new Promise((resolve, reject) => {
+      query.equalTo("identity", identity);
+      query.find().then(results => {
+        resolve(results.length > 0);
+      }, error => reject(error));
+    })
+  }
+
+  const _get = (identity) => {
+    let query = null;
+    if(identity && identity instanceof Array){
+      let querys = [];
+      for(let i = 0; i < identity.length; ++i) {
+        querys[i] = new AV.Query('Timer');
+        querys[i].equalTo('identity', identity[i]);
+      }
+      query = AV.Query.or.apply(null ,querys);
+    } else {
+      identity = identity || getRealPath();
+      query = new AV.Query("Timer");
+      query.equalTo("identity", identity);
+    }
+
+    return new Promise((resolve, reject) => {
+      query.find()
+      .then(results => resolve(results))
+      .catch(error => reject(error))
+    })
+  }
+
+  const create = (identity) => {
+    identity = identity || getRealPath();
+    return new Promise((resolve, reject) => {
+      let Todo = AV.Object.extend('Timer');
+      let todo = new Todo();
+      todo.set("times", 1);
+      todo.set("identity", identity);
+      todo.save().then(res => resolve(true), error => reject(error));
+    })
+  }
+
+  const update = (identity) => {
+    identity = identity || getRealPath();
+    return new Promise((resolve, reject) => {
+      let query = new AV.Query('Timer');
+      query.equalTo("identity", identity);
+      query.find().then(todos => {
+        todos.forEach(todo => {
+          todo.set("times", todo.attributes.times + 1);
+        });
+        return AV.Object.saveAll(todos);
+      }).then(todos => resolve(true), error => reject(error));
+    })
+  }
+
+  return {
+    isExist,
+    _get,
+    update,
+    create
+  }
+})()
+
+const calcAndWriteTimes = () => {
+  let isPost = true;
+
+  let timerAllDOM = document.querySelectorAll(".article-timer");
+
+  if(isPost) {
+    let identity = timerAllDOM[0].getAttribute("data-identity");
+    valineAPI.isExist(identity)
+    .then(exist => {
+      if(exist) {
+        return valineAPI.update(identity);
+      }
+      return new Promise(resolve => resolve(true));
+    })
+    .then( succuess => valineAPI._get(identity))
+    .then( result => timerAllDOM[0].innerText = result[0].attributes.times)
+    .catch(error => console.log(error.message))
+    return ;
+  }
+
+  let timerDOMCache = {};
+
+  for(let timerDOM of timerAllDOM) {
+    let identity = timerDOM.getAttribute("data-identity");
+    if(timerDOMCache.hasOwnProperty(identity)){
+      timerDOMCache[identity].dom.push(timerDOM);
+    }else{
+      timerDOMCache[identity] = {
+        dom: [timerDOM],
+        times: undefined
+      };
+    }
+  }
+
+  let identities = Object.keys(timerDOMCache);
+  valineAPI._get(identities).then(results => {
+    for(let result of results) {
+      let {identity, times} = result.attributes;
+      timerDOMCache[identity].times = times;
+      timerDOMCache[identity].dom.map(item => item.innerText = times);
+    }
+    for(let identity of identities) {
+      if(timerDOMCache[identity].times){
+        continue;
+      }
+      timerDOMCache[identity].dom.map(item => item.innerText = 1);
+      valineAPI.create(identity);
+    }
+  }).catch(error => console.log(error.message))
+}
+
+if(true){
+  calcAndWriteTimes();
+}
+</script>
+   
+
+</div>
+
+
+      <footer>
+  <p class="site-info">
+    博客已萌萌哒运行<span id="time-to-now"></span><span class="my-face">(●'◡'●)ﾉ♥</span>
+    <br>
+    Theme - <a href="https://github.com/dongyuanxin/theme-bmw">BMW</a> | Made With 💗 | Powered by <a href="https://godbmw.com/">GodBMW</a>
+    <br>
+    
+      <a href="https://www.google.com/analytics/" target="_blank">Google Analytics</a> 提供网站统计服务.  <a href="https://sg.godaddy.com/" target="_blank">GoDaddy</a> 提供域名注册服务.  <br> <a href="https://www.trustasia.com/" target="_blank">TrustAsia</a> 签发SSL证书.  <a href="http://www.miibeian.gov.cn/state/outPortal/loginPortal.action" target="_blank">粤ICP备18028400号</a> . 
+    
+  </p>
+</footer>
+
+
+
+<script>
+const timeToNowDOM = document.querySelector("#time-to-now");
+const startTimestamp = new Date(2018, 1, 10).getTime();
+
+const updateTimeStr = () => {
+  let offset = parseInt(
+      (new Date().getTime() - startTimestamp) / 1000,
+      10
+    ),
+    day = Math.floor(offset / 86400),
+    hour = Math.floor((offset % 86400) / 3600),
+    minute = Math.floor(((offset % 86400) % 3600) / 60),
+    second = Math.floor(((offset % 86400) % 3600) % 60);
+  timeToNowDOM.innerHTML =
+    day + "天" + hour + "小时" + minute + "分钟" + second + "秒";
+  setTimeout(updateTimeStr, 500);
+}
+
+setTimeout(updateTimeStr, 500);
+</script>
+
+
+      <div class="back-to-top hidden">
+  <span>
+    <i class="iconfont icon-60"></i><span></span>%
+  </span>
+</div>
+
+<script>
+const updateIconToTop = percent => {
+  let dom = document.querySelector(".back-to-top span span");
+  dom.innerText = percent;
+  if(percent < 1) {
+    document.querySelector(".back-to-top").className = "back-to-top hidden";
+  } else {
+    document.querySelector(".back-to-top").className = "back-to-top";
+  }
+}
+
+const handleScoll = () => {
+  let isRunning = false;
+  return () => {
+    if (isRunning) return;
+    isRunning = true;
+    window.requestAnimationFrame(timestamp => {
+      let scrollTop =
+          document.documentElement.scrollTop || document.body.scrollTop,
+        scrollHeight =
+          document.documentElement.scrollHeight ||
+          document.body.scrollHeight,
+        clientHeight =
+          document.documentElement.clientHeight ||
+          document.body.clientHeight;
+      isRunning = false;
+      if (scrollTop <= 1) {
+        updateIconToTop(0);
+        return;
+      }
+      if (scrollTop + clientHeight >= scrollHeight) {
+        updateIconToTop(100);
+      } else {
+        updateIconToTop(parseInt(
+          100 * scrollTop / (scrollHeight - clientHeight),
+          10
+        ));
+      }
+    });
+  };
+}
+
+const backToTop = () => {
+  let scrollTop =
+      document.documentElement.scrollTop || document.body.scrollTop,
+    delay = 10,
+    time = 200;
+  if (scrollTop <= 20) {
+    document.documentElement.scrollTop = 0;
+    document.body.scrollTop = 0;
+    return;
+  }
+  let step = Math.ceil(scrollTop * delay / time);
+  let timer = setInterval(() => {
+    scrollTop =
+      document.documentElement.scrollTop || document.body.scrollTop;
+    if (scrollTop - step <= 0) {
+      document.documentElement.scrollTop = 0;
+      document.body.scrollTop = 0;
+      clearInterval(timer);
+    } else {
+      document.documentElement.scrollTop = scrollTop - step;
+      document.body.scrollTop = scrollTop - step;
+    }
+  }, delay);
+}
+
+document.addEventListener("scroll", handleScoll(), false);
+
+document.querySelector(".back-to-top").addEventListener("click", backToTop, false);
+
+</script>
+
+    </div>
+
+    
+      <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML" async></script>
+<script>
+  (() => {
+    const mathjaxConfig = {
+      showProcessingMessages: false, //关闭js加载过程信息
+      messageStyle: "none", //不显示信息
+      jax: ["input/TeX", "output/HTML-CSS"],
+      tex2jax: {
+        inlineMath: [["$", "$"], ["\\(", "\\)"]], //行内公式选择符
+        displayMath: [["$$", "$$"], ["\\[", "\\]"]], //段内公式选择符
+        skipTags: ["script", "noscript", "style", "textarea", "pre", "code", "a"] //避开某些标签
+      },
+      "HTML-CSS": {
+        availableFonts: ["STIX", "TeX"], //可选字体
+        showMathMenu: false //关闭右击菜单显示
+      }
+    }
+
+    let mathjaxInterval = setInterval(() => {
+      if(!window.MathJax){
+        return;
+      }
+      window.MathJax.Hub.Config(mathjaxConfig)
+      window.MathJax.Hub.Queue(["Typeset", MathJax.Hub, document.getElementById('app')])
+
+      clearInterval(mathjaxInterval)
+    }, 10)    
+  })()
+</script>
+    
+
+    <script src="https://cdn.bootcss.com/fancybox/3.5.2/jquery.fancybox.min.js" async></script>
+<script async>
+  let fancyTimer = setInterval(function(){
+    if(!window.$){
+      return;
+    }
+    $(document).ready(function() {
+      $(".post img").each(function () {
+        if($(this).parent().get(0).tagName.toLowerCase() === "a") {
+          return;
+        }
+        // $(this).attr("data-fancybox", "gallery"); // if you add 'data-fancybox', img will display after showed
+        var element = document.createElement("a");
+        $(element).attr("data-fancybox", "gallery");
+        $(element).attr("href", $(this).attr("src"));
+        $(this).wrap(element);
+      });
+      
+      clearInterval(fancyTimer);
+    });
+  }, 10);
+</script>
+
+    
+    <script async>
+try {
+  AV.init("j3TlSqBMjoXnrIrNYB5En5Y1-gzGzoHsz", "d2rWR1nq5chvzXzh3bSyB8ug");
+} catch(error) {}
+
+let pathname = decodeURIComponent(window.location.pathname);
+!pathname.endsWith('/') && (pathname = pathname + '/');
+
+let Counter = AV.Object.extend("Counter");
+let counter = new Counter();
+counter.set("visit_time", new Date().getTime().toString());
+counter.set("user_agent", window.navigator.userAgent);
+counter.set("identity_path", pathname);
+counter.set("more_info", JSON.stringify(window.location));
+
+let acl = new AV.ACL();
+acl.setPublicReadAccess(true);
+acl.setPublicWriteAccess(false);
+
+counter.setACL(acl);
+counter.save();
+</script>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-124601890-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-124601890-1');
+</script>
+
+
+<script async>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+<script async>
+(function(){
+var src = (document.location.protocol == "http:") ? "http://js.passport.qihucdn.com/11.0.1.js?bbf5bdfcccab2efb9fd4e96c19271f1a":"https://jspassport.ssl.qhimg.com/11.0.1.js?bbf5bdfcccab2efb9fd4e96c19271f1a";
+document.write('<script src="' + src + '" id="sozz"><\/script>');
+})();
+</script>
+  </body>
+
+</html>

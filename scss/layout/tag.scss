@@ -1,0 +1,63 @@
+// tag-index.css
+%item {
+  display: inline-block;
+  margin: 0.4rem 1.4rem;
+  font-size: 1.6rem;
+  font-family: "Monda", "PingFang SC", "Microsoft YaHei", sans-serif;
+
+  a {
+    display: inline-block;
+    position: relative;
+    color: #555;
+    text-decoration: none;
+    padding: 0 0.3rem;
+
+    &::before {
+      content: "";
+      position: absolute;
+      width: 0;
+      right: 0;
+      bottom: 0;
+      height: 2px;
+      background: #f03838;
+      transition: all 0.3s ease;
+    }
+
+    &:hover {
+      color: #f03838;
+    }
+
+    &:hover::before {
+      width: 100%;
+      left: 0;
+      right: auto;
+    }
+  }
+
+  .tag-list-count {
+    color: #bbb;
+    font-style: normal;
+    padding: 0 0.2rem;
+
+    &::before {
+      content: "[";
+    }
+    &::after {
+      content: "]";
+    }
+  }
+}
+
+.container.tag-index {
+  line-height: 3;
+  h3 {
+    text-align: center;
+    font-size: 1.8rem;
+    font-weight: 500;
+    margin: 0 0 2rem;
+  }
+
+  .tag-list-item {
+    @extend %item;
+  }
+}

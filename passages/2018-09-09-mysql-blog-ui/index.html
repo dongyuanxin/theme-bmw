@@ -1,0 +1,822 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+  
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="utf-8">
+  <meta name="author" content="董沅鑫, yuanxin.me@gmail.com">
+  
+  
+  
+  <title>个人博客全新UI：我心中你最美 | 董沅鑫的个人网站</title>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  
+    <meta name="keywords" content="网站搭建与运营,UI设计,">
+  
+
+  <script>
+    console.log('\n%c Hexo-theme-bmw v4.0 ' + '%c 🎉 https://github.com/dongyuanxin/theme-bmw 🎉\n' + '\n%c View demo online ' + '%c 🔍 https://godbmw.com/ 🔍  \n' , 'color: #fadfa3; background: #030307; padding:3px 0;', '', 'color: #fadfa3; background: #030307; padding:3px 0;', '');
+  </script>
+
+  
+    <meta name="description" content="来点音乐公司技术合伙人, 现在腾讯(深圳)web实习, Python, ES6, CSS3, VueJS, ReactJS, Node, Webpack, PWA, Native">
+  
+
+  
+    <link rel="alternate" href="/atom.xml" title="董沅鑫的个人网站" type="application/atom+xml">
+  
+
+  
+    <link rel="icon" href="/images/favicon.ico">
+    <link rel="apple-touch-icon" href="/images/touch-icon.png">
+  
+
+  <link href="https://cdn.bootcss.com/fancybox/3.5.2/jquery.fancybox.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="/theme-bmw/css/base.css">
+<link rel="stylesheet" href="/theme-bmw/icon/iconfont.css">
+<link rel="stylesheet" href="/theme-bmw/css/github-markdown.css">
+<link rel="stylesheet" href="/theme-bmw/css/highlight.css">
+
+  <script src="/theme-bmw/js/util.js"></script>
+<script src="/theme-bmw/js/valine.min.js"></script>
+
+  
+
+  
+    <link href="https://cdn.bootcss.com/aplayer/1.10.1/APlayer.min.css" rel="stylesheet">
+    <script src="https://cdn.bootcss.com/aplayer/1.10.1/APlayer.min.js" async></script>
+  
+
+  
+    <link href="https://cdn.bootcss.com/social-share.js/1.0.16/css/share.min.css" rel="stylesheet">
+  
+  
+  <script src="//cdn.bootcss.com/jquery/3.3.1/jquery.min.js" async></script>
+  
+  
+    <script src="//cdn.jsdelivr.net/npm/leancloud-storage@3.11.0/dist/av-min.js"></script>
+  
+
+</head>
+
+  <body>
+
+    
+
+    <div id="app">
+
+      <div class="header-wrap">
+  <header>
+    <div class="site-brand">
+      <div class="site-title">
+        <a href="/theme-bmw/">GODBMW.com</a>
+      </div>
+    </div>
+    <nav class="site-navigation">
+      <ul class="nav-menu">
+      
+        <li class="nav-item" data-path="/">
+          
+            <a href="/theme-bmw/" target="_self">
+              主页
+            </a>
+          
+        </li>
+      
+        <li class="nav-item" data-path="">
+          
+            <a href="javascript:void(0);" v-else="">教程</a>
+            <ul class="nav-menu--dropdown">
+              
+                <li>
+                  <a href="/theme-bmw/categories/webpack4系列教程/" target="_self">
+                    webpack4系列教程
+                  </a>
+                </li>
+              
+                <li>
+                  <a href="https://godbmw.com/design-patterns/" target="_self">
+                    每天一个设计模式
+                  </a>
+                </li>
+              
+            </ul>
+          
+        </li>
+      
+        <li class="nav-item" data-path="/archives/">
+          
+            <a href="/theme-bmw/archives/" target="_self">
+              归档
+            </a>
+          
+        </li>
+      
+        <li class="nav-item" data-path="/categories/">
+          
+            <a href="/theme-bmw/categories/" target="_self">
+              分类
+            </a>
+          
+        </li>
+      
+        <li class="nav-item" data-path="/tags/">
+          
+            <a href="/theme-bmw/tags/" target="_self">
+              标签
+            </a>
+          
+        </li>
+      
+        <li class="nav-item" data-path="/friends/">
+          
+            <a href="/theme-bmw/friends/" target="_self">
+              友链
+            </a>
+          
+        </li>
+      
+        <li class="nav-item" data-path="/about/">
+          
+            <a href="/theme-bmw/about/" target="_self">
+              关于
+            </a>
+          
+        </li>
+      
+        <li class="nav-item" data-path="">
+          
+            <a href="javascript:void(0);" v-else="">抓到我</a>
+            <ul class="nav-menu--dropdown">
+              
+                <li>
+                  <a href="/theme-bmw/atom.xml" target="_blank">
+                    RSS 订阅
+                  </a>
+                </li>
+              
+                <li>
+                  <a href="https://github.com/dongyuanxin" target="_blank">
+                    Github
+                  </a>
+                </li>
+              
+                <li>
+                  <a href="https://juejin.im/user/5b91fcf06fb9a05d3c7fd4a5" target="_blank">
+                    掘金
+                  </a>
+                </li>
+              
+                <li>
+                  <a href="https://segmentfault.com/u/godbmw" target="_blank">
+                    SegmentFault
+                  </a>
+                </li>
+              
+                <li>
+                  <a href="https://www.zhihu.com/people/godbmw/activities" target="_blank">
+                    知乎
+                  </a>
+                </li>
+              
+            </ul>
+          
+        </li>
+      
+      </ul>
+    </nav>
+    <i class="iconfont icon-menu"></i>
+  </header>
+</div>
+
+<script>
+  let links = document.querySelectorAll('.nav-item');
+  for(let link of links){
+    let childrenLink = link.querySelector('ul');
+    link.addEventListener('mouseenter', () => {
+      if(childrenLink) {
+        childrenLink.className = "nav-menu--dropdown active";
+      }
+    })
+    link.addEventListener('mouseleave', () => {
+      if(childrenLink) {
+        childrenLink.className = "nav-menu--dropdown";
+      }
+    })
+  }
+  let rootRealPath = getRealPath(window.location.pathname, true);
+  for(let link of links) {
+    let linkPath = link.getAttribute("data-path");
+    if(linkPath && getRealPath(linkPath, true) === rootRealPath) {
+      link.className = "nav-item hover";
+    }
+  }
+
+  let iconMenu = document.querySelector("i.iconfont.icon-menu"),
+    iconMenuClicked = false;
+  let navDOM = document.querySelector("nav.site-navigation");
+  iconMenu.addEventListener("click", () => {
+    iconMenuClicked 
+      ? navDOM.className = "site-navigation active"
+      : navDOM.className = "site-navigation";
+    iconMenuClicked = !iconMenuClicked;
+  })
+</script>
+
+      
+
+
+
+
+
+
+
+
+<div class="container post-index">
+
+  
+
+<div class="post">
+  <h1 class="article-title">
+    <span>个人博客全新UI：我心中你最美</span>
+  </h1>
+  <div class="article-top-meta">
+    <span>
+      发布 : 
+      2018-09-09
+    </span>
+    
+      <span>
+        分类 : 
+          <a href="/theme-bmw/categories/网站搭建与运营/">
+            网站搭建与运营
+          </a>
+      </span>
+    
+    
+      <span>
+        浏览 : <span class="article-timer" data-identity="2018-09-09-mysql-blog-ui"></span>
+      </span>
+    
+  </div>
+
+  
+
+  <div class="article-content">
+    <div class="markdown-body">
+      <blockquote>
+<p>不知道你是否也有想过完全用自己的代码实现自己的个人博客？定制专属 UI、定制专属逻辑、在信息爆炸的时代真正地沉淀下属于自己的东西。我也曾经历了同样的纠结，最终下定决心做了自己的个人博客。虽然过程曲折，但一路风景很好、小路很多。看着被自己全新改版的网站，心里只有满足感，也笃定了知识分享和结识更多好友的初衷。就以此篇记录下网站 UI 改版的过程和感受吧，缅怀过去，勿忘初心。</p>
+</blockquote>
+<h2 id="1-前世"><a href="#1-前世" class="headerlink" title="1. 前世"></a>1. 前世</h2><p>从 2018 年 1 月份开始，因为喜欢记录、分享，还想认识更多有趣的人，我开始着手搭建自己的个人网站。</p>
+<p>最初版本的小站的 UI 设计和代码搭建花费了大概 2 个月的时间。当时对 UI 设计没有太多好的 idea，唯一能做的就是多去别人博客看看 UI 设计，来汲取灵感。</p>
+<p>所以第一版的网页 UI 参考了 NexT 框架 、EvanYou 首页的 UI 设计，为了方便，使用了 Element-UI 来实现了后台管理系统（用来进行文章管理）。</p>
+<blockquote>
+<p>可以这么说，这个阶段主要是保证网站运行起来，有个衣服穿。至于衣服好不好看、协不协调，并不是很重要。</p>
+</blockquote>
+<h2 id="2-情缘"><a href="#2-情缘" class="headerlink" title="2. 情缘"></a>2. 情缘</h2><p>网站第一次搭建起来，还是很开心的(*^▽^*)。完完全全是依靠自己的双手，一行行写出来的代码。</p>
+<p>是的，当时就是想设计专属自己的风格，所以没有使用任何的开源博客框架的代码。<strong>那 2 个月就是对着 Vue 和 Koa 的文档写出来了网站的前后端，也是第一次买服务器、备案网站、做反向代理、读 CDN 文档、学 Webpack、做 SEO，怀念那些时光，让现在的网站有了基础。</strong></p>
+<h2 id="3-初识"><a href="#3-初识" class="headerlink" title="3. 初识"></a>3. 初识</h2><h3 id="3-1-博客系统界面"><a href="#3-1-博客系统界面" class="headerlink" title="3.1 博客系统界面"></a>3.1 博客系统界面</h3><p>经过奋战，网站成功搭建起来。<strong>首页的 UI</strong>就是下面这样：</p>
+<p><img src="/images/网站搭建与运营/个人博客全新UI：我心中你最美/1.png" alt=""></p>
+<p>是的，看过尤大大博客的都知道，这是他的首页样式，我就直接拿过来了。</p>
+<p>而除了首页，其他所有的页面，都是采用的类似于阿里云平台控制台的 UI：屏幕左边放置导航栏。</p>
+<p>这是文章浏览页面的 UI：<img src="/images/网站搭建与运营/个人博客全新UI：我心中你最美/2.png" alt=""></p>
+<p>而一个博客，为了提高 seo 和反链数，友链最重要。友链界面是 UI: <img src="/images/网站搭建与运营/个人博客全新UI：我心中你最美/3.png" alt=""></p>
+<p>和友链界面类似，介绍页面的 UI 设计也是这种时间线的方式：<img src="/images/网站搭建与运营/个人博客全新UI：我心中你最美/4.png" alt=""></p>
+<h3 id="3-2-管理系统界面"><a href="#3-2-管理系统界面" class="headerlink" title="3.2 管理系统界面"></a>3.2 管理系统界面</h3><p>管理界面的 UI 设计没有太出彩，直接借用了 Element-UI 的表格样式。因为管理界面最重要是保证数据交互的逻辑正确性，在此基础上，一个简洁优美的 UI 就足够了。</p>
+<p><img src="/images/网站搭建与运营/个人博客全新UI：我心中你最美/5.png" alt=""></p>
+<h3 id="3-3-听歌台界面"><a href="#3-3-听歌台界面" class="headerlink" title="3.3 听歌台界面"></a>3.3 听歌台界面</h3><p>为什么要自己从 0 开始搭建博客？很重要的一部分原因是要方便 DIY，做自己喜欢的东西。我喜欢听歌，因此一拍脑门，就做了个听歌台。</p>
+<p><img src="/images/网站搭建与运营/个人博客全新UI：我心中你最美/6.png" alt=""></p>
+<p>当然，他是移动端兼容的。这里就不放置界面了。</p>
+<h3 id="3-4-小小心思"><a href="#3-4-小小心思" class="headerlink" title="3.4 小小心思"></a>3.4 小小心思</h3><p>除了大的页面架构，根据我当时的设想，我为博客浏览页面做了分页系统+节流缓存，当然，使用的是 Element-UI 的组件：</p>
+<p><img src="/images/网站搭建与运营/个人博客全新UI：我心中你最美/7.png" alt=""></p>
+<p>除此之外，每篇文章都可以导出（右下角按钮），并且有二维码分享的按钮（后来发现没什么用）：</p>
+<p><img src="/images/网站搭建与运营/个人博客全新UI：我心中你最美/8.png" alt=""></p>
+<h2 id="4-再见-不再留恋"><a href="#4-再见-不再留恋" class="headerlink" title="4. 再见, 不再留恋"></a>4. 再见, 不再留恋</h2><p>网站运行到 2018 年暑假，一站式问题解决的问题逐渐开始凸显，源码变成代码怪兽，开始变得难以维护。</p>
+<p>此外，初期东借鉴、西借鉴后杂糅而成的网站的 UI，显得那么不搭。乱七八糟的风格让人看着心烦。</p>
+<p>网站 UI 重新设计和代码重构，迫在眉睫。</p>
+<h2 id="5-今生"><a href="#5-今生" class="headerlink" title="5. 今生"></a>5. 今生</h2><p>吸取了之前的教训，意识到了网站应该突出主体功能。因此，管理系统、听歌台被抽离成了单独的应用，后台利用 Nginx 做反向代理，用二级域名记性访问。</p>
+<p>除了架构，杂糅的 UI 也是诟病之一。这次果断的选择了极简主义的“扁平化”设计风格，很大程度参考了 Hacker 的 UI 设计，再次基础上，借助卡片和一些好看的小动态重新设计了友链、归档等界面。</p>
+<p>我觉得，现在的样子，才是一个技术博客该有的模样。</p>
+<h2 id="6-您好-godbmw-com"><a href="#6-您好-godbmw-com" class="headerlink" title="6. 您好, godbmw.com!"></a>6. 您好, godbmw.com!</h2><h3 id="6-1-首页：大巧无锋"><a href="#6-1-首页：大巧无锋" class="headerlink" title="6.1 首页：大巧无锋"></a>6.1 首页：大巧无锋</h3><p>借助扁平化设计，将导航栏移动到了每页的最上方，并且附上了网站介绍。作为所以子路由都会引用的公共组件，大大提高了代码维护性。</p>
+<p><img src="/images/网站搭建与运营/个人博客全新UI：我心中你最美/9.png" alt=""></p>
+<p>如你所见，去掉了空洞的主页，主页进行了小范围的留白，但大部分以文章简介来填充。</p>
+<h3 id="6-2-友链-你在就好"><a href="#6-2-友链-你在就好" class="headerlink" title="6.2 友链: 你在就好"></a>6.2 友链: 你在就好</h3><p>结识朋友，认识更多志同道合的朋友，是人生一大乐趣。因此，友链页面的设计也是重中之重。</p>
+<p>为了更多展示友链信息：头像、链接、介绍、昵称等，我设计了卡片动态。</p>
+<p><img src="/images/网站搭建与运营/个人博客全新UI：我心中你最美/10.png" alt=""></p>
+<p>当然，做了移动端兼容，欢迎手机访问。而在鼠标移入的时候，会有一个渐变的小动态，提高用户体验。</p>
+<h3 id="6-3-关于：真实地我"><a href="#6-3-关于：真实地我" class="headerlink" title="6.3 关于：真实地我"></a>6.3 关于：真实地我</h3><p>这个页面很简单，只要把后台数据写成 markdown 格式，样式渲染就和文章浏览页面是一样的，稍作修改即可：</p>
+<p><img src="/images/网站搭建与运营/个人博客全新UI：我心中你最美/11.png" alt=""></p>
+<h3 id="6-4-归档：小而别致"><a href="#6-4-归档：小而别致" class="headerlink" title="6.4 归档：小而别致"></a>6.4 归档：小而别致</h3><p>我理解的归档是：分类+标签。而且对于我自己的网站来说，分类和标签放在一起，页面显得更充实，如下图所示：</p>
+<p><img src="/images/网站搭建与运营/个人博客全新UI：我心中你最美/12.png" alt=""></p>
+<p>除此之外，当你鼠标划入相关内容名称时候，会有很好看的下划线划过的动态，小而别致，别具风趣。</p>
+<p>点击相关分类或者标签，就进入了先关文章的汇总页面：</p>
+<p><img src="/images/网站搭建与运营/个人博客全新UI：我心中你最美/13.png" alt=""></p>
+<h3 id="6-5-文章：美观大方"><a href="#6-5-文章：美观大方" class="headerlink" title="6.5 文章：美观大方"></a>6.5 文章：美观大方</h3><p><img src="/images/网站搭建与运营/个人博客全新UI：我心中你最美/14.png" alt=""></p>
+<p>正如你所见，文章采用了 highlight.js 解析 markdown，并且自己写了下 markdown 的样式。</p>
+<p>而就在最近几天，我添加了目录功能，就在上图的右侧。此功能，只有在屏幕宽度大于 768px 时候，才会启用。</p>
+<p>也就是说，至少是 ipad 那么大的屏幕才能看到目录。毕竟手机屏幕就那么大，去除冗余功能是最优选择！</p>
+<h3 id="6-6-听歌、滚动按钮、评论：匠心独具"><a href="#6-6-听歌、滚动按钮、评论：匠心独具" class="headerlink" title="6.6 听歌、滚动按钮、评论：匠心独具"></a>6.6 听歌、滚动按钮、评论：匠心独具</h3><p>这次还是想听歌，笑哭。而在扁平化设计的 UI 中，最好的选择肯定是将其放入页面底部，以保证不影响主体功能和浏览体验。同样地，在移动端依旧不会加载此组件，这主要是获取歌曲资源会占用较大的移动端无线流量，从而造成页面阻塞。</p>
+<p><img src="/images/网站搭建与运营/个人博客全新UI：我心中你最美/15.png" alt=""></p>
+<p>此组件的名称是 aplayer，是 B 站的音频组件，我有幸贡献了源码。</p>
+<p>当页面内容过多，必须有一个滚动按钮，来保证用户迅速回到导航栏（页面头部）。参考 NexT 的 UI 设计，基本一模一样实现了他的滚动组件：</p>
+<p><img src="/images/网站搭建与运营/个人博客全新UI：我心中你最美/16.png" alt=""></p>
+<p>为了提高交流体验，必须引入评论系统。其实在实现这一部的时候，很累（做完上面的东西）。翻了翻开源的评论系统，发现了 Valine。</p>
+<p>因此，在文章浏览页面、关于页面和友链页面，都引用了 Valine 组件：</p>
+<p><img src="/images/网站搭建与运营/个人博客全新UI：我心中你最美/18.png" alt=""></p>
+<p>当你缓慢拖到页面底部，你会发现页面的简介和备案号（我国独有哈哈哈），当然，不能让他们影响页面美观是吧？</p>
+<p><img src="/images/网站搭建与运营/个人博客全新UI：我心中你最美/17.png" alt=""></p>
+<h2 id="7-未完待续"><a href="#7-未完待续" class="headerlink" title="7. 未完待续"></a>7. 未完待续</h2><p>不知道下次你会是什么模样？</p>
+    </div>
+  </div>
+  
+    <div class="copy-right">
+      <div class="markdown-body">
+        <blockquote>
+        
+        
+          本文作者 : 董沅鑫 <br>
+        
+        原文链接 : <a href="">https://godbmw.com/theme-bmw/passages/2018-09-09-mysql-blog-ui/</a><br>
+        版权声明 : 本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> 许可协议。转载请注明出处！
+        </blockquote>
+      </div>
+    </div>
+  
+  
+  
+    <div class="social-share" style="margin-top: -2rem" data-wechat-qrcode-title="<p>微信扫一扫</p>" data-wechat-qrcode-helper="<p>微信右上角, 扫一扫分享</p>" data-sites="qzone, qq, weibo, wechat, douban, google, facebook, twitter">
+  <span style="color: #6b7487; font-size: 1.4rem;">分享到: </span>
+</div>
+<script src="https://cdn.bootcss.com/social-share.js/1.0.16/js/social-share.min.js" async></script>
+  
+
+  
+    <div id="reward">
+  
+    <p id="reward-meta">知识 & 情怀 | 二者兼得</p>
+  
+  <button id="reward-btn">
+    
+    <span>投食</span>
+  </button>
+  <div id="reward-qrcode">
+    
+      <div class="reward-qrcode--container">
+        <img class="qrcode-img" src="/images/wechat.png" alt="微信扫一扫, 向我投食">
+        <p class="qrcode-meta">微信扫一扫, 向我投食</p>
+      </div>
+    
+      <div class="reward-qrcode--container">
+        <img class="qrcode-img" src="/images/alipay.png" alt="支付宝扫一扫, 向我投食">
+        <p class="qrcode-meta">支付宝扫一扫, 向我投食</p>
+      </div>
+    
+  </div>
+
+</div>
+
+<script>
+  (() => {
+    let button = document.querySelector('#reward-btn'),
+      qrcode = document.querySelector('#reward-qrcode'),
+      display = false;
+    
+    button.addEventListener('click', () => {
+      qrcode.style.display = display ? 'none' : 'block'
+      display = !display
+    }, false)
+  })()
+</script>
+  
+
+  <div class="article-footer">
+    <div class="article-meta pull-left">
+      <span>
+        
+          <i class="iconfont icon-06tags"></i>标签: 
+          
+          <span class="span--tag">
+            <a href="/theme-bmw/tags/UI设计/">
+              #UI设计
+            </a>
+          </span>
+          
+        
+      </span>
+    </div>
+    <div class="article-meta pull-right">
+    </div>
+  </div>
+</div>
+
+
+  <aside id="sidebar">
+    <p id="sidebar-header"></p>
+    <ol id="sidebar-toc"></ol>
+  </aside>
+  <script async>setTimeout(generateToc, 10);</script>
+
+
+  <nav class="post-navigation">
+    
+      <div class="nav-pre">
+        <i class="iconfont icon-prev"></i>
+        上一篇:
+        <a href="/theme-bmw/passages/2018-09-07-git-stash/" target="_self">Git实战手册(三): stash解惑与妙用</a>
+      </div>
+    
+    
+      <div class="nav-next">
+        下一篇:
+        <a href="/theme-bmw/passages/2018-09-11-webpack-image/" target="_self">webpack4 系列教程(十): 图片处理汇总</a>
+        <i class="iconfont icon-next"></i>
+      </div>
+    
+  </nav>
+
+  
+    <a href="#comment" class="comment-anchor"></a>
+<div class="comment-title"><i class="iconfont icon-footprint"></i> 留下足迹 <i class="iconfont icon-footprint"></i></div>
+<div id="vcomments"></div>
+
+<script defer>
+  if( true ) {
+    let path = getRealPath()
+    new Valine({
+      el: "#vcomments",
+      appId: "j3TlSqBMjoXnrIrNYB5En5Y1-gzGzoHsz",
+      appKey: "d2rWR1nq5chvzXzh3bSyB8ug",
+      notify: false,
+      verify: false,
+      avatar: "robohash",
+      placeholder: "正确填写邮箱, 才能及时收到回复哦♪(^∇^*)",
+      path
+    });
+  }
+</script>
+   
+
+  
+    <script defer>
+const valineAPI = (() => {
+  try {
+    AV.init("j3TlSqBMjoXnrIrNYB5En5Y1-gzGzoHsz", "d2rWR1nq5chvzXzh3bSyB8ug");
+  } catch(error) {}
+  const isExist = (identity) => {
+    identity = identity || getRealPath();
+    let query = new AV.Query('Timer');
+    return new Promise((resolve, reject) => {
+      query.equalTo("identity", identity);
+      query.find().then(results => {
+        resolve(results.length > 0);
+      }, error => reject(error));
+    })
+  }
+
+  const _get = (identity) => {
+    let query = null;
+    if(identity && identity instanceof Array){
+      let querys = [];
+      for(let i = 0; i < identity.length; ++i) {
+        querys[i] = new AV.Query('Timer');
+        querys[i].equalTo('identity', identity[i]);
+      }
+      query = AV.Query.or.apply(null ,querys);
+    } else {
+      identity = identity || getRealPath();
+      query = new AV.Query("Timer");
+      query.equalTo("identity", identity);
+    }
+
+    return new Promise((resolve, reject) => {
+      query.find()
+      .then(results => resolve(results))
+      .catch(error => reject(error))
+    })
+  }
+
+  const create = (identity) => {
+    identity = identity || getRealPath();
+    return new Promise((resolve, reject) => {
+      let Todo = AV.Object.extend('Timer');
+      let todo = new Todo();
+      todo.set("times", 1);
+      todo.set("identity", identity);
+      todo.save().then(res => resolve(true), error => reject(error));
+    })
+  }
+
+  const update = (identity) => {
+    identity = identity || getRealPath();
+    return new Promise((resolve, reject) => {
+      let query = new AV.Query('Timer');
+      query.equalTo("identity", identity);
+      query.find().then(todos => {
+        todos.forEach(todo => {
+          todo.set("times", todo.attributes.times + 1);
+        });
+        return AV.Object.saveAll(todos);
+      }).then(todos => resolve(true), error => reject(error));
+    })
+  }
+
+  return {
+    isExist,
+    _get,
+    update,
+    create
+  }
+})()
+
+const calcAndWriteTimes = () => {
+  let isPost = true;
+
+  let timerAllDOM = document.querySelectorAll(".article-timer");
+
+  if(isPost) {
+    let identity = timerAllDOM[0].getAttribute("data-identity");
+    valineAPI.isExist(identity)
+    .then(exist => {
+      if(exist) {
+        return valineAPI.update(identity);
+      }
+      return new Promise(resolve => resolve(true));
+    })
+    .then( succuess => valineAPI._get(identity))
+    .then( result => timerAllDOM[0].innerText = result[0].attributes.times)
+    .catch(error => console.log(error.message))
+    return ;
+  }
+
+  let timerDOMCache = {};
+
+  for(let timerDOM of timerAllDOM) {
+    let identity = timerDOM.getAttribute("data-identity");
+    if(timerDOMCache.hasOwnProperty(identity)){
+      timerDOMCache[identity].dom.push(timerDOM);
+    }else{
+      timerDOMCache[identity] = {
+        dom: [timerDOM],
+        times: undefined
+      };
+    }
+  }
+
+  let identities = Object.keys(timerDOMCache);
+  valineAPI._get(identities).then(results => {
+    for(let result of results) {
+      let {identity, times} = result.attributes;
+      timerDOMCache[identity].times = times;
+      timerDOMCache[identity].dom.map(item => item.innerText = times);
+    }
+    for(let identity of identities) {
+      if(timerDOMCache[identity].times){
+        continue;
+      }
+      timerDOMCache[identity].dom.map(item => item.innerText = 1);
+      valineAPI.create(identity);
+    }
+  }).catch(error => console.log(error.message))
+}
+
+if(true){
+  calcAndWriteTimes();
+}
+</script>
+   
+
+</div>
+
+
+      <footer>
+  <p class="site-info">
+    博客已萌萌哒运行<span id="time-to-now"></span><span class="my-face">(●'◡'●)ﾉ♥</span>
+    <br>
+    Theme - <a href="https://github.com/dongyuanxin/theme-bmw">BMW</a> | Made With 💗 | Powered by <a href="https://godbmw.com/">GodBMW</a>
+    <br>
+    
+      <a href="https://www.google.com/analytics/" target="_blank">Google Analytics</a> 提供网站统计服务.  <a href="https://sg.godaddy.com/" target="_blank">GoDaddy</a> 提供域名注册服务.  <br> <a href="https://www.trustasia.com/" target="_blank">TrustAsia</a> 签发SSL证书.  <a href="http://www.miibeian.gov.cn/state/outPortal/loginPortal.action" target="_blank">粤ICP备18028400号</a> . 
+    
+  </p>
+</footer>
+
+
+
+<script>
+const timeToNowDOM = document.querySelector("#time-to-now");
+const startTimestamp = new Date(2018, 1, 10).getTime();
+
+const updateTimeStr = () => {
+  let offset = parseInt(
+      (new Date().getTime() - startTimestamp) / 1000,
+      10
+    ),
+    day = Math.floor(offset / 86400),
+    hour = Math.floor((offset % 86400) / 3600),
+    minute = Math.floor(((offset % 86400) % 3600) / 60),
+    second = Math.floor(((offset % 86400) % 3600) % 60);
+  timeToNowDOM.innerHTML =
+    day + "天" + hour + "小时" + minute + "分钟" + second + "秒";
+  setTimeout(updateTimeStr, 500);
+}
+
+setTimeout(updateTimeStr, 500);
+</script>
+
+
+      <div class="back-to-top hidden">
+  <span>
+    <i class="iconfont icon-60"></i><span></span>%
+  </span>
+</div>
+
+<script>
+const updateIconToTop = percent => {
+  let dom = document.querySelector(".back-to-top span span");
+  dom.innerText = percent;
+  if(percent < 1) {
+    document.querySelector(".back-to-top").className = "back-to-top hidden";
+  } else {
+    document.querySelector(".back-to-top").className = "back-to-top";
+  }
+}
+
+const handleScoll = () => {
+  let isRunning = false;
+  return () => {
+    if (isRunning) return;
+    isRunning = true;
+    window.requestAnimationFrame(timestamp => {
+      let scrollTop =
+          document.documentElement.scrollTop || document.body.scrollTop,
+        scrollHeight =
+          document.documentElement.scrollHeight ||
+          document.body.scrollHeight,
+        clientHeight =
+          document.documentElement.clientHeight ||
+          document.body.clientHeight;
+      isRunning = false;
+      if (scrollTop <= 1) {
+        updateIconToTop(0);
+        return;
+      }
+      if (scrollTop + clientHeight >= scrollHeight) {
+        updateIconToTop(100);
+      } else {
+        updateIconToTop(parseInt(
+          100 * scrollTop / (scrollHeight - clientHeight),
+          10
+        ));
+      }
+    });
+  };
+}
+
+const backToTop = () => {
+  let scrollTop =
+      document.documentElement.scrollTop || document.body.scrollTop,
+    delay = 10,
+    time = 200;
+  if (scrollTop <= 20) {
+    document.documentElement.scrollTop = 0;
+    document.body.scrollTop = 0;
+    return;
+  }
+  let step = Math.ceil(scrollTop * delay / time);
+  let timer = setInterval(() => {
+    scrollTop =
+      document.documentElement.scrollTop || document.body.scrollTop;
+    if (scrollTop - step <= 0) {
+      document.documentElement.scrollTop = 0;
+      document.body.scrollTop = 0;
+      clearInterval(timer);
+    } else {
+      document.documentElement.scrollTop = scrollTop - step;
+      document.body.scrollTop = scrollTop - step;
+    }
+  }, delay);
+}
+
+document.addEventListener("scroll", handleScoll(), false);
+
+document.querySelector(".back-to-top").addEventListener("click", backToTop, false);
+
+</script>
+
+    </div>
+
+    
+      <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML" async></script>
+<script>
+  (() => {
+    const mathjaxConfig = {
+      showProcessingMessages: false, //关闭js加载过程信息
+      messageStyle: "none", //不显示信息
+      jax: ["input/TeX", "output/HTML-CSS"],
+      tex2jax: {
+        inlineMath: [["$", "$"], ["\\(", "\\)"]], //行内公式选择符
+        displayMath: [["$$", "$$"], ["\\[", "\\]"]], //段内公式选择符
+        skipTags: ["script", "noscript", "style", "textarea", "pre", "code", "a"] //避开某些标签
+      },
+      "HTML-CSS": {
+        availableFonts: ["STIX", "TeX"], //可选字体
+        showMathMenu: false //关闭右击菜单显示
+      }
+    }
+
+    let mathjaxInterval = setInterval(() => {
+      if(!window.MathJax){
+        return;
+      }
+      window.MathJax.Hub.Config(mathjaxConfig)
+      window.MathJax.Hub.Queue(["Typeset", MathJax.Hub, document.getElementById('app')])
+
+      clearInterval(mathjaxInterval)
+    }, 10)    
+  })()
+</script>
+    
+
+    <script src="https://cdn.bootcss.com/fancybox/3.5.2/jquery.fancybox.min.js" async></script>
+<script async>
+  let fancyTimer = setInterval(function(){
+    if(!window.$){
+      return;
+    }
+    $(document).ready(function() {
+      $(".post img").each(function () {
+        if($(this).parent().get(0).tagName.toLowerCase() === "a") {
+          return;
+        }
+        // $(this).attr("data-fancybox", "gallery"); // if you add 'data-fancybox', img will display after showed
+        var element = document.createElement("a");
+        $(element).attr("data-fancybox", "gallery");
+        $(element).attr("href", $(this).attr("src"));
+        $(this).wrap(element);
+      });
+      
+      clearInterval(fancyTimer);
+    });
+  }, 10);
+</script>
+
+    
+    <script async>
+try {
+  AV.init("j3TlSqBMjoXnrIrNYB5En5Y1-gzGzoHsz", "d2rWR1nq5chvzXzh3bSyB8ug");
+} catch(error) {}
+
+let pathname = decodeURIComponent(window.location.pathname);
+!pathname.endsWith('/') && (pathname = pathname + '/');
+
+let Counter = AV.Object.extend("Counter");
+let counter = new Counter();
+counter.set("visit_time", new Date().getTime().toString());
+counter.set("user_agent", window.navigator.userAgent);
+counter.set("identity_path", pathname);
+counter.set("more_info", JSON.stringify(window.location));
+
+let acl = new AV.ACL();
+acl.setPublicReadAccess(true);
+acl.setPublicWriteAccess(false);
+
+counter.setACL(acl);
+counter.save();
+</script>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-124601890-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-124601890-1');
+</script>
+
+
+<script async>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+<script async>
+(function(){
+var src = (document.location.protocol == "http:") ? "http://js.passport.qihucdn.com/11.0.1.js?bbf5bdfcccab2efb9fd4e96c19271f1a":"https://jspassport.ssl.qhimg.com/11.0.1.js?bbf5bdfcccab2efb9fd4e96c19271f1a";
+document.write('<script src="' + src + '" id="sozz"><\/script>');
+})();
+</script>
+  </body>
+
+</html>
