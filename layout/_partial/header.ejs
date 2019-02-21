@@ -41,10 +41,6 @@
     <meta name="keywords" content="<%= theme.keywords %>" />
   <% } %>
 
-  <script>
-    console.log('\n%c Hexo-theme-bmw v4.0 ' + '%c 🎉 https://github.com/dongyuanxin/theme-bmw 🎉\n' + '\n%c View demo online ' + '%c 🔍 https://godbmw.com/ 🔍  \n' , 'color: #fadfa3; background: #030307; padding:3px 0;', '', 'color: #fadfa3; background: #030307; padding:3px 0;', '');
-  </script>
-
   <% if(config.description){ %>
     <meta name="description" content="<%= config.description %>">
   <% } %>
@@ -58,31 +54,9 @@
     <link rel="apple-touch-icon" href="<%- theme.favicon.touch_icon %>">
   <% } %>
 
-  <link href="https://cdn.bootcss.com/fancybox/3.5.2/jquery.fancybox.min.css" rel="stylesheet">
   <%- css(['/css/base.css', '/icon/iconfont.css' ,'/css/github-markdown.css', '/css/highlight.css']) %>
-
-  <%- js(['/js/util.js', '/js/valine.min.js']) %>
-
-  <% if (theme.custom_style){ %>
-    <%- css(theme.custom_style) %>
-  <% } %>
-
-  <% if(theme.player){ %>
-    <link href="https://cdn.bootcss.com/aplayer/1.10.1/APlayer.min.css" rel="stylesheet">
-    <script src="https://cdn.bootcss.com/aplayer/1.10.1/APlayer.min.js" async></script>
-  <% } %>
-
-  <% if(theme.social_share.enable){ %>
-    <link href="https://cdn.bootcss.com/social-share.js/1.0.16/css/share.min.css" rel="stylesheet">
-  <% } %>
   
-  <script src="//cdn.bootcss.com/jquery/3.3.1/jquery.min.js" async></script>
+  <%- js(['/js/util.js']) %>
   
-  <% if(theme.leancloud.appid && 
-    theme.leancloud.appkey && 
-    (theme.leancloud.comment || theme.leancloud.timer))
-  { %>
-    <script src="//cdn.jsdelivr.net/npm/leancloud-storage@3.11.0/dist/av-min.js"></script>
-  <% } %>
-
+  <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js" async></script>
 </head>

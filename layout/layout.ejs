@@ -1,39 +1,17 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
-
-  <%- partial('_partial/header') %>
-
-  <body>
-
-    <% if(theme.toolbox && theme.toolbox.isShow == true && page.base !== '') { %>
-      <span id="toolbox-mobile" class="toolbox-mobile"><%=  theme.toolbox.text %></span>
-    <% } %>
-
-    <div id="app">
-
-      <%- partial("_partial/navigation") %>
-
-      <%- body %>
-
-      <%- partial("_partial/footer") %>
-
-      <%- partial("component/back-to-up") %>
-
-    </div>
-
-    <% if(theme.mathjax){ %>
-      <%- partial("_partial/mathjax") %>
-    <% } %>
-
-    <%- partial("_partial/fancybox") %>
-
-    <% if(theme.custom_script && theme.custom_script.length > 0) {%>
-      <% for(let script of theme.custom_script){ %>
-        <% if(script.src){ %> 
-          <script src="<%= script.src%>" <% if(script.load){ %> <%= script.load %> <% } %> ></script>
+    <%- partial('_partial/header') %>
+    <body>
+        <% if(theme.toolbox && theme.toolbox.isShow == true && page.base !== '') { %>
+        <span id="toolbox-mobile" class="toolbox-mobile"><%=  theme.toolbox.text %></span>
         <% } %>
-      <% } %>
-    <% } %>
-  </body>
-
+        <div id="app">
+            <%- partial("_partial/navigation") %>
+            <%- body %>
+            <%- partial("component/back-to-up") %>
+        </div>
+        <% if(theme.mathjax){ %>
+        <%- partial("_partial/mathjax") %>
+        <% } %>
+    </body>
 </html>

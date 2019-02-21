@@ -2,7 +2,7 @@
   <header>
     <div class="site-brand">
       <div class="site-title">
-        <a href="<%- url_for('/') %>"><%= theme.nav_name || 'GODBMW.com'%></a>
+        <a href="<%- url_for('/') %>"><%= theme.nav_name || 'Title'%></a>
       </div>
     </div>
     <nav class="site-navigation">
@@ -62,8 +62,8 @@
     }
   }
 
-  let iconMenu = document.querySelector("i.iconfont.icon-menu"),
-    iconMenuClicked = false;
+  let iconMenu = document.querySelector("i.iconfont.icon-menu");
+  let iconMenuClicked = true;
   let navDOM = document.querySelector("nav.site-navigation");
   iconMenu.addEventListener("click", () => {
     iconMenuClicked 

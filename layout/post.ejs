@@ -38,10 +38,6 @@
   <div class="markdown-body">
     <%- page.content %>
   </div>
-  <% if(theme.leancloud.comment){ %>
-    <%- partial("_partial/comment") %>
-  <% } %> 
-
 </div>
 <% } %>
 
@@ -50,10 +46,6 @@
     <div class="markdown-body">
       <%- page.content %>
     </div>
-    
-    <% if(theme.leancloud.comment){ %>
-      <%- partial("_partial/comment") %>
-    <% } %> 
   </div>
 <% } %>
 
@@ -78,14 +70,5 @@
       </div>
     <% } %>
   </nav>
-
-  <% if(theme.leancloud.comment){ %>
-    <%- partial("_partial/comment") %>
-  <% } %> 
-
-  <% if(theme.leancloud.timer){ %>
-    <%- partial("_partial/timer") %>
-  <% } %> 
-
 </div>
 <% } %>
