@@ -450,6 +450,25 @@
   </entry>
   
   <entry>
+    <title>【置顶】我为什么坚持写博客</title>
+    <link href="https://godbmw.com/theme-bmw/passages/2018-11-01-why-i-blog/"/>
+    <id>https://godbmw.com/theme-bmw/passages/2018-11-01-why-i-blog/</id>
+    <published>2018-10-31T16:00:00.000Z</published>
+    <updated>2019-02-04T12:25:23.929Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;&lt;a href=&quot;https://github.com/dongyuanxin/theme-bmw&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;hexo-theme-bmw&lt;/a&gt;(&lt;strong&gt;版本代号：微声&lt;/strong&gt;)重磅来袭：&lt;strong&gt;为自己发声&lt;/strong&gt;！&lt;/p&gt;
+&lt;p&gt;✨ 分享功能、打赏功能、版权声明、幻灯片播放、音乐播放、评论社交… 一大波高逼格功能已抵达 ✨&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="碎碎念" scheme="https://godbmw.com/theme-bmw/categories/%E7%A2%8E%E7%A2%8E%E5%BF%B5/"/>
+    
+    
+  </entry>
+  
+  <entry>
     <title>每天一个设计模式之代理模式</title>
     <link href="https://godbmw.com/theme-bmw/passages/2018-11-01-proxy-pattern/"/>
     <id>https://godbmw.com/theme-bmw/passages/2018-11-01-proxy-pattern/</id>
@@ -471,25 +490,6 @@
       <category term="设计模式" scheme="https://godbmw.com/theme-bmw/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/"/>
     
       <category term="Python" scheme="https://godbmw.com/theme-bmw/tags/Python/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>【置顶】我为什么坚持写博客</title>
-    <link href="https://godbmw.com/theme-bmw/passages/2018-11-01-why-i-blog/"/>
-    <id>https://godbmw.com/theme-bmw/passages/2018-11-01-why-i-blog/</id>
-    <published>2018-10-31T16:00:00.000Z</published>
-    <updated>2019-02-04T12:25:23.929Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;&lt;a href=&quot;https://github.com/dongyuanxin/theme-bmw&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;hexo-theme-bmw&lt;/a&gt;(&lt;strong&gt;版本代号：微声&lt;/strong&gt;)重磅来袭：&lt;strong&gt;为自己发声&lt;/strong&gt;！&lt;/p&gt;
-&lt;p&gt;✨ 分享功能、打赏功能、版权声明、幻灯片播放、音乐播放、评论社交… 一大波高逼格功能已抵达 ✨&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="碎碎念" scheme="https://godbmw.com/theme-bmw/categories/%E7%A2%8E%E7%A2%8E%E5%BF%B5/"/>
-    
     
   </entry>
   

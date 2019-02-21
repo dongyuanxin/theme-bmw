@@ -847,72 +847,6 @@
   
   <div class="post">
     <h1 class="article-title">
-      <a href="/theme-bmw/passages/2018-05-29-scss-more/">
-        <span>详解scss的继承、占位符和混合宏</span>
-      </a>
-    </h1>
-    <!-- PC端文章信息 -->
-    <div class="article-top-meta pc-view">
-      <span>
-        发布时间 : 2018-05-29
-      </span>
-    </div>
-    <!-- 移动端文章信息 -->
-    <div class="article-top-meta mobile-view">
-      <span>
-        发布 : 2018-05-29
-      </span>
-      
-        <span>
-        分类 :
-          <a href="/theme-bmw/categories/Scss/">
-            Scss
-          </a>
-        </span>
-      
-      
-        <span>
-          浏览 : <span class="article-timer" data-identity="2018-05-29-scss-more"></span>
-        </span>
-      
-    </div>
-    
-    <!-- 文章简介 -->
-    <div class="article-content">
-      <div class="markdown-body article-content--inner" v-html="mdToHtml(psg.summary)">
-        <blockquote>
-<p>如何让scss代码可复用？三种复用方式分别用在何处？下方是一段自定义大小的样例👇</p>
-</blockquote>
-<figure class="highlight scss"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$height</span>: <span class="number">15px</span> !default;</span><br><span class="line"><span class="variable">$width</span>: <span class="number">18px</span> !default;</span><br><span class="line"></span><br><span class="line">@<span class="keyword">mixin</span> size(<span class="variable">$list</span>...) &#123;</span><br><span class="line">  @<span class="keyword">if</span> length(<span class="variable">$list</span>) == 0 &#123;</span><br><span class="line">    <span class="attribute">height</span>: <span class="variable">$height</span>;</span><br><span class="line">    <span class="attribute">width</span>: <span class="variable">$width</span>;   </span><br><span class="line">  &#125;@<span class="keyword">else</span> if length(<span class="variable">$list</span>) == 1 &#123;</span><br><span class="line">    <span class="attribute">height</span>: <span class="variable">$list</span>;</span><br><span class="line">    <span class="attribute">width</span>: <span class="variable">$list</span>;</span><br><span class="line">  &#125;@<span class="keyword">else</span> if length(<span class="variable">$list</span>) == 2 &#123;</span><br><span class="line">    <span class="attribute">height</span>: nth(<span class="variable">$list</span> , <span class="number">1</span>);</span><br><span class="line">    <span class="attribute">width</span>: nth(<span class="variable">$list</span> , <span class="number">2</span>);</span><br><span class="line">  &#125;@<span class="keyword">else</span> &#123;</span><br><span class="line">    @<span class="keyword">debug</span> <span class="string">"Too many parameters"</span>;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-      </div>
-    </div>
-    <div class="article-footer">
-      <div class="article-meta pull-left">
-        <!-- 分类pc端可见 -->
-        <span class="pc-view">
-          
-            <i class="iconfont icon-tag"></i>分类:
-            <a href="/theme-bmw/categories/Scss/">
-              Scss
-            </a>
-          </span>
-          
-        <span>
-                    
-        </span>
-      </div>
-      
-        <div class="article-meta pull-right">
-          <span class="pc-view">
-            <i class="iconfont icon-view"></i>浏览: <span class="article-timer" data-identity="2018-05-29-scss-more"></span>
-          </span>
-        </div>
-      
-    </div>
-  </div>
-  
-  <div class="post">
-    <h1 class="article-title">
       <a href="/theme-bmw/passages/2018-05-29-scss-fisrt-step/">
         <span>初识scss：配置与运行</span>
       </a>
@@ -970,6 +904,82 @@
         <div class="article-meta pull-right">
           <span class="pc-view">
             <i class="iconfont icon-view"></i>浏览: <span class="article-timer" data-identity="2018-05-29-scss-fisrt-step"></span>
+          </span>
+        </div>
+      
+    </div>
+  </div>
+  
+  <div class="post">
+    <h1 class="article-title">
+      <a href="/theme-bmw/passages/2018-05-29-promise-async-await-order/">
+        <span>详解promise、async和await的执行顺序</span>
+      </a>
+    </h1>
+    <!-- PC端文章信息 -->
+    <div class="article-top-meta pc-view">
+      <span>
+        发布时间 : 2018-05-29
+      </span>
+    </div>
+    <!-- 移动端文章信息 -->
+    <div class="article-top-meta mobile-view">
+      <span>
+        发布 : 2018-05-29
+      </span>
+      
+        <span>
+        分类 :
+          <a href="/theme-bmw/categories/ES6/">
+            ES6
+          </a>
+        </span>
+      
+      
+        <span>
+          浏览 : <span class="article-timer" data-identity="2018-05-29-promise-async-await-order"></span>
+        </span>
+      
+    </div>
+    
+    <!-- 文章简介 -->
+    <div class="article-content">
+      <div class="markdown-body article-content--inner" v-html="mdToHtml(psg.summary)">
+        <blockquote>
+<p>今日头条的笔试题，请问打印/输出顺序是什么？</p>
+</blockquote>
+<p><strong>超级好题，可以加深对<code>ES6</code>核心概念的理解哦。</strong></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">async</span> <span class="function"><span class="keyword">function</span> <span class="title">async1</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">'async1 start'</span>)</span><br><span class="line">  <span class="keyword">await</span> async2()</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">'async1 end'</span>)</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">async</span> <span class="function"><span class="keyword">function</span> <span class="title">async2</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">'async2'</span>)</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">'script start'</span>)</span><br><span class="line">setTimeout(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">'setTimeout'</span>) </span><br><span class="line">&#125;,<span class="number">0</span>)  </span><br><span class="line">async1();</span><br><span class="line"><span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function"><span class="keyword">function</span>(<span class="params">resolve</span>)</span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">'promise1'</span>)</span><br><span class="line">  resolve();</span><br><span class="line">&#125;).then(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">'promise2'</span>)</span><br><span class="line">&#125;)</span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">'script end'</span>)</span><br></pre></td></tr></table></figure>
+      </div>
+    </div>
+    <div class="article-footer">
+      <div class="article-meta pull-left">
+        <!-- 分类pc端可见 -->
+        <span class="pc-view">
+          
+            <i class="iconfont icon-tag"></i>分类:
+            <a href="/theme-bmw/categories/ES6/">
+              ES6
+            </a>
+          </span>
+          
+        <span>
+          
+            <i class="iconfont icon-06tags"></i>标签:
+            
+              <span class="span--tag">
+                <a href="/theme-bmw/tags/面试/">
+                  #面试
+                </a>
+              </span>
+            
+                    
+        </span>
+      </div>
+      
+        <div class="article-meta pull-right">
+          <span class="pc-view">
+            <i class="iconfont icon-view"></i>浏览: <span class="article-timer" data-identity="2018-05-29-promise-async-await-order"></span>
           </span>
         </div>
       
