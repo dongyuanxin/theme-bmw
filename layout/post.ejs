@@ -53,6 +53,10 @@
 <div class="container post-index">
 
   <%- partial('/component/passage-viewer') %>
+  
+<% if(theme.gitalk.enable && page.comment){ %>
+<%- partial("_partial/comment") %>
+<% } %>
 
   <nav class="post-navigation">
     <% if(page.next){ %>

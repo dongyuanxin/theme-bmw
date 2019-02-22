@@ -18,6 +18,15 @@ copyright:
 header:
   author: lanthora
 
+gitalk:
+  enable: true
+  on: false
+  owner: lanthora
+  repo: lanthora.github.io
+  admin: ['lanthora']
+  clientID: 326a600f11c887f1fb1d
+  clientSecret: 2fc1a0f0494481c9ad81272a041e854d49470d09
+
 nav_name: LANTHORA
 
 nav: 
