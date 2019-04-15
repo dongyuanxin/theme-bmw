@@ -25,7 +25,7 @@
   <div class="friend-navigation">
     <% for(let friend of theme.friends){ %>
     <div class="card">
-      <img src="<%- friend.avatar %>"/>
+      <img src="<%- friend.avatar %>" />
       <p class="card-header">
         @ <a href="<%- friend.site %>" target="_blank"><%- friend.nickname %></a>
       </p>
@@ -42,37 +42,38 @@
 <% } %>
 
 <% if(page.type === "about"){ %>
-  <div class="container about-index">
-    <div class="markdown-body">
-      <%- page.content %>
-    </div>
+<div class="container about-index">
+  <div class="markdown-body">
+    <%- page.content %>
   </div>
+</div>
 <% } %>
 
 <% if (!page.type) { %>
 <div class="container post-index">
 
   <%- partial('/component/passage-viewer') %>
-  
-<% if(theme.gitalk.enable && page.comment){ %>
-<%- partial("_partial/comment") %>
-<% } %>
 
   <nav class="post-navigation">
     <% if(page.next){ %>
-      <div class="nav-pre">
-        <i class="iconfont icon-prev"></i>
-        上一篇:
-        <a href="<%= url_for(page.next.path)%>" target="_self"><%- page.next.title %></a>
-      </div>
+    <div class="nav-pre">
+      <i class="iconfont icon-prev"></i>
+      上一篇:
+      <a href="<%= url_for(page.next.path)%>" target="_self"><%- page.next.title %></a>
+    </div>
     <% } %>
     <% if(page.prev){ %>
-      <div class="nav-next">
-        下一篇:
-        <a href="<%= url_for(page.prev.path)%>" target="_self"><%- page.prev.title %></a>
-        <i class="iconfont icon-next"></i>
-      </div>
+    <div class="nav-next">
+      下一篇:
+      <a href="<%= url_for(page.prev.path)%>" target="_self"><%- page.prev.title %></a>
+      <i class="iconfont icon-next"></i>
+    </div>
     <% } %>
   </nav>
+  
+  <% if(theme.gitalk.enable && page.comment){ %>
+  <%- partial("_partial/comment") %>
+  <% } %>
+
 </div>
 <% } %>

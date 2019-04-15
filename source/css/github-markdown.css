@@ -218,7 +218,6 @@
 .markdown-body a {
   color: #1abc9c;
   text-decoration: none;
-  border-bottom: 1px solid #1abc9c;
   font-size: 1.1em;
 }
 
@@ -574,6 +573,7 @@
 }
 
 .markdown-body table {
+  background: #f9f9f9;
   display: block;
   width: 100%;
   overflow: auto;

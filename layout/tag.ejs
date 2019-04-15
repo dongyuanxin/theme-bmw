@@ -1,0 +1,11 @@
+<div class="container">
+  <%- partial('/component/timeline') %>
+  <nav class="page-navigation">
+    <% if(page.prev !== 0){ %>
+      <a href="<%- url_for(page.prev_link)%>">上一页</a>
+    <% } %>
+    <% if(page.next !== 0){ %>
+      <a href="<%- url_for(page.next_link)%>">下一页</a>
+    <% } %>
+  </nav>
+</div>

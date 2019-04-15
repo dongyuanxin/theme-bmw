@@ -1,15 +1,30 @@
-<link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
-<script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
 <div id="gitalk-container"></div>
+<script src="https://cdn.bootcss.com/gitalk/1.5.0/gitalk.min.js"></script>
 <script type="text/javascript">
     var gitalk = new Gitalk({
         clientID: '<%= theme.gitalk.clientID %>',
         clientSecret: '<%= theme.gitalk.clientSecret %>',
-        id: window.location.pathname,
+        id: window.location.pathname.split("/",2)[1],
         repo: '<%= theme.gitalk.repo %>',
         owner: '<%= theme.gitalk.owner %>',
         admin: '<%= theme.gitalk.admin %>',
-        distractionFreeMode: '<%= theme.gitalk.on %>'
+        body: window.location.href,
+        language: 'zh-CN'
     })
     gitalk.render('gitalk-container')
+</script>
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.slim.min.js"></script>
+<script type="text/javascript">
+$(function(){
+    $(window).bind("load", changeCommentWindow);
+    $(window).bind("resize", changeCommentWindow);
+    function changeCommentWindow(){
+        if(document.body.clientWidth > 768){
+            $('#gitalk-container').show();
+        }else{
+            $('#gitalk-container').hide();
+        }
+    }
+});
+
 </script>
