@@ -1,123 +1,40 @@
-# 更多细节请参考 demo: https://github.com/dongyuanxin/theme-bmw/blob/master/demo._config.yml
-keywords: Hexo, theme-bmw
+keywords: 
 
-# 站点图标和APP图标
 favicon: 
   icon: /images/favicon.ico
   touch_icon: /images/touch-icon.png
 
-# RSS文件位置
-rss: 
+rss: atom.xml
 
-# 自定义样式文件位置
-custom_style: 
+toc: false
 
-# 自定义脚本：支持自定义多个脚本文件
-# src: 文件位置
-# load: <script>加载方式(async/defer/默认)
-custom_script: 
-  # - 
-  #   src: 
-  #   load: 
-  # - 
-  #   src: 
-  #   load:
-
-# 是否渲染 文章目录
-toc: true
-
-# 是否支持 数学公式
 mathjax: true
 
-# 是否开启 音乐组件
-player: true
-
-# 是否开启 分享功能: https://github.com/overtrue/share.js
-social_share:
-  enable: true
-  sites: qzone, qq, weibo, wechat, douban, google, facebook, twitter
-  disabled: 
-
-# 是否开启 打赏功能
-reward: 
-  enable: true
-  meta: 知识 & 情怀 | 二者兼得 # 提示文字
-  button_meta: 投食 # 按钮文字
-  qrcodes: 
-    # 支持多个支付方式
-    # src: 二维码位置
-    # meta: 二维码提示信息
-    -
-      src: /images/wechat.png 
-      meta: "微信扫一扫, 向我投食"
-    -
-      src: /images/alipay.png
-      meta: "支付宝扫一扫, 向我投食"
-
-# 是否开启版权声明
-# author: 您的名字
-# license: 声明信息(支持html)
 copyright: 
+  enable: false
+  author:  
+  license: 
+
+header:
+  author: lanthora
+
+gitalk:
   enable: true
-  author: GODBMW 
-  license: '本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> 许可协议。转载请注明出处！'
+  on: false
+  owner: lanthora
+  repo: lanthora.github.io
+  admin: ['lanthora']
+  clientID: 326a600f11c887f1fb1d
+  clientSecret: 2fc1a0f0494481c9ad81272a041e854d49470d09
 
-# 页脚信息 
-# start: 建站时间. 格式：YYYY-MM-DD
-# more: 自定义页脚信息(支持HTML)
-footer: 
-  start: '2018-02-10'
-  more: 
+nav_name: LANTHORA
 
-# 如何开启 评论&统计 插件：https://godbmw.com/passages/2018-11-15-theme-bmw-docs-zh/
-# 请申请自己的 appid 和 appkey，并且替换下面的 appid 和 appkey
-leancloud:
-  appid: Hyq9wkH495DgNHWhDQCOfQSp-gzGzoHsz # 填写您的appid
-  appkey: WaR7nrzhliHj9aVwdQzkdlGd # 填写您的appkey
-  comment: true # 是否开启评论系统
-  timer: true # 是否开启文章统计
-
-# 导航栏头部名称
-nav_name: GODBMW.com 
-
-# 导航栏选项
-# blank: 是否在新页面打开，默认 false
-# children：开启二级导航栏
 nav: 
-  - 
-    name: 主页
-    path: /
   -
-    name: 归档
-    path: /archives/
+    name: GitHub
+    path: "https://github.com/lanthora"
+    blank: true
   -
-    name: 分类
-    path: /categories/
-  -
-    name: 标签
-    path: /tags/
-  -
-    name: 友链
-    path: /friends/
-  - 
-    name: 关于
-    path: /about/
-  - 
-    name: 抓到我
-    children:
-      -
-        name: Github
-        path: "https://github.com/dongyuanxin"
-        blank: true
-      -
-        name: "知乎"
-        path: "https://www.zhihu.com/people/godbmw/activities"
-        blank: true
-
-# 友链详细信息：支持多个友链
-friends:
-  -
-    nickname: GodBMW # 昵称
-    avatar: https://gravatar.loli.net/avatar/b20750c40cd911256ddbd76a7f7e724c # 头像链接
-    site: https://godbmw.com # 站点地址
-    meta: BMW 主题作者 # 站点描述
+    name: Gmail
+    path: "mailto:nierunjie@gmail.com"
+    blank: true
