@@ -9,7 +9,7 @@
 [![](https://img.shields.io/badge/leancloud-=3.3.1-blue.svg)](https://godbmw.com/)
 [![](https://img.shields.io/badge/license-MIT-blue.svg)](https://godbmw.com/)
 
-- 🇨🇳 [中文文档](https://godbmw.com/passages/2018-11-15-theme-bmw-docs-zh/)
+- 🇨🇳 [中文文档](/docs/中文文档.md)
 - Author: [Godbmw](https://godbmw.com/)
 
 ## 在线演示
